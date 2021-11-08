@@ -6,7 +6,6 @@ using System.Data.SqlClient;
 using System.Data;
 using Domain;
 using Microsoft.Data.Sqlite;
-
 using CoinAPI.REST.V1;
 using System.Linq;
 using System.Text;
