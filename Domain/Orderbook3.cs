@@ -1,5 +1,5 @@
 ﻿using System;
-
+// TODO: AskL3[] AND BidL3[]
 namespace Domain
 {
     public class Orderbook3
