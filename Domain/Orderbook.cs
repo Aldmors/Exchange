@@ -1,7 +1,9 @@
 ﻿using System;
 
-namespace Domain {
-    public class Orderbook {
+namespace Domain
+{
+    public class Orderbook
+    {
         public Guid id { get; set; }
         public string symbol_id { get; set; }
         public string time_exchange { get; set; }

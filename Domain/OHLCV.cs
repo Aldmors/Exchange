@@ -1,7 +1,9 @@
 ﻿using System;
 
-namespace Domain {
-    public class OHLCV {
+namespace Domain
+{
+    public class OHLCV
+    {
         public Guid id { get; set; }
         public DateTime time_period_start { get; set; }
         public DateTime time_period_end { get; set; }

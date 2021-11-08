@@ -1,7 +1,9 @@
 ﻿using System;
 
-namespace Domain {
-    public class Symbol {
+namespace Domain
+{
+    public class Symbol
+    {
         public Guid id { get; set; }
         public string symbol_id { get; set; }
         public string exchange_id { get; set; }
@@ -26,6 +28,5 @@ namespace Domain {
         public string asset_id_quote_exchange { get; set; }
         public decimal? price_precision { get; set; }
         public decimal? size_precision { get; set; }
-
     }
 }

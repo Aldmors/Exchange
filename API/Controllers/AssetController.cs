@@ -11,15 +11,16 @@ namespace API.Controllers
 {
     public class AssetController : BaseApiController
     {
-
         private readonly DataContext _context;
 
-        public AssetController(DataContext context) {
+        public AssetController(DataContext context)
+        {
             _context = context;
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Asset>>> GetAssets() {
+        public async Task<ActionResult<List<Asset>>> GetAssets()
+        {
             return await _context.Asset.ToListAsync();
         }
 
@@ -29,6 +30,5 @@ namespace API.Controllers
         // public async Task<ActionResult<List<Asset>>> GetAsset(Guid id) {
         //     return await _context.Asset.FindAsync(id);
         // }
-        
     }
 }

@@ -1,9 +1,10 @@
 ﻿using System;
 
-namespace Domain {
-  public  class Asset {
-
-      public Guid id { get; set; }
+namespace Domain
+{
+    public class Asset
+    {
+        public Guid id { get; set; }
         public string asset_id { get; set; }
         public string name { get; set; }
         public bool type_is_crypto { get; set; }
@@ -21,6 +22,5 @@ namespace Domain {
         public decimal? volume_1day_usd { get; set; }
         public decimal? volume_1mth_usd { get; set; }
         public decimal? price_usd { get; set; }
-
     }
 }

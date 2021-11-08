@@ -1,7 +1,9 @@
 ﻿using System;
 
-namespace Domain {
-    public class Period {
+namespace Domain
+{
+    public class Period
+    {
         public Guid id { get; set; }
         public string period_id { get; set; }
         public int length_seconds { get; set; }

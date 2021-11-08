@@ -1,7 +1,9 @@
 ﻿using System;
 
-namespace Domain {
-    public class Quote {
+namespace Domain
+{
+    public class Quote
+    {
         public Guid id { get; set; }
         public string symbol_id { get; set; }
         public DateTime time_exchange { get; set; }

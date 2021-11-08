@@ -1,7 +1,9 @@
 ﻿using System;
 
-namespace Domain {
-    public class Exchange {
+namespace Domain
+{
+    public class Exchange
+    {
         public Guid id { get; set; }
         public string exchange_id { get; set; }
         public string website { get; set; }
@@ -19,6 +21,5 @@ namespace Domain {
         public decimal? volume_1hrs_usd { get; set; }
         public decimal? volume_1day_usd { get; set; }
         public decimal? volume_1mth_usd { get; set; }
-
     }
 }

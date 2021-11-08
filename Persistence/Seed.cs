@@ -5,19 +5,13 @@ using System.Collections.Generic;
 using Domain;
 using System.Globalization;
 
-
 namespace Persistence
 {
     public class Seed
     {
-        
         public static async Task SeedDataAsync(DataContext context)
         {
-            
-            
             if (context.Asset.Any()) return;
-
-
             var asset = new List<Asset>
             {
                 new Asset
@@ -36,13 +30,10 @@ namespace Persistence
                     volume_1day_usd = (decimal?)2086392323256.16,
                     volume_1mth_usd = (decimal?)57929168359984.54,
                     price_usd = (decimal?)9166.207274778093436220194944,
-
                 }
             };
             await context.Asset.AddRangeAsync(asset);
             await context.SaveChangesAsync();
         }
-    
-        
     }
 }
