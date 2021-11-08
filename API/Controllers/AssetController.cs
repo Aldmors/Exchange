@@ -24,8 +24,6 @@ namespace API.Controllers
             return await _context.Asset.ToListAsync();
         }
 
-        //TODO: Implement on working DB
-
         [HttpGet("{id}")]
         public async Task<ActionResult<Asset>> GetAsset(Guid id) {
             return await _context.Asset.FindAsync(id);
