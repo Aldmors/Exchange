@@ -20,7 +20,7 @@ namespace Persistence
         public DbSet<Icon> Icon { get; set; }
         public DbSet<OHLCV> OHLCV { get; set; }
         public DbSet<Orderbook> Orderbook { get; set; }
-        public DbSet<Orderbook3> OrderbookL3 { get; set; }
+        public DbSet<Orderbook3> Orderbook3 { get; set; }
         public DbSet<Period> Period { get; set; }
         public DbSet<Quote> Quote { get; set; }
         public DbSet<Rate> Rate { get; set; }
