@@ -1,0 +1,3 @@
+- refactor whole navbar
+- make code readable xD
+- make comments for other people to understand what you just did

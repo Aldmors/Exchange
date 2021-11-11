@@ -1,0 +1,125 @@
+// Whole nav styles
+.navbar {
+    width: 100vw;
+    height: 100px;
+    background-color: black;
+    color:white;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+
+    // Left side - logo Exchange
+    .navbar-exchange {
+        position: relative;
+        left:5%;
+        font-size: 2em;
+        transition: 0.1s ease-in-out;
+            &:hover {
+                cursor: pointer;
+                transform:scale(1.1);
+            }
+
+            .navbar-exchange-logo {
+                position:relative;
+                top:20px;
+                color:white
+            }
+
+            .navbar-exchange-name {
+                color:white
+            }
+    }
+
+    // Middle part - search bar
+    .navbar-search {
+        position: relative;
+        left: -5%;
+        top:-5%;
+
+
+        .navbar-search-input{
+            font-family: 'Montserrat', sans-serif;
+            background-color: rgb(44, 49, 60);
+            color: white;
+            font-size: 1.5em;
+            text-align: center;
+            border: 1px solid black;
+            width: 400px;
+            height: 45px;
+            border-radius: 25px;
+
+            &:focus{
+                outline: none;
+                border: 2px solid rgb(51, 196, 129);
+            }
+    
+            &:focus::placeholder {
+                color: transparent;
+            }
+        }
+
+        // hr {
+        //     position:absolute;
+        // }
+
+        .navbar-search-results {
+            border-style:solid;
+            border-color:rgb(51, 196, 129);
+            border-width: 0 2px 2px 2px;
+            top:90%;
+            position:absolute;
+            width: 404px;
+            border-radius: 0 0 25px 25px;
+            height: 400px;
+            background-color: rgb(44, 49, 60);
+            overflow-y: hidden;
+
+            .flex{
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            hr{
+                width: 80%;
+                height: 0.5px;
+            }
+
+            .navbar-search-results-link {
+                margin:2px;
+                width: 97px;
+                height: 97px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                font-size: 0.75em;
+
+                img {
+                    width: 60px;
+                    height: 60px;
+                }
+
+                &:hover{
+                    background-color: grey;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    // Right side - icons/menu
+    .navbar-menu {
+        position: relative;
+        left:-5%;
+        top:10%;
+        color: white;
+        transition: 0.1s ease-in-out;
+        filter: invert(100%) sepia(0%) saturate(7484%) hue-rotate(225deg) brightness(104%) contrast(107%);
+
+        &:hover {
+            cursor: pointer;
+            transform: rotate(15deg);
+            filter: invert(61%) sepia(67%) saturate(435%) hue-rotate(100deg) brightness(92%) contrast(87%);
+        }
+    }
+}
