@@ -52,7 +52,7 @@
 .navbar .navbar-search .navbar-search-results {
   border-style: solid;
   border-color: #33c481;
-  border-width: 0 2px 2px 2px;
+  border-width: 0 2px 2px;
   top: 90%;
   position: absolute;
   width: 404px;
@@ -106,5 +106,3 @@ body {
   padding: 0;
   font-family: "Montserrat", sans-serif;
 }
-
-/*# sourceMappingURL=app.css.map */
