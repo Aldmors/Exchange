@@ -120,10 +120,50 @@
   filter: invert(100%) sepia(0%) saturate(7484%) hue-rotate(225deg) brightness(104%) contrast(107%);
   transition: 0.1s ease-in-out;
 }
-.navbar .navbar-menu:hover {
+.navbar .navbar-menu .navbar-menu-notification {
+  transition: 0.1s ease-in-out;
+  padding-right: 10px;
+}
+.navbar .navbar-menu .navbar-menu-notification:hover {
   cursor: pointer;
-  transform: rotate(15deg);
+  transform: rotate(20deg);
   filter: invert(61%) sepia(67%) saturate(435%) hue-rotate(100deg) brightness(92%) contrast(87%);
+}
+.navbar .navbar-menu .navbar-menu-settings {
+  padding-right: 10px;
+  transition: 0.1s ease-in-out;
+}
+.navbar .navbar-menu .navbar-menu-settings:hover {
+  cursor: pointer;
+  transform: rotate(20deg);
+  filter: invert(61%) sepia(67%) saturate(435%) hue-rotate(100deg) brightness(92%) contrast(87%);
+}
+
+.side {
+  width: 500px;
+  height: calc(100vh - 100px);
+  background-color: black;
+}
+
+.rounded-connection-triangle {
+  width: 40px;
+  height: 40px;
+  background-color: black;
+  border: 1px solid black;
+  position: absolute;
+  left: 500px;
+  bottom: calc(100vh - 140px);
+  clip-path: polygon(0 0, 0 50%, 50% 0);
+}
+
+.rounded-connection-circle {
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  position: absolute;
+  left: 500px;
+  bottom: calc(100vh - 140px);
+  clip-path: circle(50% at 50% 50%);
 }
 
 body {

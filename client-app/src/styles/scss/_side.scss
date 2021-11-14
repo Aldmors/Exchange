@@ -1,0 +1,29 @@
+// Whole side panel
+.side {
+  width: 500px;
+  height: calc(100vh - 100px);
+  background-color: black;
+}
+
+// Connection between side/nav on the edge (making it round
+
+.rounded-connection-triangle {
+  width: 40px;
+  height: 40px;
+  background-color: black;
+  border: 1px solid black;
+  position: absolute;
+  left: 500px;
+  bottom: calc(100vh - 140px);
+  clip-path: polygon(0 0, 0 50%, 50% 0);
+}
+
+.rounded-connection-circle {
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  position: absolute;
+  left: 500px;
+  bottom: calc(100vh - 140px);
+  clip-path: circle(50% at 50% 50%);
+}

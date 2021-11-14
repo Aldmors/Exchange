@@ -8,9 +8,6 @@
   background-color: black;
   color: white;
 
-
-
-
   // Left side of nav - logo with Exchange
   .navbar-exchange {
     position: relative;
@@ -34,9 +31,6 @@
       color: white;
     }
   }
-
-
-
 
   // Middle part of nav - search bar
   .navbar-search {
@@ -67,9 +61,6 @@
         color: transparent;
       }
     }
-
-
-
 
     // Whole box showing under input field connecting with it
     .navbar-search-results {
@@ -123,9 +114,6 @@
         }
       }
 
-
-
-
       // Styling of one result, if there's one with width on whole box
       .navbar-search-results-oneLink {
         display: flex;
@@ -158,24 +146,38 @@
     }
   }
 
-
-
-
   // Right side of nav - icons/menu
   .navbar-menu {
     position: relative;
     left: -5%;
     top: 10%;
     color: white;
-    // Changing png from black to white
     filter: invert(100%) sepia(0%) saturate(7484%) hue-rotate(225deg) brightness(104%) contrast(107%);
     transition: 0.1s ease-in-out;
 
+    // Notification bell
+    .navbar-menu-notification {
+      transition: 0.1s ease-in-out;
+      padding-right: 10px;
+    }
+
     // Hover effect on notification bell
-    &:hover {
+    .navbar-menu-notification:hover {
       cursor: pointer;
-      transform: rotate(15deg);
-      // Changing png from white to green on hover
+      transform: rotate(20deg);
+      filter: invert(61%) sepia(67%) saturate(435%) hue-rotate(100deg) brightness(92%) contrast(87%);
+    }
+
+    // Settings icon
+    .navbar-menu-settings {
+      padding-right: 10px;
+      transition: 0.1s ease-in-out;
+    }
+
+    // Hover effect on settings icon
+    .navbar-menu-settings:hover {
+      cursor: pointer;
+      transform: rotate(20deg);
       filter: invert(61%) sepia(67%) saturate(435%) hue-rotate(100deg) brightness(92%) contrast(87%);
     }
   }
