@@ -87,7 +87,7 @@ class Search extends Component<any, any> {
     // Probably need rewrite but i don't know how to do it other way :\
 
     // Filter by shortNames(keys)
-    let filteredShort = Object.entries(this.state.data).filter(([k, v]) => k.includes(this.state.userInput.toLowerCase())); 
+    let filteredShort = Object.entries(this.state.data).filter(([k, v]) => k.includes(this.state.userInput.toLowerCase()));
     // Filter by fullNames(values)
     let filteredLong = Object.entries(this.state.data).filter(([k, v]) => v.toLowerCase().includes(this.state.userInput.toLowerCase()));
     // Connect them into one
