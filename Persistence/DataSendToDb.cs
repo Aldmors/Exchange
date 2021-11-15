@@ -21,12 +21,12 @@ namespace Persistence
             _config = config;
         }
 
-        protected class Db
+        protected static class Db
         {
-            protected internal static readonly SqlConnection
+            internal static readonly SqlConnection
                 Conn = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
 
-            protected internal static readonly CoinApiRestClient Client = new CoinApiRestClient("F839D03C-1AAA-4864-80AC-39C2C5F8F8F2");
+            internal static readonly CoinApiRestClient Client = new CoinApiRestClient("F839D03C-1AAA-4864-80AC-39C2C5F8F8F2");
         }
 
         public static void SaveExchangerateSpecific(string assetIdBase, DateTime time, string assetIdQuote)
