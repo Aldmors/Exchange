@@ -87,7 +87,7 @@
   height: 60px;
 }
 .navbar .navbar-search .navbar-search-results .navbar-search-results-link:hover {
-  background-color: grey;
+  background-color: #002146;
   cursor: pointer;
 }
 .navbar .navbar-search .navbar-search-results .navbar-search-results-oneLink {
@@ -109,7 +109,7 @@
 }
 .navbar .navbar-search .navbar-search-results .navbar-search-results-oneLink:hover {
   height: 120%;
-  background-color: grey;
+  background-color: #002146;
   cursor: pointer;
 }
 .navbar .navbar-menu {
@@ -129,6 +129,9 @@
   transform: rotate(20deg);
   filter: invert(61%) sepia(67%) saturate(435%) hue-rotate(100deg) brightness(92%) contrast(87%);
 }
+.navbar .navbar-menu .navbar-menu-notification:active {
+  transform: scale(0.9);
+}
 .navbar .navbar-menu .navbar-menu-settings {
   padding-right: 10px;
   transition: 0.1s ease-in-out;
@@ -138,11 +141,45 @@
   transform: rotate(20deg);
   filter: invert(61%) sepia(67%) saturate(435%) hue-rotate(100deg) brightness(92%) contrast(87%);
 }
+.navbar .navbar-menu .navbar-menu-settings:active {
+  transform: scale(0.9);
+}
 
 .side {
-  width: 500px;
+  width: 400px;
   height: calc(100vh - 100px);
   background-color: black;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.side .side-button {
+  display: flex;
+  justify-content: baseline;
+  align-items: center;
+  position: relative;
+  top: 50px;
+  width: 170px;
+  height: 40px;
+  background-color: black;
+  color: white;
+  font-size: 1.5em;
+  border-radius: 25px;
+  padding: 10px;
+  transition: 0.1s ease-in-out;
+  user-select: none;
+}
+.side .side-button img {
+  margin-right: 5px;
+  width: 36px;
+  height: 36px;
+}
+.side .side-button:hover {
+  cursor: pointer;
+  background-color: #33c481;
+}
+.side .side-button:active {
+  transform: scale(0.9);
 }
 
 .rounded-connection-triangle {
@@ -151,7 +188,7 @@
   background-color: black;
   border: 1px solid black;
   position: absolute;
-  left: 500px;
+  left: 400px;
   bottom: calc(100vh - 140px);
   clip-path: polygon(0 0, 0 50%, 50% 0);
 }
@@ -161,7 +198,7 @@
   height: 40px;
   background-color: white;
   position: absolute;
-  left: 500px;
+  left: 400px;
   bottom: calc(100vh - 140px);
   clip-path: circle(50% at 50% 50%);
 }

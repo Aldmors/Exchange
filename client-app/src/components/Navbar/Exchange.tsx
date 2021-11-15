@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ExchangeLogo from "../../../img/exchangeLogo.png";
+import ExchangeLogo from "../../img/exchange.png";
 
 export class Exchange extends Component<any, any> {
   render() {

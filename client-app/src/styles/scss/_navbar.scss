@@ -109,7 +109,7 @@
 
         // Hover effect on one small result
         &:hover {
-          background-color: grey;
+          background-color: #002146;
           cursor: pointer;
         }
       }
@@ -139,7 +139,7 @@
         // Hover effect on whole result
         &:hover {
           height: 120%;
-          background-color: grey;
+          background-color: #002146;
           cursor: pointer;
         }
       }
@@ -159,26 +159,33 @@
     .navbar-menu-notification {
       transition: 0.1s ease-in-out;
       padding-right: 10px;
+
+      &:hover {
+        cursor: pointer;
+        transform: rotate(20deg);
+        filter: invert(61%) sepia(67%) saturate(435%) hue-rotate(100deg) brightness(92%) contrast(87%);
+      }
+
+      &:active {
+        transform: scale(0.9);
+      }
     }
 
-    // Hover effect on notification bell
-    .navbar-menu-notification:hover {
-      cursor: pointer;
-      transform: rotate(20deg);
-      filter: invert(61%) sepia(67%) saturate(435%) hue-rotate(100deg) brightness(92%) contrast(87%);
-    }
 
     // Settings icon
     .navbar-menu-settings {
       padding-right: 10px;
       transition: 0.1s ease-in-out;
-    }
 
-    // Hover effect on settings icon
-    .navbar-menu-settings:hover {
-      cursor: pointer;
-      transform: rotate(20deg);
-      filter: invert(61%) sepia(67%) saturate(435%) hue-rotate(100deg) brightness(92%) contrast(87%);
+      &:hover {
+        cursor: pointer;
+        transform: rotate(20deg);
+        filter: invert(61%) sepia(67%) saturate(435%) hue-rotate(100deg) brightness(92%) contrast(87%);
+      }
+
+      &:active {
+        transform: scale(0.9);
+      }
     }
   }
 }

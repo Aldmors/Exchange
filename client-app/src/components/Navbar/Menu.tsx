@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Notification from "../../../img/notification.png";
-import Settings from "../../../img/settings.png";
+import Notification from "../../img/notification.png";
+import Settings from "../../img/settings.png";
 
 export class Menu extends Component<any, any> {
   render() {
