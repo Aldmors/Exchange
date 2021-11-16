@@ -2,6 +2,8 @@ import React from 'react';
 import "./styles/css/app.css";
 import Navbar from './components/Navbar/Navbar';
 import Side from './components/Side/Side'
+import News from './components/Main/News';
+import {BrowserRouter,Routes,Route} from "react-router-dom";
 
 
 function App() {
@@ -9,6 +11,14 @@ function App() {
     <>
       <Navbar></Navbar>
       <Side></Side>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/news" element={<News></News>}></Route>
+            {/* <Route path="/trending" element={<Trending></Trending>}></Route>
+            <Route path="/market" element={<Market></Market>}></Route>
+            <Route path="/:crypto" element={<Crypto></Crypto>}></Route> */}
+          </Routes>
+        </BrowserRouter>
     </>
   );
 }

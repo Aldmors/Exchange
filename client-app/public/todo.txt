@@ -1,1 +1,2 @@
 - maybe use scss colors ? 
+- refactor main structure

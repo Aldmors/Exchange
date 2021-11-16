@@ -146,40 +146,59 @@
 }
 
 .side {
-  width: 400px;
+  width: 350px;
   height: calc(100vh - 100px);
   background-color: black;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   flex-direction: column;
 }
-.side .side-button {
+.side .side-top {
+  margin-top: 50px;
+}
+.side .side-top .side-top-button {
   display: flex;
   justify-content: baseline;
   align-items: center;
-  position: relative;
-  top: 50px;
-  width: 170px;
+  width: 220px;
   height: 40px;
+  padding: 10px 10px 10px 30px;
+  margin-top: 10px;
   background-color: black;
   color: white;
   font-size: 1.5em;
   border-radius: 25px;
-  padding: 10px;
   transition: 0.1s ease-in-out;
   user-select: none;
 }
-.side .side-button img {
+.side .side-top .side-top-button img {
   margin-right: 5px;
   width: 36px;
   height: 36px;
 }
-.side .side-button:hover {
+.side .side-top .side-top-button:hover {
   cursor: pointer;
   background-color: #33c481;
 }
-.side .side-button:active {
+.side .side-top .side-top-button:active {
   transform: scale(0.9);
+}
+.side .side-bottom {
+  margin-bottom: 30px;
+}
+.side .side-bottom i {
+  font-size: 0.8em;
+  color: #6e5654;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: 0.1s ease-in-out;
+}
+.side .side-bottom i:hover {
+  color: #ffbbb5;
+}
+.side .side-bottom i:active {
+  text-decoration: none;
 }
 
 .rounded-connection-triangle {
@@ -188,7 +207,7 @@
   background-color: black;
   border: 1px solid black;
   position: absolute;
-  left: 400px;
+  left: 350px;
   bottom: calc(100vh - 140px);
   clip-path: polygon(0 0, 0 50%, 50% 0);
 }
@@ -198,9 +217,18 @@
   height: 40px;
   background-color: white;
   position: absolute;
-  left: 400px;
+  left: 350px;
   bottom: calc(100vh - 140px);
   clip-path: circle(50% at 50% 50%);
+}
+
+.main {
+  position: absolute;
+  left: 350px;
+  top: 100px;
+  width: calc(100vw - 350px);
+  height: calc(100vh - 100px);
+  overflow-y: auto;
 }
 
 body {

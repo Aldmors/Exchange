@@ -11,7 +11,7 @@ export class SideButton extends Component<any,any> {
     
     render() {
         return (
-            <div className="side-button">
+            <div className="side-top-button">
                 <img src={this.props.logo} alt="logo of button"/>
                 <span>{this.props.name}</span>
             </div>
