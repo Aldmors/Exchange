@@ -128,51 +128,51 @@ namespace Persistence
                 }
             };
             if (context.Quote.Any()) return;
-            var quote = new List<Quote>
-            {
-                new Quote
-                {
-                    symbol_id = "BITSTAMP_SPOT_BTC_USD",
-                    time_exchange = Convert.ToDateTime("2013-09-28T22:40:50.0000000Z"),
-                    time_coinapi = Convert.ToDateTime("2017-03-18T22:42:21.3763342Z"),
-                    ask_price = (decimal)770.000000000,
-                    ask_size = 3252,
-                    bid_price = 760,
-                    bid_size = 124,
-                    last_trade =
-                    {
-                        time_exchange = Convert.ToDateTime("2017-03-18T22:42:21.3763342Z"),
-                        time_coinapi = Convert.ToDateTime("2017-03-18T22:42:21.3763342Z"),
-                        uuid = "1EA8ADC5-6459-47CA-ADBF-0C3F8C729BB2",
-                        price = (decimal)770.000000000,
-                        size = (decimal)0.050000000,
-                        taker_side = "SELL",
-                    },
-                }
-            };
-            if (context.Orderbook3.Any()) return;
-            var orderbook3 = new List<Orderbook3>
-            {
-                new Orderbook3
-                {
-                    symbol_id = "COINBASE_SPOT_BCH_USD",
-                    time_exchange = "2020-08-27T10:28:35.6111130Z",
-                    time_coinapi = "2020-08-27T10:28:35.6766461Z",
-                    asks =
-                    {
-                        id = "3c5e789c-4c84-448a-9c5d-50532ea1ccbb",
-                        price = (decimal)272.89,
-                        size = 1
-                    },
+            // var quote = new List<Quote>
+            // {
+            //     new Quote
+            //     {
+            //         symbol_id = "BITSTAMP_SPOT_BTC_USD",
+            //         time_exchange = Convert.ToDateTime("2013-09-28T22:40:50.0000000Z"),
+            //         time_coinapi = Convert.ToDateTime("2017-03-18T22:42:21.3763342Z"),
+            //         ask_price = (decimal)770.000000000,
+            //         ask_size = 3252,
+            //         bid_price = 760,
+            //         bid_size = 124,
+            //         last_trade =
+            //         {
+            //             time_exchange = Convert.ToDateTime("2017-03-18T22:42:21.3763342Z"),
+            //             time_coinapi = Convert.ToDateTime("2017-03-18T22:42:21.3763342Z"),
+            //             uuid = "1EA8ADC5-6459-47CA-ADBF-0C3F8C729BB2",
+            //             price = (decimal)770.000000000,
+            //             size = (decimal)0.050000000,
+            //             taker_side = "SELL",
+            //         },
+            //     }
+            // };
+            // if (context.Orderbook3.Any()) return;
+            // var orderbook3 = new List<Orderbook3>
+            // {
+            //     new Orderbook3
+            //     {
+            //         symbol_id = "COINBASE_SPOT_BCH_USD",
+            //         time_exchange = "2020-08-27T10:28:35.6111130Z",
+            //         time_coinapi = "2020-08-27T10:28:35.6766461Z",
+            //         asks =
+            //         {
+            //             id = "3c5e789c-4c84-448a-9c5d-50532ea1ccbb",
+            //             price = (decimal)272.89,
+            //             size = 1
+            //         },
 
-                    bids =
-                    {
-                        id = "100d5004-f4e0-4e92-a571-392403d5b073",
-                        price = (decimal)272.83,
-                        size = 18
-                    }
-                }
-            };
+            //         bids =
+            //         {
+            //             id = "100d5004-f4e0-4e92-a571-392403d5b073",
+            //             price = (decimal)272.83,
+            //             size = 18
+            //         }
+            //     }
+            // };
             // if (context.Orderbook.Any()) return;
             // var orderbook = new List<Orderbook>
             // {
@@ -201,9 +201,9 @@ namespace Persistence
             await context.Asset.AddRangeAsync(asset);
             await context.Exchange.AddRangeAsync(exchange);
             await context.OHLCV.AddRangeAsync(ohlc);
-            //      await context.Orderbook.AddRangeAsync(orderbook);
-            await context.Orderbook3.AddRangeAsync(orderbook3);
-            await context.Quote.AddRangeAsync(quote);
+            //await context.Orderbook.AddRangeAsync(orderbook);
+            // await context.Orderbook3.AddRangeAsync(orderbook3);
+            // await context.Quote.AddRangeAsync(quote);
             await context.Period.AddRangeAsync(period);
             await context.Symbol.AddRangeAsync(symbol);
             await context.Icon.AddRangeAsync(icon);
