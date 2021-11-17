@@ -26,6 +26,5 @@ namespace Persistence
         public DbSet<Rate> Rate { get; set; }
         public DbSet<Symbol> Symbol { get; set; }
         public DbSet<Trade> Trade { get; set; }
-        public DbSet<Users> Users { get; set; }
     }
 }
