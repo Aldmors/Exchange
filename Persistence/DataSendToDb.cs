@@ -10,6 +10,7 @@ using CoinAPI.REST.V1;
 using System.Linq;
 using System.Text;
 
+
 namespace Persistence
 {
     public class DataSendToDb

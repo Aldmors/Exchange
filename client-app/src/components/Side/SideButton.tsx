@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 export class SideButton extends Component<any,any> {
-    constructor(props:any) {
+    constructor(props:string) {
         super(props)
     
         this.state = {
@@ -11,7 +11,7 @@ export class SideButton extends Component<any,any> {
     
     render() {
         return (
-            <div className="side-top-button">
+            <div className={this.props.bgColorOnChosen}>
                 <img src={this.props.logo} alt="logo of button"/>
                 <span>{this.props.name}</span>
             </div>

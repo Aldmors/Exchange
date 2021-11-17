@@ -6,14 +6,30 @@ import market from './../../img/market.png'
 import swal from 'sweetalert';
 
 export class Side extends Component<any,any> {
+    constructor(props:any) {
+        super(props)
+    
+        this.state = {
+             
+        }
+    }
+
+    generateButtonHighlight = (actualPathname:any) => {
+        if (actualPathname === window.location.pathname){
+            return "side-top-button green"
+        } else {
+            return "side-top-button black"
+        }
+    }
+
     render() {
         return (
             <>
                 <div className="side">
                     <div className="side-top">
-                        <SideButton name={"News"} logo={news}></SideButton>
-                        <SideButton name={"Trending"} logo={trending}></SideButton>
-                        <SideButton name={"Market"} logo={market}></SideButton>
+                        <SideButton name={"News"} bgColorOnChosen={this.generateButtonHighlight("/")} logo={news}></SideButton>
+                        <SideButton name={"Trending"} bgColorOnChosen={this.generateButtonHighlight("/trending")} logo={trending}></SideButton>
+                        <SideButton name={"Market"} bgColorOnChosen={this.generateButtonHighlight("/market")} logo={market}></SideButton>
                     </div>
                     <div className="side-bottom">
                         <div>
