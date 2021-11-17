@@ -8,7 +8,7 @@ using Persistence;
 // TODO: Register in swagger
 namespace API.Controllers
 {
-    [RoutePrefix("api/employee")]
+    [RoutePrefix("api/users")]
     public class LoginController : ApiController
     {
         private readonly DataContext _context;
