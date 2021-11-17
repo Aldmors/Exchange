@@ -1,43 +1,69 @@
 // Whole side panel
 .side {
-  width: 400px;
+  width: 350px;
   height: calc(100vh - 100px);
   background-color: black;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   flex-direction: column;
+
+  .side-top {
+    margin-top:50px;
+
+
+    .side-top-button {
+      display: flex;
+      justify-content: baseline;
+      align-items: center;
+      width: 220px;
+      height: 40px;
+      padding:10px 10px 10px 30px;
+      margin-top: 10px;
+      background-color: black;
+      color: white;
+      font-size: 1.5em;
+      border-radius: 25px;
+      transition: 0.1s ease-in-out;
+      user-select: none;
   
-  .side-button {
-    display: flex;
-    justify-content: baseline;
-    align-items: center;
-    position:relative;
-    top:50px;
-    width: 170px;
-    height: 40px;
-    background-color: black;
-    color: white;
-    font-size: 1.5em;
-    border-radius: 25px;
-    padding:10px;
-    transition: 0.1s ease-in-out;
-    user-select: none;
+      
+      img{
+        margin-right: 5px;
+        width: 36px;
+        height: 36px;
+      }
+  
+      &:hover{
+        cursor: pointer;
+        background-color: rgb(51, 196, 129);
+      }
+  
+      &:active{
+        transform:scale(0.9)
+      }
+  }
 
-    
-    img{
-      margin-right: 5px;
-      width: 36px;
-      height: 36px;
-    }
+  }
 
-    &:hover{
-      cursor: pointer;
-      background-color: rgb(51, 196, 129);
-    }
+  .side-bottom {
+    margin-bottom:30px;
 
-    &:active{
-      transform:scale(0.9)
-    }
+      i{
+        font-size: 0.8em;
+        color: #6e5654;
+        text-decoration: underline;
+        cursor: pointer;
+        transition: 0.1s ease-in-out;
+
+        &:hover {
+          color:#ffbbb5;
+        }
+
+        &:active {
+          text-decoration: none;
+        }
+      }
   }
 }
 
@@ -49,7 +75,7 @@
   background-color: black;
   border: 1px solid black;
   position: absolute;
-  left: 400px;
+  left: 350px;
   bottom: calc(100vh - 140px);
   clip-path: polygon(0 0, 0 50%, 50% 0);
 }
@@ -59,7 +85,7 @@
   height: 40px;
   background-color: white;
   position: absolute;
-  left: 400px;
+  left: 350px;
   bottom: calc(100vh - 140px);
   clip-path: circle(50% at 50% 50%);
 }
