@@ -60,6 +60,7 @@
   border-width: 0 2px 2px;
   border-radius: 0 0 25px 25px;
   overflow-y: hidden;
+  z-index: 99;
 }
 .navbar .navbar-search .navbar-search-results .nav-search-flex {
   display: flex;
@@ -81,13 +82,14 @@
   margin: 0px;
   font-size: 0.75em;
   border-radius: 25px;
+  color: white;
 }
 .navbar .navbar-search .navbar-search-results .navbar-search-results-link img {
   width: 60px;
   height: 60px;
 }
 .navbar .navbar-search .navbar-search-results .navbar-search-results-link:hover {
-  background-color: #002146;
+  background-color: grey;
   cursor: pointer;
 }
 .navbar .navbar-search .navbar-search-results .navbar-search-results-oneLink {
@@ -98,6 +100,7 @@
   height: 120%;
   margin: 3%;
   border-radius: 25px;
+  color: white;
 }
 .navbar .navbar-search .navbar-search-results .navbar-search-results-oneLink img {
   width: 60px;
@@ -109,7 +112,7 @@
 }
 .navbar .navbar-search .navbar-search-results .navbar-search-results-oneLink:hover {
   height: 120%;
-  background-color: #002146;
+  background-color: grey;
   cursor: pointer;
 }
 .navbar .navbar-menu {
@@ -226,7 +229,7 @@
   clip-path: circle(50% at 50% 50%);
 }
 
-.news {
+.main {
   position: absolute;
   left: 350px;
   top: 100px;
@@ -234,14 +237,14 @@
   height: calc(100vh - 100px);
   overflow-y: auto;
 }
-.news::-webkit-scrollbar {
+.main::-webkit-scrollbar {
   width: 20px;
 }
-.news::-webkit-scrollbar-track {
+.main::-webkit-scrollbar-track {
   background-color: #e4e4e4;
   border-radius: 100px;
 }
-.news::-webkit-scrollbar-thumb {
+.main::-webkit-scrollbar-thumb {
   border-radius: 100px;
   border: 5px solid transparent;
   background-clip: content-box;

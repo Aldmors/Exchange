@@ -1,9 +1,0 @@
-- make block project
-- make news + fetch
-- make trendings - on unlogged + fetch
-- make market + fetch
-- make main/{id} + fetch
-- make logic - users with finish nav menu
-- add side user view
-- make favorites at trendings ?
-- entry loading + smooth transitions between pages

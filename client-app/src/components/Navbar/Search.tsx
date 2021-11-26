@@ -7,8 +7,9 @@
 
 import React, { Component } from "react";
 import SearchResults from "./SearchResults";
+import { Link } from "react-router-dom";
 
-class Search extends Component<any, any> {
+class Search extends React.PureComponent<any, any> {
   constructor(props: any) {
     super(props);
 
@@ -115,6 +116,10 @@ class Search extends Component<any, any> {
     });
   };
 
+  testFunction = () => {
+    console.log("Hello")
+  }
+
   render() {
     return (
       <div className="navbar-search">
@@ -136,15 +141,15 @@ class Search extends Component<any, any> {
           <hr />
           <div className="nav-search-flex" style={{ height: this.state.currentResultCount === 1 ? "55%" : "default" }}>
             {this.state.filteredData.map((item: any, index: any) => (
-              <SearchResults
-                key={index}
-                shortData={item[0]}
-                longData={item[1]}
-                resultCount={this.state.currentResultCount}
-                oneOrMany={
-                  this.state.currentResultCount === 1 ? "navbar-search-results-oneLink" : "navbar-search-results-link"
-                }
-              />
+                <SearchResults
+                  key={index}
+                  shortData={item[0]}
+                  longData={item[1]}
+                  resultCount={this.state.currentResultCount}
+                  oneOrMany={
+                    this.state.currentResultCount === 1 ? "navbar-search-results-oneLink" : "navbar-search-results-link"
+                  }
+                />
             ))}
           </div>
         </div>

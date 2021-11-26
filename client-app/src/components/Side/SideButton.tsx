@@ -1,22 +1,22 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { useLocation } from 'react-router'
 
-export class SideButton extends Component<any,any> {
-    constructor(props:string) {
-        super(props)
-    
-        this.state = {
-             
+export default function SideButton(props:any) {
+    let location = useLocation()
+    let pathFromProp = `/${props.name.toLowerCase()}` 
+    const GenerateButtonHighlight = () => {
+        if(pathFromProp === location.pathname){
+            console.log(location.pathname, pathFromProp)
+            return "side-top-button green"
+        } else {
+            console.log(location.pathname,pathFromProp)
+            return "side-top-button black"
         }
     }
-    
-    render() {
-        return (
-            <div className={this.props.bgColorOnChosen}>
-                <img src={this.props.logo} alt="logo of button"/>
-                <span>{this.props.name}</span>
-            </div>
-        )
-    }
+    return (
+        <div className={GenerateButtonHighlight()}>
+            <img src={props.logo} alt="logo of button"/>
+            <span>{props.name}</span>
+        </div>
+    )
 }
-
-export default SideButton

@@ -74,6 +74,7 @@
       border-width: 0 2px 2px;
       border-radius: 0 0 25px 25px;
       overflow-y: hidden;
+      z-index: 99;
 
       // Container for results from search displaying them flex
       .nav-search-flex {
@@ -100,6 +101,7 @@
         margin: 0px;
         font-size: 0.75em;
         border-radius: 25px;
+        color:white;
 
         // Currency logo when they're small "in grid"
         img {
@@ -109,7 +111,7 @@
 
         // Hover effect on one small result
         &:hover {
-          background-color: #002146;
+          background-color: grey;
           cursor: pointer;
         }
       }
@@ -123,6 +125,7 @@
         height: 120%;
         margin: 3%;
         border-radius: 25px;
+        color:white;
 
         // Currency logo when there's last wide one result on screen
         img {
@@ -139,7 +142,7 @@
         // Hover effect on whole result
         &:hover {
           height: 120%;
-          background-color: #002146;
+          background-color: grey;
           cursor: pointer;
         }
       }

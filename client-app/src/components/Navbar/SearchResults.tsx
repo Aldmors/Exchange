@@ -1,26 +1,18 @@
-import React, { PureComponent } from "react";
+// @ts-nocheck
+import React from 'react'
 
-// Pure component to avoid making hundreds of requests to get icons
-export class SearchResults extends PureComponent<any, any> {
-  constructor(props: any) {
-    super(props);
+export default function SearchResults(props:any) {
 
-    this.state = {};
-  }
-
-  // Returning icon based on shortcut
-  getResultImage = (shortData: any) => {
+  const GetResultImage = (shortData: any) => {
     return `https://cryptoicon-api.vercel.app/api/icon/${shortData}`;
   };
 
-  render() {
-    return (
-      <div className={this.props.oneOrMany}>
-        <img alt="resultImage" src={this.getResultImage(this.props.shortData)}></img>
-        <b>{this.props.longData}</b>
-      </div>
-    );
-  }
+
+  return (
+    <div className={props.oneOrMany}>
+        <img alt="resultImage" src={GetResultImage(props.shortData)}></img>
+        <b>{props.longData}</b>
+    </div>
+  )
 }
 
-export default SearchResults;
