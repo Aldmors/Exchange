@@ -1,29 +1,9 @@
-import React, { Component } from 'react'
+import React from "react";
 
-export class News extends Component<any,any> {
-    render() {
-        return (
-            <div className="main">
-                <h1>News</h1>
-                <h1>News</h1>
-                <h1>News</h1>
-                <h1>News</h1>
-                <h1>News</h1>
-                <h1>News</h1>
-                <h1>News</h1>
-                <h1>News</h1>
-                <h1>News</h1>
-                <h1>News</h1>
-                <h1>News</h1>
-                <h1>News</h1>
-                <h1>News</h1>
-                <h1>News</h1>
-                <h1>News</h1>
-                <h1>News</h1>
-                <h1>News</h1>
-            </div>
-        )
-    }
+export default function News() {
+  return (
+    <div className="main">
+      <h1>News</h1>
+    </div>
+  );
 }
-
-export default News

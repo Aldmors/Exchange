@@ -67,8 +67,8 @@
       width: 32px;
       height: 32px;
       position: relative;
-      left:-60px;
-      top:8px;
+      left: -60px;
+      top: 8px;
       transition: 0.1s ease-in-out;
       display: inline;
 
@@ -121,7 +121,7 @@
         margin: 0px;
         font-size: 0.75em;
         border-radius: 25px;
-        color:white;
+        color: white;
 
         // Currency logo when they're small "in grid"
         img {
@@ -145,7 +145,7 @@
         height: 120%;
         margin: 3%;
         border-radius: 25px;
-        color:white;
+        color: white;
 
         // Currency logo when there's last wide one result on screen
         img {
@@ -193,7 +193,6 @@
         transform: scale(0.9);
       }
     }
-
 
     // Settings icon
     .navbar-menu-settings {

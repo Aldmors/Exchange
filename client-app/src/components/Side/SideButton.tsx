@@ -6,10 +6,8 @@ export default function SideButton(props:any) {
     let pathFromProp = `/${props.name.toLowerCase()}` 
     const GenerateButtonHighlight = () => {
         if(pathFromProp === location.pathname){
-            console.log(location.pathname, pathFromProp)
             return "side-top-button green"
         } else {
-            console.log(location.pathname,pathFromProp)
             return "side-top-button black"
         }
     }

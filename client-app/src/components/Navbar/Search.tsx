@@ -8,14 +8,14 @@ import React, { useState, useRef, useEffect } from "react";
 import SearchResults from "./SearchResults";
 import cross from "../../img/cross.png";
 
-export default function Search() {
+function Search() {
   const [userInput, setUserInput] = useState("");
   const userInputRef = useRef(null);
   const [resultShown, setResultShown] = useState(false);
   const [resultBoxHeight, setResultBoxHeight] = useState("900px");
   const [currentResultCount, setCurrentResultCount] = useState(0);
   const [filteredData, setFilteredData] = useState([]);
-  const [data,setData] = useState({
+  const [data, setData] = useState({
     btc: ["btcID", "Bitcoin"],
     eth: ["ethID", "Ethereum"],
     bnb: ["bnbID", "Binance Coin"],
@@ -105,7 +105,7 @@ export default function Search() {
         style={{ display: resultShown ? "block" : "none", height: resultBoxHeight }}
         onClick={handleUserInputEmpty}
       >
-        <hr/>
+        <hr />
         <div className="nav-search-flex" style={{ height: currentResultCount === 1 ? "55%" : "default" }}>
           {filteredData.map((item, index) => (
             <SearchResults
@@ -122,3 +122,5 @@ export default function Search() {
     </div>
   );
 }
+
+export default React.memo(Search)

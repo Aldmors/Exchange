@@ -8,9 +8,9 @@
   justify-content: space-between;
   flex-direction: column;
 
+  // top items (links)
   .side-top {
-    margin-top:50px;
-
+    margin-top: 50px;
 
     .black {
       background-color: black;
@@ -26,56 +26,53 @@
       align-items: center;
       width: 220px;
       height: 40px;
-      padding:10px 10px 10px 30px;
+      padding: 10px 10px 10px 30px;
       margin-top: 10px;
       color: white;
       font-size: 1.5em;
       border-radius: 25px;
       transition: 0.1s ease-in-out;
       user-select: none;
-  
-      
-      img{
+
+      img {
         margin-right: 5px;
         width: 36px;
         height: 36px;
       }
-  
-      &:hover{
+
+      &:hover {
         cursor: pointer;
         background-color: rgb(51, 196, 129);
       }
-  
-      &:active{
-        transform:scale(0.9)
+
+      &:active {
+        transform: scale(0.9);
       }
-
+    }
   }
 
-  }
-
+  // bottom items (users + authors/credits...)
   .side-bottom {
-    margin-bottom:30px;
+    margin-bottom: 30px;
 
-      i{
-        font-size: 0.8em;
-        color: #6e5654;
-        text-decoration: underline;
-        cursor: pointer;
+    i {
+      font-size: 0.8em;
+      color: #6e5654;
+      text-decoration: underline;
+      cursor: pointer;
 
-        &:hover {
-          color:#ffbbb5;
-        }
-
-        &:active {
-          text-decoration: none;
-        }
+      &:hover {
+        color: #ffbbb5;
       }
+
+      &:active {
+        text-decoration: none;
+      }
+    }
   }
 }
 
 // Connection between side/nav on the edge (making it round
-
 .rounded-connection-triangle {
   width: 40px;
   height: 40px;

@@ -8,32 +8,6 @@ $theme: black;
 $secondThme: rgb(44, 49, 60);
 $additional: rgb(51, 196, 129);
 
-
-@mixin mainStyles {
-  position:absolute;
-  left: 350px;
-  top:100px;
-  width: calc(100vw - 350px);
-  height: calc(100vh - 100px);
-  overflow-y: auto;
-
-  &::-webkit-scrollbar {
-      width: 20px;
-  }
-  
-  &::-webkit-scrollbar-track {
-      background-color: #e4e4e4;
-      border-radius: 100px;
-  }
-  
-  &::-webkit-scrollbar-thumb {
-      border-radius: 100px;
-      border: 5px solid transparent;
-      background-clip: content-box;
-      background-color: black;
-  }
-}
-
 body {
   margin: 0;
   padding: 0;
