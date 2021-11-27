@@ -1,29 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { useLocation } from 'react-router'
 
-export class Crypto extends Component<any,any> {
-    render() {
-        return (
-            <div className="main">
-                <h1>Crypto</h1>
-                <h1>News</h1>
-                <h1>News</h1>
-                <h1>News</h1>
-                <h1>News</h1>
-                <h1>News</h1>
-                <h1>News</h1>
-                <h1>News</h1>
-                <h1>News</h1>
-                <h1>News</h1>
-                <h1>News</h1>
-                <h1>News</h1>
-                <h1>News</h1>
-                <h1>News</h1>
-                <h1>News</h1>
-                <h1>News</h1>
-                <h1>News</h1>
-            </div>
-        )
-    }
+export default function Crypto(props:any) {
+    let currentCrypto = useLocation()
+    return (
+        <div className="main">
+                <h1>{currentCrypto.pathname}</h1>
+        </div>
+    )
 }
 
-export default Crypto

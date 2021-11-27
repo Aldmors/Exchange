@@ -1,5 +1,7 @@
 // @ts-nocheck
 import React from 'react'
+import { Link } from 'react-router-dom';
+
 
 export default function SearchResults(props:any) {
 
@@ -9,10 +11,10 @@ export default function SearchResults(props:any) {
 
 
   return (
-    <div className={props.oneOrMany}>
-        <img alt="resultImage" src={GetResultImage(props.shortData)}></img>
-        <b>{props.longData}</b>
-    </div>
+    <Link style={{textDecoration:"none"}} className={props.oneOrMany} to={`/${props.shortData}`}>
+          <img alt="resultImage" src={GetResultImage(props.shortData)}></img>
+          <b>{props.longData}</b>
+    </Link>
   )
 }
 

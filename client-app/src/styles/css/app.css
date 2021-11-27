@@ -49,6 +49,23 @@
 .navbar .navbar-search .navbar-search-input:focus::placeholder {
   color: transparent;
 }
+.navbar .navbar-search .navbar-search-input-cross {
+  filter: invert(27%) sepia(12%) saturate(1478%) hue-rotate(145deg) brightness(91%) contrast(90%);
+  width: 32px;
+  height: 32px;
+  position: relative;
+  left: -60px;
+  top: 8px;
+  transition: 0.1s ease-in-out;
+  display: inline;
+}
+.navbar .navbar-search .navbar-search-input-cross:hover {
+  filter: invert(20%) sepia(68%) saturate(2771%) hue-rotate(344deg) brightness(104%) contrast(96%);
+  cursor: pointer;
+}
+.navbar .navbar-search .navbar-search-input-cross:active {
+  transform: scale(0.9);
+}
 .navbar .navbar-search .navbar-search-results {
   position: absolute;
   top: 90%;
