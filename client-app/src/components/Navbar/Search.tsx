@@ -5,157 +5,122 @@
 // This file is such a mess
 // Whole file comes to understanding handleUserInput() function
 
-import React, { Component } from "react";
-import SearchResults from "./SearchResults";
-import { Link } from "react-router-dom";
+import React, { useState, useRef, useCallback, useEffect } from 'react'
+import SearchResults from './SearchResults'
 
-class Search extends React.PureComponent<any, any> {
-  constructor(props: any) {
-    super(props);
+export default function Search() {
+    const[userInput, setUserInput] = useState("")
+    const [resultShown,setResultShown] = useState(false)
+    const [resultBoxHeight,setResultBoxHeight] = useState("900px")
+    const [currentResultCount,setCurrentResultCount] = useState(0)
+    const [filteredData,setFilteredData] = useState([])
+    const [data,setData] = useState({
+        btc: ["btcID","Bitcoin"],
+        eth: ["ethID","Ethereum"],
+        bnb: ["bnbID","Binance Coin"],
+        usdt: ["usdtID","Tether"],
+        sol: ["solID","Solana"],
+        ada: ["adaID","Cardano"],
+        xrp: ["xrpID","XRP"],
+        dot: ["dotID","Polkadot"],
+        doge: ["dogeID","Dogecoin"],
+        usdc: ["usdcID","USD Coin"],
+    })
 
-    this.state = {
-      userInput: "",
-      resultShown: false,
-      resultBoxHeight: "900px",
-      currentResultCount: 0,
-      filteredData: [],
-      data: {
-        btc: "Bitcoin",
-        eth: "Ethereum",
-        bnb: "Binance Coin",
-        usdt: "Tether",
-        sol: "Solana",
-        ada: "Cardano",
-        xrp: "XRP",
-        dot: "Polkadot",
-        doge: "Dogecoin",
-        usdc: "USD Coin",
-      },
-    };
-  }
+    const isFirstRender = useRef(true)
+    useEffect(() => {
+        if (isFirstRender.current) {
+          isFirstRender.current = false
+          return;
+        }
+        handleResultShown();
+        handleResultBoxHeight();
 
-  // Get user input, set it to state, make user input allways uppercase on the screen
-  handleUserInput = (e: any) => {
-    e.target.value = e.target.value.toUpperCase();
-    this.setState(
-      {
-        userInput: e.target.value,
-      },
-      () => {
-        // Handle showin result box when input not empty
-        this.handleResultShown();
-        // Handle result box height based on how much results are shown
-        this.handleResultBoxHeight();
-      }
-    );
-    // Get searched items/results
-    this.getSearchedData();
-  };
+      }, [userInput])
 
-  // Handle showing result box based on input
-  handleResultShown = () => {
-    if (this.state.userInput === "" || Math.ceil(this.state.filteredData.length / 4) === 0) {
-      this.setState({
-        resultShown: false,
-      });
-    } else if (this.state.userInput !== "") {
-      this.setState({
-        resultShown: true,
-      });
+
+    const handleUserInput = (e) => {
+        e.target.value = e.target.value.toUpperCase();
+        setUserInput(e.target.value)
+        getSearchedData();
     }
-  };
 
-  // Handle result box when input gets empty (hide it)
-  handleUserInputEmpty = (e: any) => {
-    e.target.value = "";
-    this.setState(
-      {
-        userInput: "",
-      },
-      () => {
-        this.handleResultShown();
-      }
-    );
-  };
+    const handleUserInputEmpty = (e) => {
+        e.target.value = "";
+        setUserInput("");
 
-  getSearchedData = () => {
-    // Filter shortcutName(key) AND fullName(value) based on input and return arrays in array [[key:value][key:value][key:value]]
-    // Connect those arrays into one (possible repetitions, input ETH gave [[ETH:ethereum][eth:ETHereum][usdt:tETHer])
-    // Change concateneted array into JSON (look next point)
-    // Change JSON into set (get unique values)(changing array before JSON into set didn't gavee me unique maybe because array of arrays)
-    // Change set into object and then into array
-    // Set state - filtered array BY KEYS AND VALUES WITH UNIQUES ONLY
-    // Probably need rewrite but i don't know how to do it other way :\
-
-    // Filter by shortNames(keys)
-    let filteredShort = Object.entries(this.state.data).filter(([k, v]) => k.includes(this.state.userInput.toLowerCase())); 
-    // Filter by fullNames(values)
-    let filteredLong = Object.entries(this.state.data).filter(([k, v]) => v.toLowerCase().includes(this.state.userInput.toLowerCase()));
-    // Connect them into one
-    let concatenetedFiltered = filteredShort.concat(filteredLong);
-    // Change : array => JSON => set(get uniques)
-    let set = new Set(concatenetedFiltered.map(JSON.stringify));
-    // Change : set => object => array
-    let uniqueFiltered = Array.from(set).map(JSON.parse);
-    this.setState({
-      filteredData: uniqueFiltered,
-    });
-  };
-
-  handleResultBoxHeight = () => {
-    // Calculate result box height based on item count
-    let tempResultBoxHeight = 110 * Math.ceil(this.state.filteredData.length / 4);
-    // Limit at 725, otherwise it's to big for screen
-    if (tempResultBoxHeight > 725) {
-      tempResultBoxHeight = 725;
     }
-    this.setState({
-      // Handle current result items shown
-      currentResultCount: this.state.filteredData.length,
-      resultBoxHeight: `${tempResultBoxHeight}px`,
-    });
-  };
 
-  testFunction = () => {
-    console.log("Hello")
-  }
+    const handleResultShown = () => {
+        if(userInput === "" || Math.ceil(filteredData.length / 4) === 0) {
+            setResultShown(false)
+        } else if(userInput !== "") {
+            setResultShown(true)
+        }
+    }
 
-  render() {
+    const handleResultBoxHeight = () => {
+        let tempResultBoxHeight = 110 * Math.ceil(filteredData.length / 4);
+        if(tempResultBoxHeight > 725) {
+            tempResultBoxHeight = 725;
+        }
+        setCurrentResultCount(filteredData.length)
+        setResultBoxHeight(`${tempResultBoxHeight}px`)
+    }
+
+    const getSearchedData = () => {
+        // Filter by shortNames(keys)
+        let filteredShort = Object.entries(data).filter(([k, v]) => k.includes(userInput.toLowerCase()));
+        // Filter by fullNames(values)
+        let filteredLong = Object.entries(data).filter(([k, v]) => v[1].toLowerCase().includes(userInput.toLowerCase()));
+        // Connect them into one
+        let concatenetedFiltered = filteredShort.concat(filteredLong);
+        // Change : array => JSON => set(get uniques)
+        let set = new Set(concatenetedFiltered.map(JSON.stringify));
+        // Change : set => object => array
+        let uniqueFiltered = Array.from(set).map(JSON.parse);
+        console.log(uniqueFiltered,"test")
+        setFilteredData(uniqueFiltered);
+    }
+
+
+
+
     return (
-      <div className="navbar-search">
-        <input
-          className="navbar-search-input"
-          style={{
-            borderRadius: this.state.resultShown ? "25px 25px 0 0" : "25px",
-            border: this.state.resultShown ? "2px solid rgb(51, 196, 129)" : "",
-          }}
-          placeholder="Search !"
-          onChange={this.handleUserInput}
-          onBlur={this.handleUserInputEmpty}
-        />
+        <div className="navbar-search">
+            <input
+            className="navbar-search-input"
+            style={{
+                borderRadius: resultShown ? "25px 25px 0 0" : "25px",
+                border: resultShown ? "2px solid rgb(51, 196, 129)" : "",
+            }}
+            placeholder="Search !"
+            onChange={handleUserInput}
+            onBlur={handleUserInputEmpty}
+            />
+                <div
+                    className="navbar-search-results"
+                    style={{ display: resultShown ? "block" : "none", height: resultBoxHeight }}
+                >
+                <hr />
+                <div className="nav-search-flex" style={{height:currentResultCount === 1 ? "55%" : "default"}}>
+                    {filteredData.map((item,index) => (
+                        <SearchResults
+                          key={index}
+                          shortData={item[0]}
+                          longData={item[1][1]}
+                          idData={item[1][0]}
+                          resultCount={currentResultCount}
+                          oneOrMany={
+                              currentResultCount === 1 ?
+                              "navbar-search-results-oneLink" :
+                              "navbar-search-results-link"
+                          }
+                        />
+                    ))}
 
-        <div
-          className="navbar-search-results"
-          style={{ display: this.state.resultShown ? "block" : "none", height: this.state.resultBoxHeight }}
-        >
-          <hr />
-          <div className="nav-search-flex" style={{ height: this.state.currentResultCount === 1 ? "55%" : "default" }}>
-            {this.state.filteredData.map((item: any, index: any) => (
-                <SearchResults
-                  key={index}
-                  shortData={item[0]}
-                  longData={item[1]}
-                  resultCount={this.state.currentResultCount}
-                  oneOrMany={
-                    this.state.currentResultCount === 1 ? "navbar-search-results-oneLink" : "navbar-search-results-link"
-                  }
-                />
-            ))}
-          </div>
+                </div>
+            </div>
         </div>
-      </div>
-    );
-  }
+    )
 }
-
-export default Search;
