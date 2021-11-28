@@ -5,7 +5,7 @@ export default function News() {
   const [numOfArticles,setNumOfArticles] = useState(2)
   const [data,setData] = useState(
     [
-      { 
+      {
         author: "Aina J. Khan, Isabella Grullón Paz",
         title: "U.K. Confirms Two Cases of Omicron Coronavirus Variant - The New York Times",
         description: "The prime minister reimposed a mask mandate, saying ‘there are many things we just cannot know.’",
@@ -31,7 +31,7 @@ export default function News() {
   const generateArticles = () => {
     let articlesToShow = data.slice(0,numOfArticles)
     return articlesToShow.map((item:any,index:any) => (<Article article={item}/>))
-  } 
+  }
 
   const increaseNumOfArticles = () => {
     setNumOfArticles(numOfArticles + 1)
