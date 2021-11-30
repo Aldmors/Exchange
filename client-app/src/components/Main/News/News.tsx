@@ -6,6 +6,10 @@ export default function News() {
   const [data,setData] = useState(
     [
       { 
+        source:{
+          id:"none",
+          name:"Bussiness Insider"
+        },
         author: "Aina J. Khan, Isabella Grullón Paz",
         title: "U.K. Confirms Two Cases of Omicron Coronavirus Variant - The New York Times",
         description: "The prime minister reimposed a mask mandate, saying ‘there are many things we just cannot know.’",
@@ -16,6 +20,10 @@ export default function News() {
       },
 
       {
+        source:{
+          id:"none",
+          name:"Boing Boing"
+        },
         author: "Michael David Smith",
         title: "Titans put A.J. Brown on injured reserve - NBC Sports",
         description: "The Titans’ injured reserve list is getting crowded. Tennessee wide receiver A.J. Brown is the latest player to go on injured reserve, meaning he’s out for at least three weeks. He joins Julio Jones and Derrick Henry, among others, as Titans players currently…",
