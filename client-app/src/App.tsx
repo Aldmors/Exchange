@@ -6,6 +6,7 @@ import News from "./components/Main/News/News";
 import Trending from "./components/Main/Trending/Trending";
 import Market from "./components/Main/Market/Market";
 import Crypto from "./components/Main/Crypto/Crypto";
+import FullArticle from "./components/Main/News/FullArticle";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Navigate to="/news" />}></Route>
           <Route path="/news" element={<News></News>}></Route>
+          <Route path="/news/:article" element={<FullArticle></FullArticle>}></Route>
           <Route path="/trending" element={<Trending></Trending>}></Route>
           <Route path="/market" element={<Market></Market>}></Route>
           <Route path="/:crypto" element={<Crypto></Crypto>}></Route>

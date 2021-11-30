@@ -8,13 +8,18 @@
 
   // Article
   .news-article {
-    width: 45%;
-    height: 250px;
+    width: 35%;
+    height: 200px;
     display: flex;
     flex-direction: row;
     align-items: center;
     margin-top: 50px;
     margin-bottom: 50px;
+    transition: 0.1s ease-in-out;
+    font-size: 0.9em;
+    position: relative;
+
+    
 
     // Image in article
     .news-article-image {
@@ -37,24 +42,41 @@
       height: 100%;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      text-align: center;
       justify-content: space-around;
       border-bottom: 20px solid rgb(51, 196, 129);
       background-color: black;
       color: white;
       border-radius: 0 25px 25px 0;
+      position: relative;
 
-      a {
-        color: white;
-
-        &:hover {
-          color: green;
-        }
+      .news-article-content-desc {
+        padding:5px;
       }
 
-      div {
-        padding: 20px;
+      .news-article-content-author {
+        align-self: flex-end;
+        margin-right: 10%;
       }
+    }
+
+    .news-article-content-read {
+      width: 100%;
+      height: 100%;
+      color: white;
+      font-size: 4em;
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 25px;
+      visibility: hidden;
+      backdrop-filter: blur(3px);
+    }
+
+    &:hover .news-article-content-read {
+      visibility: visible;
+      cursor: pointer;
     }
   }
 
@@ -75,4 +97,44 @@
       color: #6e5654;
     }
   }
+}
+
+
+.news-fullArt {
+  background-color: black;
+
+  .wrapper {
+    margin-top: 50px;
+    display: flex;
+    justify-content:flex-start;
+
+    .news-fullArt-content {
+      width: 900px;
+      height: 1%;
+      overflow:hidden;
+      margin-left: 50px;
+      margin-bottom: 50px;
+      background-color: white;
+      border-radius: 25px;
+    
+    }
+
+  .news-fullArt-data {
+    position: relative;
+    margin-left: 20px;
+    width: 500px;
+    height: 1%;
+    overflow:hidden;
+    border-left: 10px solid white;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+
+    div {
+      margin:5px;
+      color: white;
+    }
+  }
+ }
 }

@@ -6,5 +6,4 @@ API's :
 - NewsAPI
 
 TODO :
-- links in search results !
-- change class components to function components
+- refactor scss
