@@ -1,10 +1,8 @@
-﻿using System;
-
-namespace Domain
+﻿namespace Domain.Models
 {
-    public class Ask
+    public class AskL3
     {
-        public Guid id { get; set; }
+        public string id { get; set; }
         public decimal price { get; set; }
         public decimal size { get; set; }
     }

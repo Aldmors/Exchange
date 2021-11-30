@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Domain;
+using Domain.Models;
 using MediatR;
 using Persistence;
 

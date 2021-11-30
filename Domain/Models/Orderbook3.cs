@@ -1,6 +1,7 @@
 ﻿using System;
+
 // TODO: AskL3[] AND BidL3[]
-namespace Domain
+namespace Domain.Models
 {
     public class Orderbook3
     {

@@ -1,8 +1,10 @@
-﻿namespace Domain
+﻿using System;
+
+namespace Domain.Models
 {
-    public class BidL3
+    public class Ask
     {
-        public string id { get; set; }
+        public Guid id { get; set; }
         public decimal price { get; set; }
         public decimal size { get; set; }
     }

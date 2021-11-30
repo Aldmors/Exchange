@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Web.Http;
 using Domain;
+using Domain.Models;
 using Domain.VM;
 using Persistence;
 

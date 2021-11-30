@@ -1,12 +1,11 @@
 ﻿using System;
 
-namespace Domain
+namespace Domain.Models
 {
-    public class Exchangerate
+    public class Rate
     {
         public Guid id { get; set; }
         public DateTime time { get; set; }
-        public string asset_id_base { get; set; }
         public string asset_id_quote { get; set; }
         public decimal rate { get; set; }
     }

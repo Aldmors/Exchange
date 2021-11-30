@@ -1,6 +1,6 @@
-﻿namespace Domain
+﻿namespace Domain.Models
 {
-    public class AskL3
+    public class BidL3
     {
         public string id { get; set; }
         public decimal price { get; set; }

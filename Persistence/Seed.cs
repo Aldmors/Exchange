@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using Domain;
 using System.Globalization;
+using Domain.Models;
 
 // TODO: Finish seed data to Orderbook3 AND Orderbook
 namespace Persistence
