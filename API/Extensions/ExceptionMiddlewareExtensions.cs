@@ -1,41 +1,39 @@
 ﻿using System.Net;
+using API.Middleware;
+using Domain.Models;
+using LoggerService;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Hosting;
 
 namespace API.Extensions
 {
     public static class ExceptionMiddlewareExtensions
     {
-        public static void ConfigurationExceptionHandler(this IApplicationBuilder app, IWebHostEnvironment env)
+        public static void ConfigureExceptionHandler(this IApplicationBuilder app, ILoggerManager logger)
         {
-            if (env.IsDevelopment())
+            app.UseExceptionHandler(appError =>
             {
-                app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
-            }
-            else
-            {
-                app.UseExceptionHandler(
-                    options =>
-                    {
-                        options.Run(
-                            async context =>
-                            {
-                                context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-                                var ex = context.Features.Get<IExceptionHandlerFeature>();
-                                if (ex != null)
-                                {
-                                    await context.Response.WriteAsync(ex.Error.Message);
-                                }
-                            }
-                        );
+                appError.Run(async context =>
+                {
+                    context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                    context.Response.ContentType = "application/json";
+                    var contextFeature = context.Features.Get<IExceptionHandlerFeature>();
+                    if(contextFeature != null)
+                    { 
+                        logger.LogError($"Something went wrong: {contextFeature.Error}");
+                        await context.Response.WriteAsync(new ErrorDetails()
+                        {
+                            StatusCode = context.Response.StatusCode,
+                            Message = "Internal Server Error."
+                        }.ToString());
                     }
-                );
-            }
+                });
+            });
+        }
+        public static void ConfigureCustomExceptionMiddleware(this IApplicationBuilder app)
+        {
+            app.UseMiddleware<CustomExceptionMiddleware>();
         }
     }
 }
