@@ -20,7 +20,6 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using NLog;
 using Persistence;
-using API.Extensions;
 using LoggerService;
 
 namespace API
