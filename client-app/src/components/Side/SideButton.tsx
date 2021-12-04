@@ -3,7 +3,7 @@ import { useLocation } from 'react-router'
 
 export default function SideButton(props:any) {
     let location = useLocation()
-    let pathFromProp = `/${props.name.toLowerCase()}` 
+    let pathFromProp = `/${props.name.toLowerCase()}`
     const GenerateButtonHighlight = () => {
         if(pathFromProp === location.pathname){
             return "side-top-button green"

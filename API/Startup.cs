@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
@@ -17,8 +18,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using NLog;
 using Persistence;
-using API.Middlewares;
+using LoggerService;
 
 namespace API
 {
@@ -28,23 +30,30 @@ namespace API
 
         public Startup(IConfiguration config)
         {
+            LogManager.LoadConfiguration(String.Concat(Directory.GetCurrentDirectory(), "/nlog.config"));
             _config = config;
         }
-
+        
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.ConfigureLoggerService();
             services.AddControllers();
             services.AddApplicationServices(_config);
-            
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerManager logger)
         {
-            app.UseMiddleware<ExceprionsMiddleware>();
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
+            }
 
-            app.ConfigurationExceptionHandler(env);
+            app.ConfigureExceptionHandler(logger);
             
             app.UseHttpsRedirection();
 
@@ -55,6 +64,8 @@ namespace API
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+            
+            app.ConfigureCustomExceptionMiddleware();
         }
     }
 }

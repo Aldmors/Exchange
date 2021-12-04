@@ -18,21 +18,21 @@ namespace Persistence
             {
                 new AssetLight
                 {
-                asset_id = "BTC",
+                main_asset_id = "",
                 name = "Bitcoin",
-                price_usd = (decimal?)9166.207274778093436220194944,
+                short_name = "BTC",
                 },
                 new AssetLight
                 {
-                asset_id = "ETH",
+                main_asset_id = "",
                 name = "Etherum",
-                price_usd = (decimal?)9166.207274778093436220194944,
+                short_name = "ETH",
                 },
                 new AssetLight
                 {
-                asset_id = "ADA",
+                main_asset_id = "",
                 name = "Cardano",
-                price_usd = (decimal?)9166.207274778093436220194944,
+                short_name = "ADA",
                 },
             };
             if (context.Asset.Any()) return;

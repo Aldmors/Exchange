@@ -6,7 +6,7 @@ export default function News(props:any) {
   const [numOfArticles,setNumOfArticles] = useState(1)
   const [data,setData] = useState(
     [
-      { 
+      {
         source:{
           id:"none",
           name:"Bussiness Insider"
@@ -40,7 +40,7 @@ export default function News(props:any) {
   const GenerateArticles = () => {
     let articlesToShow = data.slice(0,numOfArticles)
     return articlesToShow.map((item:any,index:any) => (<Article article={item}/>))
-  } 
+  }
 
   const increaseNumOfArticles = () => {
     setNumOfArticles(numOfArticles + 10)
