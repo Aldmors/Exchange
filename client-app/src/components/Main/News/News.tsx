@@ -1,8 +1,9 @@
-import React, {useState} from "react";
+import axios from "axios";
+import React, {useState, useEffect} from "react";
 import Article from "./Article";
 
-export default function News() {
-  const [numOfArticles,setNumOfArticles] = useState(2)
+export default function News(props:any) {
+  const [numOfArticles,setNumOfArticles] = useState(1)
   const [data,setData] = useState(
     [
       { 
@@ -36,23 +37,21 @@ export default function News() {
     ]
   )
 
-  const generateArticles = () => {
+  const GenerateArticles = () => {
     let articlesToShow = data.slice(0,numOfArticles)
     return articlesToShow.map((item:any,index:any) => (<Article article={item}/>))
   } 
 
   const increaseNumOfArticles = () => {
-    setNumOfArticles(numOfArticles + 1)
+    setNumOfArticles(numOfArticles + 10)
   }
 
   return (
+    <>
     <div className="main news">
-      {generateArticles()}
-      {generateArticles()}
-      {generateArticles()}
-      {generateArticles()}
-      {generateArticles()}
+      {GenerateArticles()}
       <i className="news-showMore" onClick={increaseNumOfArticles}>Show more</i>
     </div>
+    </>
   );
 }

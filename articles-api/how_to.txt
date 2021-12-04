@@ -1,0 +1,5 @@
+1. Run -> pip install flask
+2. Run -> pip install flask-cors
+3. Run -> export FLASK_APP=server
+4. Change host/port in server.py if needed
+5. Run -> python server.py OR flask run

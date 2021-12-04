@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./styles/css/app.css";
 import Navbar from "./components/Navbar/Navbar";
 import Side from "./components/Side/Side";
@@ -7,23 +7,59 @@ import Trending from "./components/Main/Trending/Trending";
 import Market from "./components/Main/Market/Market";
 import Crypto from "./components/Main/Crypto/Crypto";
 import FullArticle from "./components/Main/News/FullArticle";
+import LoadingScreen from "./components/LoadingScreen/LoadingScreen";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { useState } from "react";
+import axios from "axios";
+import state from "sweetalert/typings/modules/state";
 
 function App() {
+  const [cryptoAssetsLoaded, setCryptoAssetsLoaded] = useState(false);
+  const [cryptoAssets, setCryptoAssets] = useState();
+  const [newsLoaded, setNewsLoaded] = useState(false);
+  const [news, setNews] = useState();
+
+  useEffect(() => {
+    axios.get("http://127.0.0.1:4000/articles").then(function (response) {
+      setNews(response.data)
+    }).then(() => {setNewsLoaded(true)})
+  }, []);
+
+
+  useEffect(() => {
+    axios.get("https://localhost:5001/api/Asset").then(function (response) {
+      setCryptoAssets(response.data)
+    }).then(() => {setCryptoAssetsLoaded(true)})
+  }, []);
+
+  const renderSite = () => {
+    if(cryptoAssetsLoaded === true && newsLoaded === true){
+      return(
+        <div className="scale-up-center">
+          <Navbar></Navbar>
+          <Side></Side>
+          <Routes>
+            <Route path="/" element={<Navigate to="/news" />}></Route>
+            <Route path="/news" element={<News></News>}></Route>
+            <Route path="/news/:article" element={<FullArticle></FullArticle>}></Route>
+            <Route path="/trending" element={<Trending></Trending>}></Route>
+            <Route path="/market" element={<Market></Market>}></Route>
+            <Route path="/:crypto" element={<Crypto></Crypto>}></Route>
+          </Routes>
+        </div>
+      )
+    } else {
+      return(
+        <LoadingScreen></LoadingScreen>
+      )
+    }
+  }
+
   return (
     <>
-      <BrowserRouter>
-        <Navbar></Navbar>
-        <Side></Side>
-        <Routes>
-          <Route path="/" element={<Navigate to="/news" />}></Route>
-          <Route path="/news" element={<News></News>}></Route>
-          <Route path="/news/:article" element={<FullArticle></FullArticle>}></Route>
-          <Route path="/trending" element={<Trending></Trending>}></Route>
-          <Route path="/market" element={<Market></Market>}></Route>
-          <Route path="/:crypto" element={<Crypto></Crypto>}></Route>
-        </Routes>
-      </BrowserRouter>
+        <BrowserRouter>
+          {renderSite()}
+        </BrowserRouter>
     </>
   );
 }

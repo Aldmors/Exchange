@@ -1,5 +1,6 @@
 import React from 'react'
 import { useLocation } from 'react-router'
+import { Link } from 'react-router-dom'
 
 export default function FullArticle() {
     const location = useLocation()
@@ -8,17 +9,33 @@ export default function FullArticle() {
         <div className="main news-fullArt">
             <div className="wrapper">
                 <div className="news-fullArt-content">
-                <div style={{ backgroundImage: `url(${article.urlToImage})` }}>H</div>
-                    <div>{article.title}</div>
-                    <div>{article.content}</div>
+                    <div className="news-fullArt-content-img" style={{ backgroundImage: `url(${article.urlToImage})` }}></div>
+                    <div className="news-fullArt-content-title">{article.title}</div>
+                    <hr/>
+                    <div className="news-fullArt-content-content">
+                        {/* {article.content}
+                        <Link className="news-fullArt-content-back" to="/news">Back to news</Link> */}
+                        <p>Senior Lecturer in International Development, Northumbria University, Newcastle</p><p>Peter Howson does not work for, consult, own shares in or receive funding from any company or organisation that would benefit from this article, and has disclosed no relevant affiliations beyond their academic appointment.</p><p></p><p>Northumbria University, Newcastle provides funding as a member of The Conversation UK.</p><p>The Conversation UK receives funding from these organisations</p><p>View the full list</p><p>Huge concrete data centres, permanently plugged into power plants and telephone exchanges, maintain much of online life. But the infrastructure behind internet-based cryptocurrencies such as bitcoin, dogecoin and ethereum is more like a rusty travelling circus. And right now, that circus is on the road.</p><p>Bitcoin relies on a network of millions of specialist machines, known as miners, around 70% of which are currently based in China. Like a never-ending game of Hungry Hippos, each player hammers their mining machines 24/7 to try and scoop up as many bitcoins as possible. With only a few hippos, its easy for everyone to be a winner. But with around 2.5 million miners chasing an ever-shrinking number of prizes, the game is becoming increasingly difficult.</p><p>Bitcoin’s booming popularity has caused its electricity demand to swell. With no central planning, a perpetual arms race for equipment continues, creating 15,000 tonnes of burned out electronic waste annually.</p><p>To maximise profits, mining machines are often crammed into shipping containers, with operators ready to up sticks at a moment’s notice to find the cheapest sources of energy. During China’s summer rain season, hydro power plants in the south-western provinces generate so much energy that miners can mop up the leftovers. But in the winter dry season, many miners unplug and hit the road, heading for the coal-fired power plants scattered across China’s vast northern territories.</p><p></p><p>Recent crypto price increases have encouraged some Chinese bitcoiners to mine coal and restart idle power plants without permission, endangering lives and threatening President Xi Jinping’s climate goals.</p><p>Bitcoin’s energy demand has more than doubled in a year from 55 terawatt-hours (TWh) to 125 TWh. The network now has a carbon footprint similar to the whole of Poland. Chinese regulators closed down all the country’s crypto exchanges in 2017. Even so, rocketing demand for bitcoin elsewhere means the network’s energy use in China is predicted to peak by 2024 at around 300 TWh. That’s equivalent to the total energy demand of the UK. With a crypto circus in tow, Beijing’s commitments to cut carbon emissions by 65% before 2030 would be near impossible to meet.</p><h2>Bitcoin is not just China’s problem</h2><p>In an attempt to reduce bitcoin’s environmental impacts in China, the coal-dependent province of Inner Mongolia recently banned bitcoin mining and set up a hotline to report suspected transgressors. But on average, mining just one bitcoin per day requires a US$1.8 million (£1.3 million) investment in specialist equipment. Expulsions from the province could force some highly invested bitcoiners underground, while forcing others to find new places to park up in neighbouring countries which don’t have China’s seasonal glut of renewable energy.</p><p>To prevent an influx of Chinese miners chasing cheaper electricity, Iran’s President recently clamped down on new oil-fuelled mining, which authorities blame for increasing urban smog. The Black Sea territory of Abkhazia is trying to hold back foreign miners as officials there are forced to introduce rolling blackouts due to energy shortages. Bitcoin mining has been blamed for overloaded electricity lines and power station fires, leaving some areas without power for days.</p><p>UK authorities have also paid the price for bitcoin’s boom. In May 2021, officers from West Midlands Police in the UK, believing they were raiding an illegal cannabis farm in Sandwell, instead discovered around 100 bitcoin mining machines running off an improvised connection to the electricity supply. The outdated machines were so inefficient that they could only turn a profit with stolen energy. These thefts raise energy prices for everyone else, causing fuel poverty and risking public safety.</p><p></p><h2>Antisocial side effects</h2><p>Demand for mining machines has caused computer chip shortages, hurting more useful industries struggling back to work post-COVID. UK carmakers have cut production while smartphone companies have delayed future launches. The price of specialist chips used by the likes of Intel and Apple have increased by around 70% so far in 2021, with knock-on effects for UK consumers.</p><p>Even universities and hospitals are affected by bitcoin’s second-order effects. According to the insurer, Hiscox, around 4,500 organisations fell victim to cyber attacks every day in the UK in 2018. Many of these involve ransomware payments, 98% of which are paid in bitcoin.</p><p>Some argue that to slow the increase in ransomware attacks, authorities need to crack down on cryptocurrency exchanges that enable bitcoin ransoms to be paid. Others claim that cryptocurrencies and ransomware are now so entwined that the only way to fight the latter is to ban cryptocurrencies altogether.</p><p>To clean up the crypto industry, a UN-backed Crypto Climate Accord and the Bitcoin Miners Council were established. These groups urge bitcoin miners in the US to only use leftover renewable energy. But it’s not possible to give a higher price to bitcoins produced using only renewables, because bitcoins are designed to be fully interchangable.   Research shows that new miners joining the competition in North America have encouraged miners where there are no renewables to use more machines and work harder, increasing the network’s overall carbon footprint.</p><h2>A global response</h2><p>For regulatory purposes, bitcoin should be considered similar to the global trade in Chinese tiger parts. Banning tiger hunting in the UK is pointless, but banning the sale of tiger parts is useful. Likewise, when UK-based investors are allowed to speculate on bitcoin, they encourage an environmentally disastrous global industry that has so far failed to benefit anyone except criminals and some early speculators.</p><p>Cracking down on crypto exchanges or banning the import and use of mining equipment could be a relatively easy win for the UK as it prepares to host the 2021 UN climate summit. Doing nothing about the problem would negate the UK’s progress in other areas. Thanks to tax relief schemes and infrastructure investment, electric car registrations increased by 41% in 2020, preventing the release of around 50 million tonnes of CO₂ a year. Meanwhile, bitcoin mining causes nearly 60 million tonnes of CO₂ annually.</p><p>China appears committed to putting its own house in order, but bitcoin’s social and environmental impacts urgently need a global response.</p><p>Global Challenges Podcast Series 2
+          —
+          Swansea, Swansea [Abertawe GB-ATA]</p><p>Decolonial Research Methods: Resisting Coloniality in Academic Knowledge Production
+          —
+          Southampton, Southampton</p><p>Trio Atem
+          —
+          Egham, Surrey</p><p>Friday lunchtime concert
+          —
+          Egham, Surrey</p><p>Panel discussion: 'Capitalism: what has gone wrong, what needs to change and how can it be fixed?'
+          —
+          Oxford, Oxfordshire</p><p>Copyright © 2010–2021, The Conversation Trust (UK) Limited</p>
+                    </div>
                 </div>
                 <div className="news-fullArt-data">
-                    <div>Site : {article.source.name}</div>
-                    <div>Author : {article.author}</div>
-                    <div>Title : {article.title}</div>
-                    <div>Description : {article.description}</div>
-                    <div>Published at : {article.publishedAt}</div>
-                    <div><a href={`${article.url}`} target="_blank" rel="noreferrer noopener">Link to article</a></div>
+                    <div>ABOUT ARTICLE</div>
+                    <div>From : <br/> {article.source.name}</div>
+                    <div>Author : <br/> {article.author}</div>
+                    <div>Title : <br/> {article.title}</div>
+                    <div>Descritpion : <br/> {article.description}</div>
+                    <div>Published at : <br/> {article.publishedAt}</div>
+                    <div><a href={`${article.url}`} target="_blank" rel="noreferrer noopener">Link to original</a></div>
                 </div>
             </div>
         </div>

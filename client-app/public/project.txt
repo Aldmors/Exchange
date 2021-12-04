@@ -2,8 +2,6 @@ PROJECT RUN :
 - npm start
 - npm run sass
 
-API's :
-- NewsAPI
-
 TODO :
 - refactor scss
+- axios erroe handling

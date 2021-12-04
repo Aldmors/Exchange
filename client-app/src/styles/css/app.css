@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Condensed&display=swap");
 .navbar {
   display: flex;
   align-items: baseline;
@@ -255,7 +256,7 @@
   gap: 20px;
 }
 .news .news-article {
-  width: 35%;
+  width: 30%;
   height: 200px;
   display: flex;
   flex-direction: row;
@@ -340,13 +341,45 @@
   justify-content: flex-start;
 }
 .news-fullArt .wrapper .news-fullArt-content {
-  width: 900px;
+  width: 800px;
   height: 1%;
   overflow: hidden;
   margin-left: 50px;
   margin-bottom: 50px;
   background-color: white;
   border-radius: 25px;
+  text-align: center;
+}
+.news-fullArt .wrapper .news-fullArt-content .news-fullArt-content-img {
+  width: 100%;
+  height: 300px;
+  background-position: center;
+  background-size: cover;
+}
+.news-fullArt .wrapper .news-fullArt-content .news-fullArt-content-title {
+  font-size: 2em;
+  margin: 30px;
+}
+.news-fullArt .wrapper .news-fullArt-content hr {
+  width: 90%;
+  border: 3px solid black;
+}
+.news-fullArt .wrapper .news-fullArt-content .news-fullArt-content-content {
+  font-size: 1.2em;
+  margin: 30px;
+  font-family: "Roboto", sans-serif;
+  text-align: left;
+}
+.news-fullArt .wrapper .news-fullArt-content .news-fullArt-content-back {
+  color: #6e5654;
+  text-decoration: underline;
+}
+.news-fullArt .wrapper .news-fullArt-content .news-fullArt-content-back:hover {
+  color: #ffbbb5;
+}
+.news-fullArt .wrapper .news-fullArt-content .news-fullArt-content-back:active {
+  text-decoration: none;
+  color: #6e5654;
 }
 .news-fullArt .wrapper .news-fullArt-data {
   position: relative;
@@ -358,11 +391,22 @@
   border-radius: 25px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  font-family: "Roboto", sans-serif;
 }
 .news-fullArt .wrapper .news-fullArt-data div {
   margin: 5px;
   color: white;
+}
+.news-fullArt .wrapper .news-fullArt-data a {
+  color: #6e5654;
+  text-decoration: underline;
+}
+.news-fullArt .wrapper .news-fullArt-data a:hover {
+  color: #ffbbb5;
+}
+.news-fullArt .wrapper .news-fullArt-data a:active {
+  text-decoration: none;
+  color: #6e5654;
 }
 
 .main {
@@ -385,6 +429,39 @@
   border: 5px solid transparent;
   background-clip: content-box;
   background-color: black;
+}
+
+.loading {
+  position: absolute;
+  background-color: black;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+.loading .loading-wrapper {
+  margin-bottom: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.loading .loading-title {
+  user-select: none;
+  margin-bottom: 10%;
+}
+.loading .loading-title .loading-title-img {
+  position: relative;
+  top: 15%;
+  width: 70px;
+  height: 70px;
+}
+.loading .loading-title .loading-title-title {
+  font-size: 3.5em;
+  color: white;
 }
 
 body {
