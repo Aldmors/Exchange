@@ -64,16 +64,11 @@ def get_articles():
         formated_article["author"] = author
         formated_article["date"] = date
         formated_article["title"] = title
-        formated_article["descritpion"] = description
+        formated_article["description"] = description
         formated_article["content"] = inside_content_html
         formated_article["articleUrl"] = article_url
         formated_article["iconUrl"] = icon_url
         formated_article["imgUrl"] = inside_img_url
-
-        # Printing data
-        # for key, value in formated_article.items():
-        #     print(key, " = ", value, end="\n")
-        # print("\n")
 
         # Appending dict to final list + deleting dict to avoid errors
         article_list.append(formated_article)

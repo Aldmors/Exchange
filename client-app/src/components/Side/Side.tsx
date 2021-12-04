@@ -44,8 +44,8 @@ export default function Side() {
         </div>
       </div>
 
-      <div className="rounded-connection-triangle" />
-      <div className="rounded-connection-circle" />
+      {/* <div className="rounded-connection-triangle" />
+      <div className="rounded-connection-circle" /> */}
     </>
   );
 }

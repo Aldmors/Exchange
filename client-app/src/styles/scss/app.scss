@@ -1,11 +1,14 @@
 // Global styles in this file
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Condensed&display=swap');
+@import "loading";
 @import "navbar";
 @import "side";
-@import "news";
-@import "main";
-@import "loading";
+@import "./Main/main";
+@import "./Main/News/news";
+@import "./Main/News/article";
+@import "./Main/News/fullArticle";
+
 $theme: black;
 $secondThme: rgb(44, 49, 60);
 $additional: rgb(51, 196, 129);
