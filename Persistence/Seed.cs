@@ -6,7 +6,7 @@ using Domain;
 using System.Globalization;
 using Domain.Models;
 
-// TODO: Finish seed data to Orderbook3 AND Orderbook
+// TODO: Finish seed data to AssetLight
 namespace Persistence
 {
     public class Seed
@@ -18,19 +18,19 @@ namespace Persistence
             {
                 new AssetLight
                 { 
-                    Asset = "",
+           //         Asset = "",
                 name = "Bitcoin",
                 short_name = "BTC",
                 },
                 new AssetLight
                 {
-                    Asset = "",
+            //        Asset = "",
                 name = "Etherum",
                 short_name = "ETH",
                 },
                 new AssetLight
                 {
-                Asset = "",
+            //    Asset = "",
                 name = "Cardano",
                 short_name = "ADA",
                 },
