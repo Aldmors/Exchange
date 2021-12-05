@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useEffect } from "react";
 import "./styles/css/app.css";
 import Navbar from "./components/Navbar/Navbar";
@@ -13,8 +14,9 @@ import { useState } from "react";
 import axios from "axios";
 
 function App() {
-  const [cryptoAssetsLoaded, setCryptoAssetsLoaded] = useState(true);
+  const [cryptoAssetsLoaded, setCryptoAssetsLoaded] = useState(false);
   const [cryptoAssets, setCryptoAssets] = useState();
+  const [cryptoAssetsLight, setCryptoAssetsLight] = useState();
   const [newsLoaded, setNewsLoaded] = useState(false);
   const [news, setNews] = useState();
 
@@ -29,17 +31,23 @@ function App() {
   },[news])
 
 
-  // useEffect(() => {
-  //   axios.get("https://localhost:5001/api/Asset").then(function (response) {
-  //     setCryptoAssets(response.data)
-  //   }).then(() => {setCryptoAssetsLoaded(true)})
-  // }, []);
+  useEffect(() => {
+    let cryptoAssetsLightTemp = {}
+    axios.get("https://localhost:5001/api/Asset").then(function (response) {
+      for(let i = 0;i<response.data.length;i++) {
+        cryptoAssetsLightTemp[response.data[i].asset_id] = [response.data[i].id,response.data[i].name]
+      }
+      setCryptoAssets(response.data)
+      setCryptoAssetsLight(cryptoAssetsLightTemp)
+    }).then(() => {setCryptoAssetsLoaded(true)})
+  }, []);
+
 
   const renderSite = () => {
     if(cryptoAssetsLoaded === true && newsLoaded === true){
       return(
         <div>
-          <Navbar></Navbar>
+          <Navbar lightAssets={cryptoAssetsLight}></Navbar>
           <Side></Side>
           <Routes>
             <Route path="/" element={<Navigate to="/news" />}></Route>
@@ -47,7 +55,7 @@ function App() {
             <Route path="/news/:article" element={<FullArticle></FullArticle>}></Route>
             <Route path="/trending" element={<Trending></Trending>}></Route>
             <Route path="/market" element={<Market></Market>}></Route>
-            <Route path="/:crypto" element={<Crypto></Crypto>}></Route>
+            <Route path="/crypto/:crypto" element={<Crypto></Crypto>}></Route>
           </Routes>
         </div>
       )

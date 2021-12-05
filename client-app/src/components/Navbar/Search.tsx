@@ -8,25 +8,27 @@ import React, { useState, useRef, useEffect } from "react";
 import SearchResults from "./SearchResults";
 import cross from "../../img/cross.png";
 
-function Search() {
+function Search(props:any) {
   const [userInput, setUserInput] = useState("");
   const userInputRef = useRef(null);
   const [resultShown, setResultShown] = useState(false);
   const [resultBoxHeight, setResultBoxHeight] = useState("900px");
   const [currentResultCount, setCurrentResultCount] = useState(0);
   const [filteredData, setFilteredData] = useState([]);
-  const [data, setData] = useState({
-    btc: ["btcID", "Bitcoin"],
-    eth: ["ethID", "Ethereum"],
-    bnb: ["bnbID", "Binance Coin"],
-    usdt: ["usdtID", "Tether"],
-    sol: ["solID", "Solana"],
-    ada: ["adaID", "Cardano"],
-    xrp: ["xrpID", "XRP"],
-    dot: ["dotID", "Polkadot"],
-    doge: ["dogeID", "Dogecoin"],
-    usdc: ["usdcID", "USD Coin"],
-  });
+  // const [data, setData] = useState({
+  //   btc: ["btcID", "Bitcoin"],
+  //   eth: ["ethID", "Ethereum"],
+  //   bnb: ["bnbID", "Binance Coin"],
+  //   usdt: ["usdtID", "Tether"],
+  //   sol: ["solID", "Solana"],
+  //   ada: ["adaID", "Cardano"],
+  //   xrp: ["xrpID", "XRP"],
+  //   dot: ["dotID", "Polkadot"],
+  //   doge: ["dogeID", "Dogecoin"],
+  //   usdc: ["usdcID", "USD Coin"],
+  // });
+
+  const[data,setData] = useState(props.lightAssets)
 
   const isFirstRender = useRef(true);
   useEffect(() => {
@@ -68,7 +70,7 @@ function Search() {
 
   const getSearchedData = () => {
     // Filter by shortNames(keys)
-    let filteredShort = Object.entries(data).filter(([k, v]) => k.includes(userInput.toLowerCase()));
+    let filteredShort = Object.entries(data).filter(([k, v]) => k.toLowerCase().includes(userInput.toLowerCase()));
     // Filter by fullNames(values)
     let filteredLong = Object.entries(data).filter(([k, v]) => v[1].toLowerCase().includes(userInput.toLowerCase()));
     // Connect them into one
@@ -112,7 +114,7 @@ function Search() {
               key={index}
               shortData={item[0]}
               longData={item[1][1]}
-              idData={item[1][0]}
+              cryptoId={item[1][0]}
               resultCount={currentResultCount}
               oneOrMany={currentResultCount === 1 ? "navbar-search-results-oneLink" : "navbar-search-results-link"}
             />
