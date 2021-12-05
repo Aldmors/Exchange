@@ -42,7 +42,6 @@ namespace Persistence
                 {
                     asset_id = "BTC",
                     name = "Bitcoin",
-                    type_is_crypto = true,
                     data_quote_start = DateTime.Parse("2014-02-24T17:43:05.0000000Z"),
                     data_quote_end = DateTime.Parse("2019-11-03T17:55:07.6724523Z"),
                     data_orderbook_start = DateTime.Parse("2014-02-24T17:43:05.0000000Z"),
@@ -59,7 +58,6 @@ namespace Persistence
                 {
                     asset_id = "ETH",
                     name = "Etherum",
-                    type_is_crypto = true,
                     data_quote_start = DateTime.Parse("2014-02-24T17:43:05.0000000Z"),
                     data_quote_end = DateTime.Parse("2019-11-03T17:55:07.6724523Z"),
                     data_orderbook_start = DateTime.Parse("2014-02-24T17:43:05.0000000Z"),
@@ -76,7 +74,6 @@ namespace Persistence
                 {
                     asset_id = "ADA",
                     name = "Cardano",
-                    type_is_crypto = true,
                     data_quote_start = DateTime.Parse("2014-02-24T17:43:05.0000000Z"),
                     data_quote_end = DateTime.Parse("2019-11-03T17:55:07.6724523Z"),
                     data_orderbook_start = DateTime.Parse("2014-02-24T17:43:05.0000000Z"),
