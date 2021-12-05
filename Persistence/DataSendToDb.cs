@@ -27,52 +27,51 @@ namespace Persistence
             internal static readonly SqlConnection
                 Conn = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
 
-            internal static readonly CoinApiRestClient Client = new CoinApiRestClient("F839D03C-1AAA-4864-80AC-39C2C5F8F8F2");
+            internal static readonly CoinApiRestClient Client =
+                new CoinApiRestClient("F839D03C-1AAA-4864-80AC-39C2C5F8F8F2");
         }
 
-        public static void SaveExchangerateSpecific(string assetIdBase, DateTime time, string assetIdQuote)
+        public static void SendToDb(string tableName, IEnumerable data)
         {
-            var exchange = Db.Client.Exchange_rates_get_specific_rateAsync(assetIdBase, assetIdQuote, time)
-                .GetAwaiter().GetResult();
+            var sql = new StringBuilder();
+            sql.AppendLine($"INSERT INTO {tableName}");
+            sql.AppendLine("(");
+            sql.AppendLine(string.Join(", ", data.GetType().GetProperties().Select(p => p.Name)));
+            sql.AppendLine(")");
+            sql.AppendLine("VALUES");
+            sql.AppendLine("(");
+            sql.AppendLine(string.Join(", ", data.GetType().GetProperties().Select(p => "@" + p.Name)));
+            sql.AppendLine(")");
 
-            var times = exchange.time;
-            var assetIdQuotes = exchange.asset_id_quote;
-            var rates = exchange.rate;
-
-            string query =
-                $"INSERT INTO Exchangerate VALUES (null, @time, @assetIdBase, @assetIdQuotes,@rates)";
-            SqlCommand command = new SqlCommand(query, Db.Conn);
-            command.Parameters.Add("@time", SqlDbType.DateTime).Value = times;
-            command.Parameters.Add("@assetIdBase", SqlDbType.Text).Value = assetIdBase;
-            command.Parameters.Add("@assetIdQuotes", SqlDbType.Text).Value = assetIdQuotes;
-            command.Parameters.Add("@rates", SqlDbType.Float).Value = rates;
-            Db.Conn.Open();
-        }
-
-        public static void SaveExchangerateAll(string assetIdBase)
-        {
-            var exchange = Db.Client.Exchange_rates_get_all_current_ratesAsync(assetIdBase).GetAwaiter().GetResult();
-
-            foreach (var items in exchange.rates)
+            using (var cmd = new SqlCommand(sql.ToString(), Db.Conn))
             {
-                var times = items.time;
-                var assetIdQuotes = items.asset_id_quote;
-                var rates = items.rate;
-                string query =
-                    $"INSERT INTO Exchangerate VALUES (null, @times, @assetIdBase, @assetIdQuotes, @rates)";
-                SqlCommand command = new SqlCommand(query, Db.Conn);
-                command.Parameters.Add("@times", SqlDbType.DateTime).Value = times;
-                command.Parameters.Add("@assetIdBase", SqlDbType.Text).Value = assetIdBase;
-                command.Parameters.Add("@assetIdQuotes", SqlDbType.Text).Value = assetIdQuotes;
-                command.Parameters.Add("@rates", SqlDbType.Float).Value = rates;
-                
+                foreach (var prop in data.GetType().GetProperties())
+                {
+                    cmd.Parameters.AddWithValue("@" + prop.Name, prop.GetValue(data));
+                }
+
                 Db.Conn.Open();
+                cmd.ExecuteNonQuery();
+                Db.Conn.Close();
             }
         }
 
-        ~DataSendToDb()
+        public static void SaveAssetLight()
         {
-            Db.Conn.Close();
+            
+        }
+
+        public void DowloadAssetData()
+        {
+            var assets = Db.Client.Metadata_list_assetsAsync();
+            SendToDb("Asset", assets.Result.ToArray());
+            SaveAssetLight();
+        }
+
+        public void DowloadIcon()
+        {
+            var icons = Db.Client.Metadata_list_assets_iconsAsync(20);
+            SendToDb("Icon", icons.Result.ToArray());
         }
     }
 }

@@ -17,20 +17,20 @@ namespace Persistence
             var assetLight = new List<AssetLight>
             {
                 new AssetLight
-                {
-                main_asset_id = "",
+                { 
+                    Asset = "",
                 name = "Bitcoin",
                 short_name = "BTC",
                 },
                 new AssetLight
                 {
-                main_asset_id = "",
+                    Asset = "",
                 name = "Etherum",
                 short_name = "ETH",
                 },
                 new AssetLight
                 {
-                main_asset_id = "",
+                Asset = "",
                 name = "Cardano",
                 short_name = "ADA",
                 },
@@ -253,13 +253,13 @@ namespace Persistence
             // };
 
             await context.Asset.AddRangeAsync(asset);
-            await context.Exchange.AddRangeAsync(exchange);
-            await context.OHLCV.AddRangeAsync(ohlc);
+         //   await context.Exchange.AddRangeAsync(exchange);
+         //   await context.OHLCV.AddRangeAsync(ohlc);
             //await context.Orderbook.AddRangeAsync(orderbook);
             // await context.Orderbook3.AddRangeAsync(orderbook3);
             // await context.Quote.AddRangeAsync(quote);
-            await context.Period.AddRangeAsync(period);
-            await context.Symbol.AddRangeAsync(symbol);
+         //   await context.Period.AddRangeAsync(period);
+          //  await context.Symbol.AddRangeAsync(symbol);
             await context.Icon.AddRangeAsync(icon);
             await context.SaveChangesAsync();
         }
