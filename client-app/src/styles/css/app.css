@@ -460,7 +460,7 @@
   left: 10%;
   top: 5%;
   width: fit-content;
-  padding: 0 20px 0 20px;
+  padding: 0 20px;
   height: 150px;
   background-color: black;
   border-radius: 25px;
@@ -505,5 +505,3 @@ body {
   padding: 0;
   font-family: "Montserrat", sans-serif;
 }
-
-/*# sourceMappingURL=app.css.map */
