@@ -15,9 +15,9 @@ import axios from "axios";
 
 function App() {
   const [cryptoAssetsLoaded, setCryptoAssetsLoaded] = useState(false);
+  const [newsLoaded, setNewsLoaded] = useState(false);
   const [cryptoAssets, setCryptoAssets] = useState();
   const [cryptoAssetsLight, setCryptoAssetsLight] = useState();
-  const [newsLoaded, setNewsLoaded] = useState(false);
   const [news, setNews] = useState();
 
   useEffect(() => {
@@ -26,9 +26,6 @@ function App() {
     }).then(() => {setNewsLoaded(true)})
   }, []);
 
-  useEffect(() => {
-    console.log(news)
-  },[news])
 
 
   useEffect(() => {

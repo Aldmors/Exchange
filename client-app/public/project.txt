@@ -2,7 +2,13 @@ PROJECT RUN :
 - npm start
 - npm run sass
 
-TODO :
+TODO NOW :
+- crypto-data - new concept
+- finish crypto-data
+- loading on request
+- concurrently
+
+TODO but later :
 - refactor scss
 - refactor news components
 - axios erroe handling
