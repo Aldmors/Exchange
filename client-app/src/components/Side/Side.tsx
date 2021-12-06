@@ -9,9 +9,10 @@ import jsonFacts from "./facts.json"
 
 export default function Side() {
   const generateFact = () => {
-    return jsonFacts[Math.floor(Math.random() * (16 - 1) + 1)]
+    let randomNum = Math.floor(Math.random() * (16 - 1 + 1) + 1)
+    return jsonFacts[randomNum]
    }
-   
+
   return (
     <>
       <div className="side">
