@@ -57,7 +57,7 @@ export default function MarketFile(props:any) {
       ];
 
     return (
-        <Link to={`/crypto/${crypto.asset_id.toLowerCase()}`} 
+        <Link to={`/crypto/${crypto.asset_id.toLowerCase()}`}
         state={{cryptoId:crypto.id}} style={{textDecoration:"none"}} className="marketFile">
             <div className="index">{props.index+1}</div>
             <div className="name"><img className="logo" src={getCryptoImage()} alt={crypto.asset_id}/> {crypto.name} ({crypto.asset_id})</div>
