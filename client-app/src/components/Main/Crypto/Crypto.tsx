@@ -2,6 +2,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router";
+import DataFile from "./DataFile";
+import {ResponsiveContainer, AreaChart, LineChart,Area ,CartesianGrid,XAxis,YAxis,Tooltip,Legend,Line} from 'recharts';
+import Loading from '../Loading'
 
 export default function Crypto(props: any) {
   const location = useLocation()
@@ -25,7 +28,59 @@ export default function Crypto(props: any) {
     console.log(crypto)
   }, [crypto])
 
+  const generateCryptoData = () => {
+    let newCrypto = Object.keys(crypto)
+    newCrypto.shift()
+    return newCrypto.map((k,index) => (
+      <DataFile k={k.replace(/[_]+/g," ")} v={crypto[k]}></DataFile>
+    ))
+  } 
 
+
+  const data = [
+    {
+      name: 'Page A',
+      uv: 4000,
+      pv: 2400,
+      amt: 2400,
+    },
+    {
+      name: 'Page B',
+      uv: 3000,
+      pv: 1398,
+      amt: 2210,
+    },
+    {
+      name: 'Page C',
+      uv: 2000,
+      pv: 9800,
+      amt: 2290,
+    },
+    {
+      name: 'Page D',
+      uv: 2780,
+      pv: 3908,
+      amt: 2000,
+    },
+    {
+      name: 'Page E',
+      uv: 1890,
+      pv: 4800,
+      amt: 2181,
+    },
+    {
+      name: 'Page F',
+      uv: 2390,
+      pv: 3800,
+      amt: 2500,
+    },
+    {
+      name: 'Page G',
+      uv: 3490,
+      pv: 4300,
+      amt: 2100,
+    },
+  ];
   return (
     <>
       <div className="main crypto">
@@ -34,20 +89,35 @@ export default function Crypto(props: any) {
           <div className="crypto-name-name">{crypto.name} ({crypto.asset_id})</div>
         </div>
         <div className="crypto-data">
-            <div><span>Name :</span> <span>{crypto.name} ({crypto.asset_id})</span></div>
-            <div><span>Price :</span> <span>{crypto.price_usd}$</span></div>
-            <div><span>Volume in 1h :</span> <span>{crypto.volume_1hrs_usd}$</span></div>
-            <div><span>Volume in 1 day :</span> <span>{crypto.volume_1day_usd}$</span></div>
-            <div><span>Volume in 1 mth :</span> <span>{crypto.volume_1mth_usd}$</span></div>
-            <div><span>First quote :</span> <span>{crypto.data_quote_start}</span></div>
-            <div><span>Last quote :</span> <span>{crypto.data_quote_end}</span></div>
-            <div><span>First order book:</span> <span>{crypto.data_orderbook_start}</span></div>
-            <div><span>Last order book:</span> <span>{crypto.data_orderbook_end}</span></div>
-            <div><span>First trade :</span> <span>{crypto.data_trade_start}</span></div>
-            <div><span>Last trade :</span> <span>{crypto.data_trade_end}</span></div>
-            <div><span>Quote count :</span> <span>{crypto.data_qoute_count}</span></div>
-            <div><span>Trade count :</span> <span>{crypto.data_trade_count}</span></div>
-            <div><span>Symbols count :</span> <span>{crypto.data_symbols_count}</span></div>
+            {generateCryptoData()}
+        </div>
+        <div className="crypto-charts">
+          <div className="chart-top">
+          <ResponsiveContainer width="90%" height="90%">
+              <LineChart width={700} height={210} data={data}
+                margin={{ top: 30, right: 30, left: 20, bottom: 5 }}>
+                <CartesianGrid strokeDasharray="4 4" />
+                <XAxis dataKey="name" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Line type="monotone" dataKey="pv" stroke="#8884d8" />
+                <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+              </LineChart>
+            </ResponsiveContainer>
+          </div>
+          <div className="chart-bottom">
+          <ResponsiveContainer width="90%" height="90%">
+            <AreaChart width={700} height={210} data={data} 
+            margin={{top: 30,right: 30,left: 0,bottom: 0,}}>
+              <CartesianGrid strokeDasharray="4 4" />
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+              <Area type="monotone" dataKey="uv" stroke="#8884d8" fill="#8884d8" />
+            </AreaChart>
+          </ResponsiveContainer>
+          </div>
         </div>
       </div>
     </>
