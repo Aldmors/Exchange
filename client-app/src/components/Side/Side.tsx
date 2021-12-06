@@ -5,8 +5,13 @@ import trending from "./../../img/trending.png";
 import market from "./../../img/market.png";
 import swal from "sweetalert";
 import { Link } from "react-router-dom";
+import jsonFacts from "./facts.json"
 
 export default function Side() {
+  const generateFact = () => {
+    return jsonFacts[Math.floor(Math.random() * (16 - 1) + 1)]
+   }
+   
   return (
     <>
       <div className="side">
@@ -23,7 +28,10 @@ export default function Side() {
         </div>
         <div className="side-bottom">
           <div>
-            <h1 style={{ color: "red" }}>TODO</h1>
+            <div className="side-bottom-fact">
+              <div className="side-bottom-fact-did">Did you know ...</div>
+              <div className="side-bottom-fact-content">{generateFact()}</div>
+            </div>
           </div>
           <div>
             <i

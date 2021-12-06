@@ -244,6 +244,10 @@
 }
 .side .side-bottom {
   margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .side .side-bottom i {
   font-size: 0.8em;
@@ -257,6 +261,30 @@
 .side .side-bottom i:active {
   text-decoration: none;
   color: #6e5654;
+}
+.side .side-bottom .side-bottom-fact {
+  width: 260px;
+  height: fit-content;
+  max-height: 400px;
+  margin-bottom: 50px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border-radius: 25px;
+  background-color: #33c481;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.side .side-bottom .side-bottom-fact div {
+  margin: 10px;
+}
+.side .side-bottom .side-bottom-fact .side-bottom-fact-did {
+  font-size: 1.5em;
+  font-weight: bold;
+  align-self: flex-start;
+}
+.side .side-bottom .side-bottom-fact .side-bottom-fact-content {
+  font-family: "Roboto";
 }
 
 .rounded-connection-triangle {

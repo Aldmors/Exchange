@@ -96,7 +96,7 @@ export default function Crypto(props: any) {
           <ResponsiveContainer width="90%" height="90%">
               <LineChart width={700} height={210} data={data}
                 margin={{ top: 30, right: 30, left: 20, bottom: 5 }}>
-                <CartesianGrid strokeDasharray="4 4" />
+                {/* <CartesianGrid strokeDasharray="4 4" /> */}
                 <XAxis dataKey="name" />
                 <YAxis />
                 <Tooltip />
@@ -110,7 +110,7 @@ export default function Crypto(props: any) {
           <ResponsiveContainer width="90%" height="90%">
             <AreaChart width={700} height={210} data={data} 
             margin={{top: 30,right: 30,left: 0,bottom: 0,}}>
-              <CartesianGrid strokeDasharray="4 4" />
+              {/* <CartesianGrid strokeDasharray="4 4" /> */}
               <XAxis dataKey="name" />
               <YAxis />
               <Tooltip />
