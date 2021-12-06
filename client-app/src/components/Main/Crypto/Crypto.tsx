@@ -34,7 +34,7 @@ export default function Crypto(props: any) {
     return newCrypto.map((k,index) => (
       <DataFile k={k.replace(/[_]+/g," ")} v={crypto[k]}></DataFile>
     ))
-  } 
+  }
 
 
   const data = [
@@ -108,7 +108,7 @@ export default function Crypto(props: any) {
           </div>
           <div className="chart-bottom">
           <ResponsiveContainer width="90%" height="90%">
-            <AreaChart width={700} height={210} data={data} 
+            <AreaChart width={700} height={210} data={data}
             margin={{top: 30,right: 30,left: 0,bottom: 0,}}>
               <CartesianGrid strokeDasharray="4 4" />
               <XAxis dataKey="name" />
