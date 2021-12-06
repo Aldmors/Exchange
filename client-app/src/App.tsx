@@ -20,11 +20,11 @@ function App() {
   const [cryptoAssetsLight, setCryptoAssetsLight] = useState();
   const [news, setNews] = useState();
 
-  // useEffect(() => {
-  //   axios.get("http://127.0.0.1:4000/articles").then(function (response) {
-  //     setNews(response.data)
-  //   }).then(() => {setNewsLoaded(true)})
-  // }, []);
+  useEffect(() => {
+    axios.get("http://127.0.0.1:4000/articles").then(function (response) {
+      setNews(response.data)
+    }).then(() => {setNewsLoaded(true)})
+  }, []);
 
 
 
@@ -40,6 +40,7 @@ function App() {
   }, []);
 
 
+
   const renderSite = () => {
     if(cryptoAssetsLoaded === true && newsLoaded === true){
       return(
@@ -47,11 +48,11 @@ function App() {
           <Navbar lightAssets={cryptoAssetsLight}></Navbar>
           <Side></Side>
           <Routes>
-            <Route path="/" element={<Navigate to="/news" />}></Route>
+            <Route path="/" element={<Navigate to="/market" />}></Route>
+            <Route path="/market" element={<Market cryptos={cryptoAssets}></Market>}></Route>
             {/* <Route path="/news" element={<News articles={news}></News>}></Route>
             <Route path="/news/:article" element={<FullArticle></FullArticle>}></Route> */}
             <Route path="/trending" element={<Trending></Trending>}></Route>
-            <Route path="/market" element={<Market></Market>}></Route>
             <Route path="/crypto/:crypto" element={<Crypto></Crypto>}></Route>
           </Routes>
         </div>

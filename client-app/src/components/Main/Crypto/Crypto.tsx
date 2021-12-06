@@ -18,7 +18,7 @@ export default function Crypto(props: any) {
     })
   },[cryptoId])
 
-  const getResultImage = () => {
+  const getCryptoImage = () => {
     let lowerAsset = "" + crypto.asset_id
     lowerAsset = lowerAsset.toLowerCase()
     return `https://cryptoicon-api.vercel.app/api/icon/${lowerAsset}`;
@@ -85,7 +85,7 @@ export default function Crypto(props: any) {
     <>
       <div className="main crypto">
         <div className="crypto-name">
-          <img src={getResultImage()} alt={crypto.asset_id}/>
+          <img src={getCryptoImage()} alt={crypto.asset_id}/>
           <div className="crypto-name-name">{crypto.name} ({crypto.asset_id})</div>
         </div>
         <div className="crypto-data">

@@ -18,13 +18,13 @@ export default function Side() {
       <div className="side">
         <div className="side-top">
           <Link style={{ textDecoration: "none" }} to="/">
+            <SideButton name={"Market"} logo={market} />
+          </Link>
+          <Link style={{ textDecoration: "none" }} to="/news">
             <SideButton name={"News"} logo={news} />
           </Link>
           <Link style={{ textDecoration: "none" }} to="/trending">
             <SideButton name={"Trending"} logo={trending} />
-          </Link>
-          <Link style={{ textDecoration: "none" }} to="/market">
-            <SideButton name={"Market"} logo={market} />
           </Link>
         </div>
         <div className="side-bottom">

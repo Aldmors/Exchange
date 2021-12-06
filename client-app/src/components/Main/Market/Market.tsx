@@ -1,9 +1,24 @@
 import React from "react";
+import MarketFile from "./MarketFile";
 
-export default function Market() {
+export default function Market(props:any) {
+  
+  const generateFiles = () => {
+    return props.cryptos.map((item:any,index:any) => (<MarketFile crypto={item} index={index}></MarketFile>))
+  }
+
   return (
     <div className="main">
-      <h1>Market</h1>
+      <div className="marketLegend">
+        <div className="index">#</div>
+        <div>ICON/NAME</div>
+        <div>PRICE</div>
+        <div>VOLUME IN 1 HOUR</div>
+        <div>VOLUME IN 1 DAY</div>
+        <div>VOLUME IN 1 MONTH</div>
+        <div>LAST DAYS</div>
+      </div>
+      {generateFiles()}
     </div>
   );
 }

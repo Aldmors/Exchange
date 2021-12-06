@@ -1,0 +1,72 @@
+.marketLegend {
+    box-sizing: border-box;
+    width: 100%;
+    height: 30px;
+    background-color: gold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    div {
+        width: 15%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        font-weight: bold;
+    }
+
+    .index {
+        width: 1%;
+        margin-left: 10px;
+    }
+}
+
+
+.marketFile {
+    box-sizing: border-box;
+    width: 100%;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    background-color: black;
+
+    &:hover {
+        background-color:rgb(51, 196, 129);
+        color:black;
+    }
+
+
+    div {
+        width: 15%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        transition: 0.1s ease-in-out;
+        font-weight: bold;
+    }
+
+    .index {
+        width: 1%;
+        margin-left: 10px;
+    }
+
+    .name {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap:15px;
+        overflow: hidden;
+        img {
+            width: 72px;
+            height: 72px;
+        }
+    }
+
+    .chart {
+        font-size: 1em;
+        height: 90px;
+    }
+}

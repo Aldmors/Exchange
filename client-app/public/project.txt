@@ -3,12 +3,14 @@ PROJECT RUN :
 - npm run sass
 
 TODO NOW :
-- loading on request
+- trending (static)
+- settings 
+- favorites
 
 TODO but later :
+- general refactor
 - charts config
 - refactor scss
-- refactor news components
 - axios error handling
 - axios final setup
 - main/loading.tsx ?
