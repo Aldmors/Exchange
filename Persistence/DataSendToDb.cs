@@ -56,19 +56,15 @@ namespace Persistence
             }
         }
 
-        public static void SaveAssetLight()
-        {
-            
-        }
+        
 
-        public void DowloadAssetData()
+        public static void DowloadAssetData()
         {
             var assets = Db.Client.Metadata_list_assetsAsync();
             SendToDb("Asset", assets.Result.ToArray());
-            SaveAssetLight();
         }
 
-        public void DowloadIcon()
+        public static void DowloadIcon()
         {
             var icons = Db.Client.Metadata_list_assets_iconsAsync(20);
             SendToDb("Icon", icons.Result.ToArray());

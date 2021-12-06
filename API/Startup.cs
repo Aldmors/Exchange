@@ -19,8 +19,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using NLog;
-using Persistence;
 using LoggerService;
+using Persistence;
 
 namespace API
 {
@@ -44,7 +44,7 @@ namespace API
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerManager logger)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerManager logger, IHostApplicationLifetime appLifetime)
         {
             if (env.IsDevelopment())
             {
@@ -66,6 +66,13 @@ namespace API
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
             
             app.ConfigureCustomExceptionMiddleware();
+            
+            appLifetime.ApplicationStarted.Register(OnStarted);
+        }
+        private void OnStarted()
+        {
+            Persistence.DataSendToDb.DowloadAssetData();
+            Persistence.DataSendToDb.DowloadIcon();
         }
     }
 }
