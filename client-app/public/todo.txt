@@ -9,3 +9,4 @@ TODO but later :
 - general optimization
 - smooth transitions 
 - more facts
+- mobile version
