@@ -31,6 +31,7 @@ export default function Crypto(props: any) {
   const generateCryptoData = () => {
     let newCrypto = Object.keys(crypto)
     newCrypto.shift()
+    newCrypto.splice(2,1)
     return newCrypto.map((k,index) => (
       <DataFile k={k.replace(/[_]+/g," ")} v={crypto[k]}></DataFile>
     ))

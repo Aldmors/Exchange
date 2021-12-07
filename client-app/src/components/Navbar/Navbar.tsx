@@ -7,7 +7,7 @@ export default function Navbar(props:any) {
   return (
     <nav className="navbar">
       <Exchange /> {/*Logo + title on the left */}
-      <Search lightAssets={props.lightAssets}></Search> {/*Middle input */}
+      <Search lightCryptos={props.lightCryptos}></Search> {/*Middle input */}
       <Menu /> {/*Notification bell on the right */}
     </nav>
   );

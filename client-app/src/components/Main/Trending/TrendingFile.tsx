@@ -1,12 +1,14 @@
 // @ts-nocheck
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import {ResponsiveContainer,LineChart,XAxis,YAxis,Tooltip,Legend,Line} from "recharts"
-import { Link } from 'react-router-dom';
 import trendingUp from "./../../../img/trendingUp.png"
 import trendingDown from "./../../../img/trendingDown.png"
 import parse from "html-react-parser"
+import { Link } from 'react-router-dom'
 
-export default function MarketFile(props:any) {
+export default function TrendingFile(props:any) {
+    const [trend,setTrend] = useState(0)
+    const [trendingClass,setTrendingClass] = useState("trendingFile")
     const crypto = props.crypto
 
     const getCryptoImage = () => {
@@ -14,6 +16,37 @@ export default function MarketFile(props:any) {
         lowerAsset = lowerAsset.toLowerCase()
         return `https://cryptoicon-api.vercel.app/api/icon/${lowerAsset}`;
       };
+
+      useEffect(() => {
+        let rand = (Math.random() * (20 - (-20)) + -20)
+        setTrend(rand)
+      },[])
+
+
+      const generateTrend = () => {
+        if(trend > 0) {
+          // setTrend(rand)
+          return `<div className=\"trendUp\"><img src=${trendingUp} alt="crpytoImg"/> ${trend.toFixed(2)}%</div>`
+        } else if(trend <= 0) {
+          // setTrend(rand)
+          return `<div className=\"trendDown\"><img src=${trendingDown} alt="crpytoImg"/> <div>${trend.toFixed(2)}%</div></div>`
+        }
+      } 
+
+      const generateClassName = () => {
+        if(trend > 15) {
+          return "trendingFile gold"
+        } else if (trend < 15 && trend > 0) {
+          return "trendingFile green"
+        } else if (trend < 0) {
+          return "trendingFile red"
+        }
+      }
+
+      // useEffect(() => {
+      //   console.log(trend)
+      // },[trend])
+
 
       const data = [
         {
@@ -60,36 +93,21 @@ export default function MarketFile(props:any) {
         },
       ];
 
-      const generateTrend = () => {
-        let rand = (Math.random() * (20 - (-20)) + -20)
-        if(rand > 0) {
-          return `<div className=\"trendUp\"><img src=${trendingUp} alt=""/> ${rand.toFixed(2)}%</div>`
-        } else if(rand <= 0) {
-          return `<div className=\"trendDown\"><img src=${trendingDown} alt=""/> ${rand.toFixed(2)}%</div>`
-        }
-      }
-
-      generateTrend()
 
     return (
-        <Link to={`/crypto/${crypto.asset_id.toLowerCase()}`} 
-        state={{cryptoId:crypto.id}} style={{textDecoration:"none"}} className="marketFile" cursor="pointer">
-            <div className="index">{props.index+1}</div>
-            <div className="name"><img className="logo" src={getCryptoImage()} alt={crypto.asset_id}/> {crypto.name} ({crypto.asset_id})</div>
+      <Link to={`/crypto/${crypto.asset_id.toLowerCase()}`} 
+      state={{cryptoId:crypto.id}} style={{textDecoration:"none"}} className={generateClassName()}>
+            <div className="name">
+              <img className="cryptoImage" src={getCryptoImage()} alt={crypto.asset_id}/>
+              <div>{crypto.name} ({crypto.asset_id})</div>
+            </div>
 
-            {/* <div className="trend"><img src={trendingUp} alt=""/> 9,52%</div> */}
-            {parse(generateTrend())}
-
-            <div className="price">{crypto.price_usd}$</div>
-
-            <div className="volume1hrs">{crypto.volume_1hrs_usd}$</div>
-
-            <div className="volume1day">{crypto.volume_1day_usd}$</div>
+            <div className="trendTrending">{parse(generateTrend())}</div>
 
             <div className="chart">
                 <ResponsiveContainer width="90%" height="90%">
                     <LineChart data={data}
-                        margin={{top:20}}>
+                        margin={{top:30}} cursor="pointer">
                         {/* <CartesianGrid strokeDasharray="4 4" /> */}
                         <XAxis dataKey="name" />
                         {/* <YAxis /> */}

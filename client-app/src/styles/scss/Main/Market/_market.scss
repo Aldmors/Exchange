@@ -34,8 +34,11 @@
 
     &:hover {
         background-color:rgb(51, 196, 129);
+        background-color:white;
         color:black;
     }
+
+
 
 
     div {
@@ -62,6 +65,24 @@
         img {
             width: 72px;
             height: 72px;
+        }
+    }
+
+    .trendUp {
+        gap:10px;
+        color:rgb(51, 196, 129);
+        img {
+            margin-top:5px;
+            filter: invert(63%) sepia(12%) saturate(2200%) hue-rotate(100deg) brightness(100%) contrast(84%);
+        }
+    }
+
+    .trendDown {
+        gap:10px;
+        color:#c43833;
+        img {
+            margin-top:5px;
+            filter: invert(20%) sepia(68%) saturate(2584%) hue-rotate(343deg) brightness(105%) contrast(84%);
         }
     }
 

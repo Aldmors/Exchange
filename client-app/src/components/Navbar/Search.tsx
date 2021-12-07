@@ -28,7 +28,7 @@ function Search(props:any) {
   //   usdc: ["usdcID", "USD Coin"],
   // });
 
-  const[data,setData] = useState(props.lightAssets)
+  const[data,setData] = useState(props.lightCryptos)
 
   const isFirstRender = useRef(true);
   useEffect(() => {

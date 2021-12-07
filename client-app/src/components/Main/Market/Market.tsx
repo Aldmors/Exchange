@@ -12,10 +12,10 @@ export default function Market(props:any) {
       <div className="marketLegend">
         <div className="index">#</div>
         <div>ICON/NAME</div>
+        <div>%</div>
         <div>PRICE</div>
         <div>VOLUME IN 1 HOUR</div>
         <div>VOLUME IN 1 DAY</div>
-        <div>VOLUME IN 1 MONTH</div>
         <div>LAST DAYS</div>
       </div>
       {generateFiles()}

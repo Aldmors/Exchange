@@ -371,6 +371,7 @@
 }
 .marketFile:hover {
   background-color: #33c481;
+  background-color: white;
   color: black;
 }
 .marketFile div {
@@ -396,6 +397,22 @@
 .marketFile .name img {
   width: 72px;
   height: 72px;
+}
+.marketFile .trendUp {
+  gap: 10px;
+  color: #33c481;
+}
+.marketFile .trendUp img {
+  margin-top: 5px;
+  filter: invert(63%) sepia(12%) saturate(2200%) hue-rotate(100deg) brightness(100%) contrast(84%);
+}
+.marketFile .trendDown {
+  gap: 10px;
+  color: #c43833;
+}
+.marketFile .trendDown img {
+  margin-top: 5px;
+  filter: invert(20%) sepia(68%) saturate(2584%) hue-rotate(343deg) brightness(105%) contrast(84%);
 }
 .marketFile .chart {
   font-size: 1em;
@@ -655,6 +672,71 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.trending {
+  display: flex;
+  flex-wrap: wrap;
+}
+.trending .gold {
+  background-color: gold;
+}
+.trending .green {
+  background-color: #33c481;
+}
+.trending .red {
+  background-color: #c43833;
+}
+.trending .trendingFile {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  box-sizing: border-box;
+  width: 25%;
+  height: 90px;
+  border: 1px solid white;
+}
+.trending .trendingFile:hover {
+  background-color: white;
+  cursor: pointer;
+}
+.trending .trendingFile .name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-weight: bold;
+  color: black;
+}
+.trending .trendingFile .cryptoImage {
+  width: 60px;
+  height: 60px;
+}
+.trending .trendingFile .trendTrending {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.trending .trendingFile .trendTrending img {
+  width: 36px;
+  height: 36px;
+}
+.trending .trendingFile .trendTrending .trendUp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.trending .trendingFile .trendTrending .trendDown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.trending .trendingFile .chart {
+  width: 150px;
+  height: 90px;
 }
 
 body {
