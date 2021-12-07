@@ -8,27 +8,14 @@ import React, { useState, useRef, useEffect } from "react";
 import SearchResults from "./SearchResults";
 import cross from "../../img/cross.png";
 
-function Search(props:any) {
+function Search(props: any) {
   const [userInput, setUserInput] = useState("");
   const userInputRef = useRef(null);
   const [resultShown, setResultShown] = useState(false);
   const [resultBoxHeight, setResultBoxHeight] = useState("900px");
   const [currentResultCount, setCurrentResultCount] = useState(0);
   const [filteredData, setFilteredData] = useState([]);
-  // const [data, setData] = useState({
-  //   btc: ["btcID", "Bitcoin"],
-  //   eth: ["ethID", "Ethereum"],
-  //   bnb: ["bnbID", "Binance Coin"],
-  //   usdt: ["usdtID", "Tether"],
-  //   sol: ["solID", "Solana"],
-  //   ada: ["adaID", "Cardano"],
-  //   xrp: ["xrpID", "XRP"],
-  //   dot: ["dotID", "Polkadot"],
-  //   doge: ["dogeID", "Dogecoin"],
-  //   usdc: ["usdcID", "USD Coin"],
-  // });
-
-  const[data,setData] = useState(props.lightCryptos)
+  const [data] = useState(props.lightCryptos);
 
   const isFirstRender = useRef(true);
   useEffect(() => {
@@ -36,11 +23,22 @@ function Search(props:any) {
       isFirstRender.current = false;
       return;
     }
-    handleResultShown();
-    handleResultBoxHeight();
-  }, [userInput]);
 
-  const handleUserInput = (e) => {
+    if (userInput === "" || Math.ceil(filteredData.length / 4) === 0) {
+      setResultShown(false);
+    } else if (userInput !== "") {
+      setResultShown(true);
+    }
+
+    let tempResultBoxHeight = 110 * Math.ceil(filteredData.length / 4);
+    if (tempResultBoxHeight > 725) {
+      tempResultBoxHeight = 725;
+    }
+    setCurrentResultCount(filteredData.length);
+    setResultBoxHeight(`${tempResultBoxHeight}px`);
+  }, [userInput, filteredData.length]);
+
+  const handleUserInput = (e: any) => {
     e.target.value = e.target.value.toUpperCase();
     setUserInput(e.target.value);
     getSearchedData();
@@ -49,23 +47,6 @@ function Search(props:any) {
   const handleUserInputEmpty = () => {
     userInputRef.current.value = "";
     setUserInput("");
-  };
-
-  const handleResultShown = () => {
-    if (userInput === "" || Math.ceil(filteredData.length / 4) === 0) {
-      setResultShown(false);
-    } else if (userInput !== "") {
-      setResultShown(true);
-    }
-  };
-
-  const handleResultBoxHeight = () => {
-    let tempResultBoxHeight = 110 * Math.ceil(filteredData.length / 4);
-    if (tempResultBoxHeight > 725) {
-      tempResultBoxHeight = 725;
-    }
-    setCurrentResultCount(filteredData.length);
-    setResultBoxHeight(`${tempResultBoxHeight}px`);
   };
 
   const getSearchedData = () => {
@@ -125,4 +106,4 @@ function Search(props:any) {
   );
 }
 
-export default React.memo(Search)
+export default React.memo(Search);

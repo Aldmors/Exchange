@@ -3,12 +3,12 @@ import Search from "./Search";
 import Exchange from "./Exchange";
 import Menu from "./Menu";
 
-export default function Navbar(props:any) {
+export default function Navbar(props: any) {
   return (
     <nav className="navbar">
-      <Exchange /> {/*Logo + title on the left */}
-      <Search lightCryptos={props.lightCryptos}></Search> {/*Middle input */}
-      <Menu /> {/*Notification bell on the right */}
+      <Exchange />
+      <Search lightCryptos={props.lightCryptos}></Search>
+      <Menu />
     </nav>
   );
 }

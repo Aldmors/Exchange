@@ -1,0 +1,13 @@
+@import "./navbarExchange";
+@import "./navbarSearch";
+@import "./navbarMenu";
+
+.navbar {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  width: 100vw;
+  height: 100px;
+  background-color: black;
+  color: white;
+}

@@ -1,0 +1,135 @@
+// Middle part of nav - search bar
+.navbar-search {
+  position: relative;
+  left: -5%;
+  top: -5%;
+
+  // Input field
+  .navbar-search-input {
+    text-align: center;
+    width: 400px;
+    height: 45px;
+    background-color: rgb(44, 49, 60);
+    border: 1px solid black;
+    border-radius: 25px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.5em;
+    color: white;
+
+    // Making cooler focus
+    &:focus {
+      outline: none;
+      border: 2px solid rgb(51, 196, 129);
+    }
+
+    // Hiding placeholder when typing
+    &:focus::placeholder {
+      color: transparent;
+    }
+  }
+
+  .navbar-search-input-cross {
+    filter: invert(27%) sepia(12%) saturate(1478%) hue-rotate(145deg) brightness(91%) contrast(90%);
+    width: 32px;
+    height: 32px;
+    position: relative;
+    left: -60px;
+    top: 8px;
+    transition: 0.1s ease-in-out;
+    display: inline;
+
+    &:hover {
+      filter: invert(20%) sepia(68%) saturate(2771%) hue-rotate(344deg) brightness(104%) contrast(96%);
+      cursor: pointer;
+    }
+
+    &:active {
+      transform: scale(0.9);
+    }
+  }
+
+  // Whole box showing under input field connecting with it
+  .navbar-search-results {
+    position: absolute;
+    top: 90%;
+    width: 404px;
+    height: 440px;
+    background-color: rgb(44, 49, 60);
+    border-style: solid;
+    border-color: rgb(51, 196, 129);
+    border-width: 0 2px 2px;
+    border-radius: 0 0 25px 25px;
+    overflow-y: hidden;
+    z-index: 99;
+
+    // Container for results from search displaying them flex
+    .nav-search-flex {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    // Hr line when result box is shown right under input field
+    hr {
+      width: 80%;
+      height: 0.5px;
+    }
+
+    // Styling of results if there are more then one on screen, displaying them "in grid", still flex
+    .navbar-search-results-link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 99px;
+      height: 99px;
+      font-size: 0.75em;
+      border-radius: 25px;
+      color: white;
+
+      // Currency logo when they're small "in grid"
+      img {
+        width: 60px;
+        height: 60px;
+      }
+
+      // Hover effect on one small result
+      &:hover {
+        background-color: grey;
+        cursor: pointer;
+      }
+    }
+
+    // Styling of one result, if there's one with width on whole box
+    .navbar-search-results-oneLink {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 120%;
+      margin: 3%;
+      border-radius: 25px;
+      color: white;
+
+      // Currency logo when there's last wide one result on screen
+      img {
+        width: 60px;
+        height: 60px;
+        margin-right: 5px;
+      }
+
+      // Name of currency when there's last wide one result on screen
+      b {
+        font-size: 2em;
+      }
+
+      // Hover effect on whole result
+      &:hover {
+        height: 120%;
+        background-color: grey;
+        cursor: pointer;
+      }
+    }
+  }
+}

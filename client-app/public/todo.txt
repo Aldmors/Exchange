@@ -1,0 +1,11 @@
+TODO NOW :
+- 
+
+TODO but later :
+- icons
+- historical data + all charts config + trend's config
+- trendings sorting
+- users + fav + settings
+- general optimization
+- smooth transitions 
+- more facts

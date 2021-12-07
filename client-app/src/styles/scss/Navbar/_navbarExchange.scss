@@ -1,0 +1,23 @@
+// Left side of nav - logo with Exchange
+.navbar-exchange {
+  position: relative;
+  left: 5%;
+  font-size: 2em;
+  transition: 0.1s ease-in-out;
+  user-select: none;
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  // Money logo image next to "Exchange"
+  .navbar-exchange-logo {
+    position: relative;
+    top: 20px;
+    color: white;
+  }
+
+  // "Exchange"
+  .navbar-exchange-name {
+    color: white;
+  }
+}

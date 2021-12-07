@@ -1,76 +1,77 @@
 .trending {
+  display: flex;
+  flex-wrap: wrap;
+
+  .trendingFile {
     display: flex;
-    flex-wrap: wrap;
-    .gold {
-        background-color: gold;
+    align-items: center;
+    justify-content: space-around;
+    box-sizing: border-box;
+    width: 25%;
+    height: 90px;
+    border: 1px solid white;
+
+    &:hover {
+      background-color: gold;
+      border: 1px solid white;
+      cursor: pointer;
     }
 
-    .green {
-        background-color: rgb(51, 196, 129);
+    .name {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-weight: bold;
+      color: black;
+      font-size: 0.9em;
     }
 
-    .red {
-        background-color: #c43833;
+    .cryptoImage {
+      width: 60px;
+      height: 60px;
     }
 
-    .trendingFile {
+    .trendTrending {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      img {
+        width: 36px;
+        height: 36px;
+      }
+
+      .trendUp {
         display: flex;
+        justify-content: center;
         align-items: center;
-        justify-content: space-around;
-        box-sizing: border-box;
-        width: 25%;
-        height: 90px;
-        border:1px solid white;
-        // color:white;
+        flex-direction: column;
+      }
 
-        &:hover {
-            background-color: white;
-            cursor: pointer;
-        }
-
-        .name {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            font-weight: bold;
-            color: black;
-        }
-
-        .cryptoImage {
-            width: 60px;
-            height: 60px;
-        }
-
-        .trendTrending {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            img {
-                width: 36px;
-                height: 36px;
-            }
-
-            .trendUp {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: column;
-            }
-
-            .trendDown {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: column;
-            }
-        }
-
-        .chart {
-            width: 150px;
-            height: 90px;
-        }
+      .trendDown {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
     }
 
+    .chart {
+      width: 150px;
+      height: 90px;
+    }
+  }
+
+  .gold {
+    background-color: gold;
+  }
+
+  .green {
+    background-color: rgb(51, 196, 129);
+  }
+
+  .red {
+    background-color: #c43833;
+  }
 }

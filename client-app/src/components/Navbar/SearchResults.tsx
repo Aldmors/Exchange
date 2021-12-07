@@ -1,4 +1,3 @@
-// @ts-nocheck
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -8,8 +7,12 @@ export default function SearchResults(props: any) {
   };
 
   return (
-    <Link style={{ textDecoration: "none" }} className={props.oneOrMany} to={`/crypto/${props.shortData.toLowerCase()}`} 
-    state={{cryptoId:props.cryptoId}}>
+    <Link
+      style={{ textDecoration: "none" }}
+      className={props.oneOrMany}
+      to={`/crypto/${props.shortData.toLowerCase()}`}
+      state={{ cryptoId: props.cryptoId }}
+    >
       <img alt="resultImage" src={GetResultImage(props.shortData)}></img>
       <b>{props.longData}</b>
     </Link>
