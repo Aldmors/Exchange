@@ -65,7 +65,7 @@ namespace API
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
             
-            app.ConfigureCustomExceptionMiddleware();
+            
             
             appLifetime.ApplicationStarted.Register(OnStarted);
         }

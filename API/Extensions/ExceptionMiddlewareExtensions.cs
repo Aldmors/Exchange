@@ -1,5 +1,4 @@
 ﻿using System.Net;
-using API.Middleware;
 using Domain.Models;
 using LoggerService;
 using Microsoft.AspNetCore.Builder;
@@ -25,15 +24,12 @@ namespace API.Extensions
                         await context.Response.WriteAsync(new ErrorDetails()
                         {
                             StatusCode = context.Response.StatusCode,
-                            Message = "Internal Server Error."
+                            Message = "Internal Server Error.2"
                         }.ToString());
                     }
                 });
             });
         }
-        public static void ConfigureCustomExceptionMiddleware(this IApplicationBuilder app)
-        {
-            app.UseMiddleware<CustomExceptionMiddleware>();
-        }
+        
     }
 }
