@@ -31,7 +31,7 @@ export default function TrendingFile(props:any) {
           // setTrend(rand)
           return `<div className=\"trendDown\"><img src=${trendingDown} alt="crpytoImg"/> <div>${trend.toFixed(2)}%</div></div>`
         }
-      } 
+      }
 
       const generateClassName = () => {
         if(trend > 15) {
@@ -95,7 +95,7 @@ export default function TrendingFile(props:any) {
 
 
     return (
-      <Link to={`/crypto/${crypto.asset_id.toLowerCase()}`} 
+      <Link to={`/crypto/${crypto.asset_id.toLowerCase()}`}
       state={{cryptoId:crypto.id}} style={{textDecoration:"none"}} className={generateClassName()}>
             <div className="name">
               <img className="cryptoImage" src={getCryptoImage()} alt={crypto.asset_id}/>
