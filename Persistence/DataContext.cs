@@ -1,6 +1,9 @@
+using System.Collections.Generic;
+using System.IO;
 using Domain;
 using Domain.Models;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace Persistence
 {
@@ -13,7 +16,7 @@ namespace Persistence
         // public DbSet<Ask> Ask { get; set; }
         // public DbSet<AskL3> AskL3 { get; set; }
         public DbSet<Asset> Asset { get; set; }
-        
+
         // public DbSet<Bid> bid { get; set; }
         // public DbSet<BidL3> bidL3 { get; set; }
         // public DbSet<Exchange> Exchange { get; set; }
@@ -29,5 +32,21 @@ namespace Persistence
         // public DbSet<Symbol> Symbol { get; set; }
         // public DbSet<Trade> Trade { get; set; }
         // public DbSet<Users> Users { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Asset>().HasData(SeedTestData());
+        }
+        public List<Asset> SeedTestData()
+        {
+            var tests = new List<Asset>();
+            using (StreamReader r = new StreamReader(@"C:\Users\kacper\source\repos\Exchange\test.json"))
+            {
+                string json = r.ReadToEnd();
+                tests = JsonConvert.DeserializeObject<List<Asset>>(json);
+            }
+            return tests;
+        }
+
     }
 }

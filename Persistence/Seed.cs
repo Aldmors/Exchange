@@ -13,28 +13,28 @@ namespace Persistence
     {
         public static async Task SeedDataAsync(DataContext context)
         {
-        //     if (context.Asset.Any()) return;
-        //     var assetLight = new List<AssetLight>
-        //     {
-        //         new AssetLight
-        //         { 
-        //    //         Asset = "",
-        //         name = "Bitcoin",
-        //         short_name = "BTC",
-        //         },
-        //         new AssetLight
-        //         {
-        //     //        Asset = "",
-        //         name = "Etherum",
-        //         short_name = "ETH",
-        //         },
-        //         new AssetLight
-        //         {
-        //     //    Asset = "",
-        //         name = "Cardano",
-        //         short_name = "ADA",
-        //         },
-        //     };
+            //     if (context.Asset.Any()) return;
+            //     var assetLight = new List<AssetLight>
+            //     {
+            //         new AssetLight
+            //         { 
+            //    //         Asset = "",
+            //         name = "Bitcoin",
+            //         short_name = "BTC",
+            //         },
+            //         new AssetLight
+            //         {
+            //     //        Asset = "",
+            //         name = "Etherum",
+            //         short_name = "ETH",
+            //         },
+            //         new AssetLight
+            //         {
+            //     //    Asset = "",
+            //         name = "Cardano",
+            //         short_name = "ADA",
+            //         },
+            //     };
             if (context.Asset.Any()) return;
             var asset = new List<Asset>
             {
@@ -42,7 +42,7 @@ namespace Persistence
                 {
                     asset_id = "BTC",
                     name = "Bitcoin",
-                    type_is_crypto = true,
+                    type_is_crypto = 1,
                     data_quote_start = DateTime.Parse("2014-02-24T17:43:05.0000000Z"),
                     data_quote_end = DateTime.Parse("2019-11-03T17:55:07.6724523Z"),
                     data_orderbook_start = DateTime.Parse("2014-02-24T17:43:05.0000000Z"),
@@ -59,7 +59,7 @@ namespace Persistence
                 {
                     asset_id = "ETH",
                     name = "Etherum",
-                    type_is_crypto = true,
+                    type_is_crypto = 1,
                     data_quote_start = DateTime.Parse("2014-02-24T17:43:05.0000000Z"),
                     data_quote_end = DateTime.Parse("2019-11-03T17:55:07.6724523Z"),
                     data_orderbook_start = DateTime.Parse("2014-02-24T17:43:05.0000000Z"),
@@ -76,7 +76,7 @@ namespace Persistence
                 {
                     asset_id = "ADA",
                     name = "Cardano",
-                    type_is_crypto = true,
+                    type_is_crypto = 1,
                     data_quote_start = DateTime.Parse("2014-02-24T17:43:05.0000000Z"),
                     data_quote_end = DateTime.Parse("2019-11-03T17:55:07.6724523Z"),
                     data_orderbook_start = DateTime.Parse("2014-02-24T17:43:05.0000000Z"),
@@ -89,6 +89,7 @@ namespace Persistence
                     volume_1mth_usd = (decimal?)57929168359984.54,
                     price_usd = (decimal?)9166.207274778093436220194944,
                 }
+
             };
 
             // if (context.Exchange.Any()) return;
