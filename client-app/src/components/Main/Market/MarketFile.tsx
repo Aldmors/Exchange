@@ -5,14 +5,19 @@ import { Link } from "react-router-dom";
 import trendingUp from "./../../../img/trendingUp.png";
 import trendingDown from "./../../../img/trendingDown.png";
 import parse from "html-react-parser";
+import icons from "./../../../icon.json";
 
 export default function MarketFile(props: any) {
   const crypto = props.crypto;
 
   const getCryptoImage = () => {
-    let lowerAsset = "" + crypto.asset_id;
-    lowerAsset = lowerAsset.toLowerCase();
-    return `https://cryptoicon-api.vercel.app/api/icon/${lowerAsset}`;
+    let asset = "" + crypto.asset_id;
+    let indx = icons.findIndex((x) => x.asset_id === asset);
+    if (indx === -1) {
+      return "";
+    } else {
+      return icons[indx].url;
+    }
   };
 
   const data = [

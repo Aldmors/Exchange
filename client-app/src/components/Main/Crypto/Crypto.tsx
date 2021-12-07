@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import DataFile from "./DataFile";
 import { AreaChart, LineChart, Area, XAxis, YAxis, Tooltip, Legend, Line } from "recharts";
+import icons from "./../../../icon.json";
 
 export default function Crypto(props: any) {
   const location = useLocation();
@@ -17,16 +18,22 @@ export default function Crypto(props: any) {
   }, [cryptoId]);
 
   const getCryptoImage = () => {
-    let lowerAsset = "" + crypto.asset_id;
-    lowerAsset = lowerAsset.toLowerCase();
-    return `https://cryptoicon-api.vercel.app/api/icon/${lowerAsset}`;
+    let asset = "" + crypto.asset_id;
+    let indx = icons.findIndex((x) => x.asset_id === asset);
+    if (indx === -1) {
+      return "";
+    } else {
+      return icons[indx].url;
+    }
   };
 
   const generateCryptoData = () => {
     let newCrypto = Object.keys(crypto);
     newCrypto.shift();
     newCrypto.splice(2, 1);
-    return newCrypto.map((k, index:number) => <DataFile key={index} k={k.replace(/[_]+/g, " ")} v={crypto[k]}></DataFile>);
+    return newCrypto.map((k, index: number) => (
+      <DataFile key={index} k={k.replace(/[_]+/g, " ")} v={crypto[k]}></DataFile>
+    ));
   };
 
   const data = [
