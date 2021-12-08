@@ -33,7 +33,7 @@ namespace API
             LogManager.LoadConfiguration(String.Concat(Directory.GetCurrentDirectory(), "/nlog.config"));
             _config = config;
         }
-        
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
@@ -54,7 +54,7 @@ namespace API
             }
 
             app.ConfigureExceptionHandler(logger);
-            
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
@@ -64,15 +64,15 @@ namespace API
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
-            
-            
-            
+
+
+
             appLifetime.ApplicationStarted.Register(OnStarted);
         }
         private void OnStarted()
         {
-            Persistence.DataSendToDb.DowloadAssetData();
-            Persistence.DataSendToDb.DowloadIcon();
+            //  Persistence.DataSendToDb.DowloadAssetData();
+            //   Persistence.DataSendToDb.DowloadIcon();
         }
     }
 }
