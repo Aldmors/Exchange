@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Domain;
 using Microsoft.AspNetCore.Mvc;
-using Application.Activities;
 using Domain.Models;
+using Application.Assets;
 
 namespace API.Controllers
 {

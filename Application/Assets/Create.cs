@@ -8,7 +8,7 @@ using Domain.Models;
 using MediatR;
 using Persistence;
 
-namespace Application.Activities
+namespace Application.Assets
 {
     public class Create
     {

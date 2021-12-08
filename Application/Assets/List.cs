@@ -6,17 +6,16 @@ using System.Threading.Tasks;
 using Domain;
 using Domain.Models;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using Persistence;
 
-namespace Application.Activities
+namespace Application.Assets
 {
-    public class Details
+    public class List
     {
-        public class Query : IRequest<Asset> {
-            public Guid Id { get; set; }
-        }
+        public class Query : IRequest<List<Asset>> {}
 
-        public class Handler : IRequestHandler<Query, Asset>
+        public class Handler : IRequestHandler<Query, List<Asset>>
         {
         private readonly DataContext _context;
             public Handler(DataContext context)
@@ -24,9 +23,9 @@ namespace Application.Activities
             _context = context;
             }
 
-            public async Task<Asset> Handle(Query request, CancellationToken cancellationToken)
+            public async Task<List<Asset>> Handle(Query request, CancellationToken cancellationToken)
             {
-                return await _context.Asset.FindAsync(request.Id);
+                return await _context.Asset.ToListAsync();
             }
         }
     }
