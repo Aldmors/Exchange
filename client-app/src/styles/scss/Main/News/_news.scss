@@ -1,0 +1,10 @@
+// Whole news page
+@import "article";
+@import "fullArticle";
+
+.news {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}

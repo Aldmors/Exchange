@@ -1,0 +1,65 @@
+.marketFile {
+  box-sizing: border-box;
+  width: 100%;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  background-color: black;
+
+  &:hover {
+    background-color: gold;
+    color: black;
+  }
+
+  div {
+    width: 15%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.1s ease-in-out;
+    font-weight: bold;
+  }
+
+  .index {
+    width: 1%;
+    margin-left: 10px;
+  }
+
+  .name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    overflow: hidden;
+    img {
+      width: 72px;
+      height: 72px;
+    }
+  }
+
+  .trendUp {
+    gap: 10px;
+    color: rgb(51, 196, 129);
+    img {
+      margin-top: 5px;
+      filter: invert(63%) sepia(12%) saturate(2200%) hue-rotate(100deg) brightness(100%) contrast(84%);
+    }
+  }
+
+  .trendDown {
+    gap: 10px;
+    color: #c43833;
+    img {
+      margin-top: 5px;
+      filter: invert(20%) sepia(68%) saturate(2584%) hue-rotate(343deg) brightness(105%) contrast(84%);
+    }
+  }
+
+  .chart {
+    font-size: 1em;
+    height: 90px;
+  }
+}

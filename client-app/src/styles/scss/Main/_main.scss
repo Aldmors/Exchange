@@ -1,0 +1,25 @@
+// Styles used in every major component in main part of site (not nav and side)
+.main {
+  position: absolute;
+  left: 350px;
+  top: 100px;
+  width: calc(100vw - 350px);
+  height: calc(100vh - 100px);
+  overflow-y: auto;
+  box-sizing: border-box;
+
+  &::-webkit-scrollbar {
+    width: 20px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: black;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 100px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+    background-color: #33c481;
+  }
+}

@@ -1,0 +1,22 @@
+// Global styles in this file
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Condensed&display=swap");
+@import "./LoadingScreen/loadingScreen";
+@import "./Navbar/navbar";
+@import "./Side/side";
+@import "./Main/main";
+@import "./Main/Market/market";
+@import "./Main/Trending/trending";
+@import "./Main/Crypto/crypto";
+@import "./Main/News/news";
+
+$theme: black;
+$secondThme: rgb(44, 49, 60);
+$additional1: rgb(51, 196, 129);
+$additional2: gold;
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+}
