@@ -1,0 +1,24 @@
+@import "./marketFile";
+
+.marketLegend {
+  box-sizing: border-box;
+  width: 100%;
+  height: 30px;
+  background-color: gold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  div {
+    width: 15%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+  }
+
+  .index {
+    width: 1%;
+    margin-left: 10px;
+  }
+}

@@ -1,0 +1,724 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Condensed&display=swap");
+.loadingScreen {
+  position: absolute;
+  background-color: black;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+.loadingScreen .loading-wrapper {
+  margin-bottom: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.loadingScreen .loading-title {
+  user-select: none;
+  margin-bottom: 10%;
+}
+.loadingScreen .loading-title .loading-title-img {
+  position: relative;
+  top: 15%;
+  width: 70px;
+  height: 70px;
+}
+.loadingScreen .loading-title .loading-title-title {
+  font-size: 3.5em;
+  color: white;
+}
+
+.navbar-exchange {
+  position: relative;
+  left: 5%;
+  font-size: 2em;
+  transition: 0.1s ease-in-out;
+  user-select: none;
+}
+.navbar-exchange:hover {
+  transform: scale(1.1);
+}
+.navbar-exchange .navbar-exchange-logo {
+  position: relative;
+  top: 20px;
+  color: white;
+}
+.navbar-exchange .navbar-exchange-name {
+  color: white;
+}
+
+.navbar-search {
+  position: relative;
+  left: -5%;
+  top: -5%;
+}
+.navbar-search .navbar-search-input {
+  text-align: center;
+  width: 400px;
+  height: 45px;
+  background-color: #2c313c;
+  border: 1px solid black;
+  border-radius: 25px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5em;
+  color: white;
+}
+.navbar-search .navbar-search-input:focus {
+  outline: none;
+  border: 2px solid #33c481;
+}
+.navbar-search .navbar-search-input:focus::placeholder {
+  color: transparent;
+}
+.navbar-search .navbar-search-input-cross {
+  filter: invert(27%) sepia(12%) saturate(1478%) hue-rotate(145deg) brightness(91%) contrast(90%);
+  width: 32px;
+  height: 32px;
+  position: relative;
+  left: -60px;
+  top: 8px;
+  transition: 0.1s ease-in-out;
+  display: inline;
+}
+.navbar-search .navbar-search-input-cross:hover {
+  filter: invert(20%) sepia(68%) saturate(2771%) hue-rotate(344deg) brightness(104%) contrast(96%);
+  cursor: pointer;
+}
+.navbar-search .navbar-search-input-cross:active {
+  transform: scale(0.9);
+}
+.navbar-search .navbar-search-results {
+  position: absolute;
+  top: 90%;
+  width: 404px;
+  height: 440px;
+  background-color: #2c313c;
+  border-style: solid;
+  border-color: #33c481;
+  border-width: 0 2px 2px;
+  border-radius: 0 0 25px 25px;
+  overflow-y: hidden;
+  z-index: 99;
+}
+.navbar-search .navbar-search-results .nav-search-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.navbar-search .navbar-search-results hr {
+  width: 80%;
+  height: 0.5px;
+}
+.navbar-search .navbar-search-results .navbar-search-results-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 99px;
+  height: 99px;
+  font-size: 0.75em;
+  border-radius: 25px;
+  color: white;
+}
+.navbar-search .navbar-search-results .navbar-search-results-link img {
+  width: 60px;
+  height: 60px;
+}
+.navbar-search .navbar-search-results .navbar-search-results-link:hover {
+  background-color: grey;
+  cursor: pointer;
+}
+.navbar-search .navbar-search-results .navbar-search-results-oneLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 120%;
+  margin: 3%;
+  border-radius: 25px;
+  color: white;
+}
+.navbar-search .navbar-search-results .navbar-search-results-oneLink img {
+  width: 60px;
+  height: 60px;
+  margin-right: 5px;
+}
+.navbar-search .navbar-search-results .navbar-search-results-oneLink b {
+  font-size: 2em;
+}
+.navbar-search .navbar-search-results .navbar-search-results-oneLink:hover {
+  height: 120%;
+  background-color: grey;
+  cursor: pointer;
+}
+
+.navbar-menu {
+  position: relative;
+  left: -5%;
+  top: 10%;
+  color: white;
+  filter: invert(100%) sepia(0%) saturate(7484%) hue-rotate(225deg) brightness(104%) contrast(107%);
+  transition: 0.1s ease-in-out;
+}
+.navbar-menu .navbar-menu-notification {
+  transition: 0.1s ease-in-out;
+  padding-right: 10px;
+}
+.navbar-menu .navbar-menu-notification:hover {
+  cursor: pointer;
+  transform: rotate(20deg);
+  filter: invert(61%) sepia(67%) saturate(435%) hue-rotate(100deg) brightness(92%) contrast(87%);
+}
+.navbar-menu .navbar-menu-notification:active {
+  transform: scale(0.9);
+}
+.navbar-menu .navbar-menu-settings {
+  padding-right: 10px;
+  transition: 0.1s ease-in-out;
+}
+.navbar-menu .navbar-menu-settings:hover {
+  cursor: pointer;
+  transform: rotate(20deg);
+  filter: invert(61%) sepia(67%) saturate(435%) hue-rotate(100deg) brightness(92%) contrast(87%);
+}
+.navbar-menu .navbar-menu-settings:active {
+  transform: scale(0.9);
+}
+
+.navbar {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  width: 100vw;
+  height: 100px;
+  background-color: black;
+  color: white;
+}
+
+.side {
+  width: 350px;
+  height: calc(100vh - 100px);
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.side .side-top {
+  margin-top: 50px;
+}
+.side .side-top .black {
+  background-color: black;
+}
+.side .side-top .green {
+  background-color: #33c481;
+}
+.side .side-top .side-top-button {
+  display: flex;
+  justify-content: baseline;
+  align-items: center;
+  width: 220px;
+  height: 40px;
+  padding: 10px 10px 10px 30px;
+  margin-top: 10px;
+  color: white;
+  font-size: 1.5em;
+  border-radius: 25px;
+  transition: 0.1s ease-in-out;
+  user-select: none;
+}
+.side .side-top .side-top-button img {
+  margin-right: 5px;
+  width: 36px;
+  height: 36px;
+}
+.side .side-top .side-top-button:hover {
+  cursor: pointer;
+  background-color: #33c481;
+}
+.side .side-top .side-top-button:active {
+  transform: scale(0.9);
+}
+.side .side-bottom {
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.side .side-bottom i {
+  font-size: 0.8em;
+  color: #6e5654;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.side .side-bottom i:hover {
+  color: #ffbbb5;
+}
+.side .side-bottom i:active {
+  text-decoration: none;
+  color: #6e5654;
+}
+.side .side-bottom .side-bottom-fact {
+  width: 260px;
+  height: fit-content;
+  max-height: 400px;
+  margin-bottom: 50px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border-radius: 25px;
+  background-color: #33c481;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.side .side-bottom .side-bottom-fact div {
+  margin: 10px;
+}
+.side .side-bottom .side-bottom-fact .side-bottom-fact-did {
+  font-size: 1.5em;
+  font-weight: bold;
+  align-self: flex-start;
+}
+.side .side-bottom .side-bottom-fact .side-bottom-fact-content {
+  font-family: "Roboto";
+}
+
+.main {
+  position: absolute;
+  left: 350px;
+  top: 100px;
+  width: calc(100vw - 350px);
+  height: calc(100vh - 100px);
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+.main::-webkit-scrollbar {
+  width: 20px;
+}
+.main::-webkit-scrollbar-track {
+  background-color: black;
+}
+.main::-webkit-scrollbar-thumb {
+  border-radius: 100px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+  background-color: #33c481;
+}
+
+.marketFile {
+  box-sizing: border-box;
+  width: 100%;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  background-color: black;
+}
+.marketFile:hover {
+  background-color: gold;
+  color: black;
+}
+.marketFile div {
+  width: 15%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.1s ease-in-out;
+  font-weight: bold;
+}
+.marketFile .index {
+  width: 1%;
+  margin-left: 10px;
+}
+.marketFile .name {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  overflow: hidden;
+}
+.marketFile .name img {
+  width: 72px;
+  height: 72px;
+}
+.marketFile .trendUp {
+  gap: 10px;
+  color: #33c481;
+}
+.marketFile .trendUp img {
+  margin-top: 5px;
+  filter: invert(63%) sepia(12%) saturate(2200%) hue-rotate(100deg) brightness(100%) contrast(84%);
+}
+.marketFile .trendDown {
+  gap: 10px;
+  color: #c43833;
+}
+.marketFile .trendDown img {
+  margin-top: 5px;
+  filter: invert(20%) sepia(68%) saturate(2584%) hue-rotate(343deg) brightness(105%) contrast(84%);
+}
+.marketFile .chart {
+  font-size: 1em;
+  height: 90px;
+}
+
+.marketLegend {
+  box-sizing: border-box;
+  width: 100%;
+  height: 30px;
+  background-color: gold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.marketLegend div {
+  width: 15%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+.marketLegend .index {
+  width: 1%;
+  margin-left: 10px;
+}
+
+.trending {
+  display: flex;
+  flex-wrap: wrap;
+}
+.trending .trendingFile {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  box-sizing: border-box;
+  width: 25%;
+  height: 90px;
+  border: 1px solid white;
+}
+.trending .trendingFile:hover {
+  background-color: gold;
+  border: 1px solid white;
+  cursor: pointer;
+}
+.trending .trendingFile .name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-weight: bold;
+  color: black;
+  font-size: 0.9em;
+}
+.trending .trendingFile .cryptoImage {
+  width: 60px;
+  height: 60px;
+}
+.trending .trendingFile .trendTrending {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.trending .trendingFile .trendTrending img {
+  width: 36px;
+  height: 36px;
+}
+.trending .trendingFile .trendTrending .trendUp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.trending .trendingFile .trendTrending .trendDown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.trending .trendingFile .chart {
+  width: 150px;
+  height: 90px;
+}
+.trending .gold {
+  background-color: gold;
+}
+.trending .green {
+  background-color: #33c481;
+}
+.trending .red {
+  background-color: #c43833;
+}
+
+.crypto {
+  background-color: #ffffff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='430' height='358.3' viewBox='0 0 1080 900'%3E%3Cg fill-opacity='0.08'%3E%3Cpolygon fill='%23444' points='90 150 0 300 180 300'/%3E%3Cpolygon points='90 150 180 0 0 0'/%3E%3Cpolygon fill='%23AAA' points='270 150 360 0 180 0'/%3E%3Cpolygon fill='%23DDD' points='450 150 360 300 540 300'/%3E%3Cpolygon fill='%23999' points='450 150 540 0 360 0'/%3E%3Cpolygon points='630 150 540 300 720 300'/%3E%3Cpolygon fill='%23DDD' points='630 150 720 0 540 0'/%3E%3Cpolygon fill='%23444' points='810 150 720 300 900 300'/%3E%3Cpolygon fill='%23FFF' points='810 150 900 0 720 0'/%3E%3Cpolygon fill='%23DDD' points='990 150 900 300 1080 300'/%3E%3Cpolygon fill='%23444' points='990 150 1080 0 900 0'/%3E%3Cpolygon fill='%23DDD' points='90 450 0 600 180 600'/%3E%3Cpolygon points='90 450 180 300 0 300'/%3E%3Cpolygon fill='%23666' points='270 450 180 600 360 600'/%3E%3Cpolygon fill='%23AAA' points='270 450 360 300 180 300'/%3E%3Cpolygon fill='%23DDD' points='450 450 360 600 540 600'/%3E%3Cpolygon fill='%23999' points='450 450 540 300 360 300'/%3E%3Cpolygon fill='%23999' points='630 450 540 600 720 600'/%3E%3Cpolygon fill='%23FFF' points='630 450 720 300 540 300'/%3E%3Cpolygon points='810 450 720 600 900 600'/%3E%3Cpolygon fill='%23DDD' points='810 450 900 300 720 300'/%3E%3Cpolygon fill='%23AAA' points='990 450 900 600 1080 600'/%3E%3Cpolygon fill='%23444' points='990 450 1080 300 900 300'/%3E%3Cpolygon fill='%23222' points='90 750 0 900 180 900'/%3E%3Cpolygon points='270 750 180 900 360 900'/%3E%3Cpolygon fill='%23DDD' points='270 750 360 600 180 600'/%3E%3Cpolygon points='450 750 540 600 360 600'/%3E%3Cpolygon points='630 750 540 900 720 900'/%3E%3Cpolygon fill='%23444' points='630 750 720 600 540 600'/%3E%3Cpolygon fill='%23AAA' points='810 750 720 900 900 900'/%3E%3Cpolygon fill='%23666' points='810 750 900 600 720 600'/%3E%3Cpolygon fill='%23999' points='990 750 900 900 1080 900'/%3E%3Cpolygon fill='%23999' points='180 0 90 150 270 150'/%3E%3Cpolygon fill='%23444' points='360 0 270 150 450 150'/%3E%3Cpolygon fill='%23FFF' points='540 0 450 150 630 150'/%3E%3Cpolygon points='900 0 810 150 990 150'/%3E%3Cpolygon fill='%23222' points='0 300 -90 450 90 450'/%3E%3Cpolygon fill='%23FFF' points='0 300 90 150 -90 150'/%3E%3Cpolygon fill='%23FFF' points='180 300 90 450 270 450'/%3E%3Cpolygon fill='%23666' points='180 300 270 150 90 150'/%3E%3Cpolygon fill='%23222' points='360 300 270 450 450 450'/%3E%3Cpolygon fill='%23FFF' points='360 300 450 150 270 150'/%3E%3Cpolygon fill='%23444' points='540 300 450 450 630 450'/%3E%3Cpolygon fill='%23222' points='540 300 630 150 450 150'/%3E%3Cpolygon fill='%23AAA' points='720 300 630 450 810 450'/%3E%3Cpolygon fill='%23666' points='720 300 810 150 630 150'/%3E%3Cpolygon fill='%23FFF' points='900 300 810 450 990 450'/%3E%3Cpolygon fill='%23999' points='900 300 990 150 810 150'/%3E%3Cpolygon points='0 600 -90 750 90 750'/%3E%3Cpolygon fill='%23666' points='0 600 90 450 -90 450'/%3E%3Cpolygon fill='%23AAA' points='180 600 90 750 270 750'/%3E%3Cpolygon fill='%23444' points='180 600 270 450 90 450'/%3E%3Cpolygon fill='%23444' points='360 600 270 750 450 750'/%3E%3Cpolygon fill='%23999' points='360 600 450 450 270 450'/%3E%3Cpolygon fill='%23666' points='540 600 630 450 450 450'/%3E%3Cpolygon fill='%23222' points='720 600 630 750 810 750'/%3E%3Cpolygon fill='%23FFF' points='900 600 810 750 990 750'/%3E%3Cpolygon fill='%23222' points='900 600 990 450 810 450'/%3E%3Cpolygon fill='%23DDD' points='0 900 90 750 -90 750'/%3E%3Cpolygon fill='%23444' points='180 900 270 750 90 750'/%3E%3Cpolygon fill='%23FFF' points='360 900 450 750 270 750'/%3E%3Cpolygon fill='%23AAA' points='540 900 630 750 450 750'/%3E%3Cpolygon fill='%23FFF' points='720 900 810 750 630 750'/%3E%3Cpolygon fill='%23222' points='900 900 990 750 810 750'/%3E%3Cpolygon fill='%23222' points='1080 300 990 450 1170 450'/%3E%3Cpolygon fill='%23FFF' points='1080 300 1170 150 990 150'/%3E%3Cpolygon points='1080 600 990 750 1170 750'/%3E%3Cpolygon fill='%23666' points='1080 600 1170 450 990 450'/%3E%3Cpolygon fill='%23DDD' points='1080 900 1170 750 990 750'/%3E%3C/g%3E%3C/svg%3E");
+  color: white;
+}
+.crypto .crypto-name {
+  position: absolute;
+  left: 10%;
+  top: 5%;
+  width: 740px;
+  padding: 0 20px 0 20px;
+  height: 150px;
+  background-color: black;
+  border-radius: 25px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+.crypto .crypto-name:hover {
+  border: 5px solid #33c481;
+}
+.crypto .crypto-name img {
+  width: 70px;
+  height: 70px;
+}
+.crypto .crypto-name .crypto-name-name {
+  font-size: 2.5em;
+}
+.crypto .crypto-data {
+  position: absolute;
+  width: 450px;
+  height: 700px;
+  background-color: black;
+  border-radius: 25px;
+  left: 60%;
+  top: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: baseline;
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+  font-family: "Roboto";
+  box-sizing: border-box;
+  border: 5px solid black;
+}
+.crypto .crypto-data:hover {
+  border: 5px solid #33c481;
+}
+.crypto .crypto-data .data-file {
+  width: 100%;
+  height: 40px;
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.1s ease-in-out;
+  font-size: 1em;
+}
+.crypto .crypto-data .data-file span {
+  margin-left: 10px;
+  margin-right: 10px;
+  text-transform: capitalize;
+}
+.crypto .crypto-data .data-file:hover {
+  background-color: #33c481;
+  color: black;
+  transform: scale(1.1);
+}
+.crypto .crypto-charts {
+  position: absolute;
+  width: 740px;
+  height: 500px;
+  left: 10%;
+  top: 28%;
+  border-radius: 25px;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+.crypto .crypto-charts:hover {
+  border: 5px solid #33c481;
+}
+.crypto .crypto-charts .chart-top {
+  height: 50%;
+  width: 100%;
+  border-radius: 25px 25px 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.crypto .crypto-charts .chart-bottom {
+  height: 50%;
+  width: 100%;
+  border-radius: 0 0 25px 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.article {
+  width: 100%;
+  height: 1200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.article .article-top {
+  width: 100%;
+  height: 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.article .article-bottom {
+  position: relative;
+  width: 100%;
+  height: 50%;
+  background-color: #0f0f0f;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='563' height='469.2' viewBox='0 0 1080 900'%3E%3Cg fill-opacity='0.15'%3E%3Cpolygon fill='%23444' points='90 150 0 300 180 300'/%3E%3Cpolygon points='90 150 180 0 0 0'/%3E%3Cpolygon fill='%23AAA' points='270 150 360 0 180 0'/%3E%3Cpolygon fill='%23DDD' points='450 150 360 300 540 300'/%3E%3Cpolygon fill='%23999' points='450 150 540 0 360 0'/%3E%3Cpolygon points='630 150 540 300 720 300'/%3E%3Cpolygon fill='%23DDD' points='630 150 720 0 540 0'/%3E%3Cpolygon fill='%23444' points='810 150 720 300 900 300'/%3E%3Cpolygon fill='%23FFF' points='810 150 900 0 720 0'/%3E%3Cpolygon fill='%23DDD' points='990 150 900 300 1080 300'/%3E%3Cpolygon fill='%23444' points='990 150 1080 0 900 0'/%3E%3Cpolygon fill='%23DDD' points='90 450 0 600 180 600'/%3E%3Cpolygon points='90 450 180 300 0 300'/%3E%3Cpolygon fill='%23666' points='270 450 180 600 360 600'/%3E%3Cpolygon fill='%23AAA' points='270 450 360 300 180 300'/%3E%3Cpolygon fill='%23DDD' points='450 450 360 600 540 600'/%3E%3Cpolygon fill='%23999' points='450 450 540 300 360 300'/%3E%3Cpolygon fill='%23999' points='630 450 540 600 720 600'/%3E%3Cpolygon fill='%23FFF' points='630 450 720 300 540 300'/%3E%3Cpolygon points='810 450 720 600 900 600'/%3E%3Cpolygon fill='%23DDD' points='810 450 900 300 720 300'/%3E%3Cpolygon fill='%23AAA' points='990 450 900 600 1080 600'/%3E%3Cpolygon fill='%23444' points='990 450 1080 300 900 300'/%3E%3Cpolygon fill='%23222' points='90 750 0 900 180 900'/%3E%3Cpolygon points='270 750 180 900 360 900'/%3E%3Cpolygon fill='%23DDD' points='270 750 360 600 180 600'/%3E%3Cpolygon points='450 750 540 600 360 600'/%3E%3Cpolygon points='630 750 540 900 720 900'/%3E%3Cpolygon fill='%23444' points='630 750 720 600 540 600'/%3E%3Cpolygon fill='%23AAA' points='810 750 720 900 900 900'/%3E%3Cpolygon fill='%23666' points='810 750 900 600 720 600'/%3E%3Cpolygon fill='%23999' points='990 750 900 900 1080 900'/%3E%3Cpolygon fill='%23999' points='180 0 90 150 270 150'/%3E%3Cpolygon fill='%23444' points='360 0 270 150 450 150'/%3E%3Cpolygon fill='%23FFF' points='540 0 450 150 630 150'/%3E%3Cpolygon points='900 0 810 150 990 150'/%3E%3Cpolygon fill='%23222' points='0 300 -90 450 90 450'/%3E%3Cpolygon fill='%23FFF' points='0 300 90 150 -90 150'/%3E%3Cpolygon fill='%23FFF' points='180 300 90 450 270 450'/%3E%3Cpolygon fill='%23666' points='180 300 270 150 90 150'/%3E%3Cpolygon fill='%23222' points='360 300 270 450 450 450'/%3E%3Cpolygon fill='%23FFF' points='360 300 450 150 270 150'/%3E%3Cpolygon fill='%23444' points='540 300 450 450 630 450'/%3E%3Cpolygon fill='%23222' points='540 300 630 150 450 150'/%3E%3Cpolygon fill='%23AAA' points='720 300 630 450 810 450'/%3E%3Cpolygon fill='%23666' points='720 300 810 150 630 150'/%3E%3Cpolygon fill='%23FFF' points='900 300 810 450 990 450'/%3E%3Cpolygon fill='%23999' points='900 300 990 150 810 150'/%3E%3Cpolygon points='0 600 -90 750 90 750'/%3E%3Cpolygon fill='%23666' points='0 600 90 450 -90 450'/%3E%3Cpolygon fill='%23AAA' points='180 600 90 750 270 750'/%3E%3Cpolygon fill='%23444' points='180 600 270 450 90 450'/%3E%3Cpolygon fill='%23444' points='360 600 270 750 450 750'/%3E%3Cpolygon fill='%23999' points='360 600 450 450 270 450'/%3E%3Cpolygon fill='%23666' points='540 600 630 450 450 450'/%3E%3Cpolygon fill='%23222' points='720 600 630 750 810 750'/%3E%3Cpolygon fill='%23FFF' points='900 600 810 750 990 750'/%3E%3Cpolygon fill='%23222' points='900 600 990 450 810 450'/%3E%3Cpolygon fill='%23DDD' points='0 900 90 750 -90 750'/%3E%3Cpolygon fill='%23444' points='180 900 270 750 90 750'/%3E%3Cpolygon fill='%23FFF' points='360 900 450 750 270 750'/%3E%3Cpolygon fill='%23AAA' points='540 900 630 750 450 750'/%3E%3Cpolygon fill='%23FFF' points='720 900 810 750 630 750'/%3E%3Cpolygon fill='%23222' points='900 900 990 750 810 750'/%3E%3Cpolygon fill='%23222' points='1080 300 990 450 1170 450'/%3E%3Cpolygon fill='%23FFF' points='1080 300 1170 150 990 150'/%3E%3Cpolygon points='1080 600 990 750 1170 750'/%3E%3Cpolygon fill='%23666' points='1080 600 1170 450 990 450'/%3E%3Cpolygon fill='%23DDD' points='1080 900 1170 750 990 750'/%3E%3C/g%3E%3C/svg%3E");
+}
+.article .article-content {
+  width: 700px;
+  height: 900px;
+  background-color: white;
+  box-sizing: border-box;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+.article .article-content .title {
+  font-size: 2em;
+  margin: 30px;
+  text-align: center;
+}
+.article .article-content .description {
+  margin: 10px;
+  text-align: center;
+  font-size: 1.1em;
+}
+.article .article-content .description span {
+  text-decoration: underline;
+}
+.article .article-content hr {
+  width: 95%;
+  border: 1px solid black;
+}
+.article .article-content .content {
+  margin: 10px;
+  align-self: flex-start;
+  overflow-y: hidden;
+  font-size: 1.1em;
+}
+.article .article-content .read-more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8em;
+  font-weight: bold;
+  width: 100%;
+  height: 150px;
+  background-color: black;
+  color: white;
+  transition: 0.1s ease-in-out;
+  text-decoration: none;
+}
+.article .article-content .read-more:hover {
+  cursor: pointer;
+  background-color: #33c481;
+  color: black;
+}
+.article .article-content .read-more:active {
+  font-size: 0.7em;
+}
+
+.fullArticle {
+  background-color: #0f0f0f;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='563' height='469.2' viewBox='0 0 1080 900'%3E%3Cg fill-opacity='0.15'%3E%3Cpolygon fill='%23444' points='90 150 0 300 180 300'/%3E%3Cpolygon points='90 150 180 0 0 0'/%3E%3Cpolygon fill='%23AAA' points='270 150 360 0 180 0'/%3E%3Cpolygon fill='%23DDD' points='450 150 360 300 540 300'/%3E%3Cpolygon fill='%23999' points='450 150 540 0 360 0'/%3E%3Cpolygon points='630 150 540 300 720 300'/%3E%3Cpolygon fill='%23DDD' points='630 150 720 0 540 0'/%3E%3Cpolygon fill='%23444' points='810 150 720 300 900 300'/%3E%3Cpolygon fill='%23FFF' points='810 150 900 0 720 0'/%3E%3Cpolygon fill='%23DDD' points='990 150 900 300 1080 300'/%3E%3Cpolygon fill='%23444' points='990 150 1080 0 900 0'/%3E%3Cpolygon fill='%23DDD' points='90 450 0 600 180 600'/%3E%3Cpolygon points='90 450 180 300 0 300'/%3E%3Cpolygon fill='%23666' points='270 450 180 600 360 600'/%3E%3Cpolygon fill='%23AAA' points='270 450 360 300 180 300'/%3E%3Cpolygon fill='%23DDD' points='450 450 360 600 540 600'/%3E%3Cpolygon fill='%23999' points='450 450 540 300 360 300'/%3E%3Cpolygon fill='%23999' points='630 450 540 600 720 600'/%3E%3Cpolygon fill='%23FFF' points='630 450 720 300 540 300'/%3E%3Cpolygon points='810 450 720 600 900 600'/%3E%3Cpolygon fill='%23DDD' points='810 450 900 300 720 300'/%3E%3Cpolygon fill='%23AAA' points='990 450 900 600 1080 600'/%3E%3Cpolygon fill='%23444' points='990 450 1080 300 900 300'/%3E%3Cpolygon fill='%23222' points='90 750 0 900 180 900'/%3E%3Cpolygon points='270 750 180 900 360 900'/%3E%3Cpolygon fill='%23DDD' points='270 750 360 600 180 600'/%3E%3Cpolygon points='450 750 540 600 360 600'/%3E%3Cpolygon points='630 750 540 900 720 900'/%3E%3Cpolygon fill='%23444' points='630 750 720 600 540 600'/%3E%3Cpolygon fill='%23AAA' points='810 750 720 900 900 900'/%3E%3Cpolygon fill='%23666' points='810 750 900 600 720 600'/%3E%3Cpolygon fill='%23999' points='990 750 900 900 1080 900'/%3E%3Cpolygon fill='%23999' points='180 0 90 150 270 150'/%3E%3Cpolygon fill='%23444' points='360 0 270 150 450 150'/%3E%3Cpolygon fill='%23FFF' points='540 0 450 150 630 150'/%3E%3Cpolygon points='900 0 810 150 990 150'/%3E%3Cpolygon fill='%23222' points='0 300 -90 450 90 450'/%3E%3Cpolygon fill='%23FFF' points='0 300 90 150 -90 150'/%3E%3Cpolygon fill='%23FFF' points='180 300 90 450 270 450'/%3E%3Cpolygon fill='%23666' points='180 300 270 150 90 150'/%3E%3Cpolygon fill='%23222' points='360 300 270 450 450 450'/%3E%3Cpolygon fill='%23FFF' points='360 300 450 150 270 150'/%3E%3Cpolygon fill='%23444' points='540 300 450 450 630 450'/%3E%3Cpolygon fill='%23222' points='540 300 630 150 450 150'/%3E%3Cpolygon fill='%23AAA' points='720 300 630 450 810 450'/%3E%3Cpolygon fill='%23666' points='720 300 810 150 630 150'/%3E%3Cpolygon fill='%23FFF' points='900 300 810 450 990 450'/%3E%3Cpolygon fill='%23999' points='900 300 990 150 810 150'/%3E%3Cpolygon points='0 600 -90 750 90 750'/%3E%3Cpolygon fill='%23666' points='0 600 90 450 -90 450'/%3E%3Cpolygon fill='%23AAA' points='180 600 90 750 270 750'/%3E%3Cpolygon fill='%23444' points='180 600 270 450 90 450'/%3E%3Cpolygon fill='%23444' points='360 600 270 750 450 750'/%3E%3Cpolygon fill='%23999' points='360 600 450 450 270 450'/%3E%3Cpolygon fill='%23666' points='540 600 630 450 450 450'/%3E%3Cpolygon fill='%23222' points='720 600 630 750 810 750'/%3E%3Cpolygon fill='%23FFF' points='900 600 810 750 990 750'/%3E%3Cpolygon fill='%23222' points='900 600 990 450 810 450'/%3E%3Cpolygon fill='%23DDD' points='0 900 90 750 -90 750'/%3E%3Cpolygon fill='%23444' points='180 900 270 750 90 750'/%3E%3Cpolygon fill='%23FFF' points='360 900 450 750 270 750'/%3E%3Cpolygon fill='%23AAA' points='540 900 630 750 450 750'/%3E%3Cpolygon fill='%23FFF' points='720 900 810 750 630 750'/%3E%3Cpolygon fill='%23222' points='900 900 990 750 810 750'/%3E%3Cpolygon fill='%23222' points='1080 300 990 450 1170 450'/%3E%3Cpolygon fill='%23FFF' points='1080 300 1170 150 990 150'/%3E%3Cpolygon points='1080 600 990 750 1170 750'/%3E%3Cpolygon fill='%23666' points='1080 600 1170 450 990 450'/%3E%3Cpolygon fill='%23DDD' points='1080 900 1170 750 990 750'/%3E%3C/g%3E%3C/svg%3E");
+  display: flex;
+  justify-content: center;
+}
+.fullArticle .fullArticle-content {
+  width: 700px;
+  height: fit-content;
+  margin-top: 75px;
+  margin-bottom: 75px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  font-family: "Arial", "Montserrat";
+}
+.fullArticle .fullArticle-content .img {
+  width: 700px;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+}
+.fullArticle .fullArticle-content .title {
+  font-size: 2em;
+  margin: 30px;
+  text-align: center;
+}
+.fullArticle .fullArticle-content hr {
+  width: 95%;
+  border: 1px solid black;
+}
+.fullArticle .fullArticle-content .content {
+  margin: 10px;
+  align-self: flex-start;
+  overflow-y: hidden;
+  font-size: 1.1em;
+}
+.fullArticle .fullArticle-content .bottom-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 0.8em;
+  font-weight: bold;
+  width: 100%;
+  height: 40px;
+  background-color: black;
+  color: white;
+  transition: 0.1s ease-in-out;
+  text-decoration: none;
+  font-family: "Montserrat";
+}
+.fullArticle .fullArticle-content .clickable:hover {
+  cursor: pointer;
+  background-color: #33c481;
+  color: black;
+}
+.fullArticle .fullArticle-content .clickable:active {
+  font-size: 0.7em;
+}
+
+.news {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+/*# sourceMappingURL=app.css.map */

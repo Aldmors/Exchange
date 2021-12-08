@@ -1,0 +1,41 @@
+// Right side of nav - icons/menu
+.navbar-menu {
+  position: relative;
+  left: -5%;
+  top: 10%;
+  color: white;
+  filter: invert(100%) sepia(0%) saturate(7484%) hue-rotate(225deg) brightness(104%) contrast(107%);
+  transition: 0.1s ease-in-out;
+
+  // Notification bell
+  .navbar-menu-notification {
+    transition: 0.1s ease-in-out;
+    padding-right: 10px;
+
+    &:hover {
+      cursor: pointer;
+      transform: rotate(20deg);
+      filter: invert(61%) sepia(67%) saturate(435%) hue-rotate(100deg) brightness(92%) contrast(87%);
+    }
+
+    &:active {
+      transform: scale(0.9);
+    }
+  }
+
+  // Settings icon
+  .navbar-menu-settings {
+    padding-right: 10px;
+    transition: 0.1s ease-in-out;
+
+    &:hover {
+      cursor: pointer;
+      transform: rotate(20deg);
+      filter: invert(61%) sepia(67%) saturate(435%) hue-rotate(100deg) brightness(92%) contrast(87%);
+    }
+
+    &:active {
+      transform: scale(0.9);
+    }
+  }
+}
