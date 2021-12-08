@@ -9,7 +9,9 @@ export default function Menu() {
       <Link to="/news">
         <img className="navbar-menu-notification" alt="notification" src={Notification} />
       </Link>
-      <img className="navbar-menu-settings" alt="settings" src={Settings} />
+      <Link to="/settings">
+        <img className="navbar-menu-settings" alt="settings" src={Settings} />
+      </Link>
     </div>
   );
 }

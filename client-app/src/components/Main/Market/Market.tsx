@@ -1,11 +1,12 @@
 import React from "react";
 import MarketFile from "./MarketFile";
 
-export default function Market(props:any) {
-  
+function Market(props: any) {
   const generateFiles = () => {
-    return props.cryptos.map((item:any,index:any) => (<MarketFile crypto={item} index={index}></MarketFile>))
-  }
+    return props.cryptos.map((item: any, index: number) => (
+      <MarketFile key={index} crypto={item} index={index}></MarketFile>
+    ));
+  };
 
   return (
     <div className="main">
@@ -22,3 +23,5 @@ export default function Market(props:any) {
     </div>
   );
 }
+
+export default React.memo(Market);

@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Condensed&display=swap");
-.loading {
+.loadingScreen {
   position: absolute;
   background-color: black;
   width: 100vw;
@@ -11,61 +11,53 @@
   align-items: center;
   color: white;
 }
-.loading .loading-wrapper {
+.loadingScreen .loading-wrapper {
   margin-bottom: 10%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.loading .loading-title {
+.loadingScreen .loading-title {
   user-select: none;
   margin-bottom: 10%;
 }
-.loading .loading-title .loading-title-img {
+.loadingScreen .loading-title .loading-title-img {
   position: relative;
   top: 15%;
   width: 70px;
   height: 70px;
 }
-.loading .loading-title .loading-title-title {
+.loadingScreen .loading-title .loading-title-title {
   font-size: 3.5em;
   color: white;
 }
 
-.navbar {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  width: 100vw;
-  height: 100px;
-  background-color: black;
-  color: white;
-}
-.navbar .navbar-exchange {
+.navbar-exchange {
   position: relative;
   left: 5%;
   font-size: 2em;
   transition: 0.1s ease-in-out;
+  user-select: none;
 }
-.navbar .navbar-exchange:hover {
-  cursor: pointer;
+.navbar-exchange:hover {
   transform: scale(1.1);
 }
-.navbar .navbar-exchange .navbar-exchange-logo {
+.navbar-exchange .navbar-exchange-logo {
   position: relative;
   top: 20px;
   color: white;
 }
-.navbar .navbar-exchange .navbar-exchange-name {
+.navbar-exchange .navbar-exchange-name {
   color: white;
 }
-.navbar .navbar-search {
+
+.navbar-search {
   position: relative;
   left: -5%;
   top: -5%;
 }
-.navbar .navbar-search .navbar-search-input {
+.navbar-search .navbar-search-input {
   text-align: center;
   width: 400px;
   height: 45px;
@@ -76,14 +68,14 @@
   font-size: 1.5em;
   color: white;
 }
-.navbar .navbar-search .navbar-search-input:focus {
+.navbar-search .navbar-search-input:focus {
   outline: none;
   border: 2px solid #33c481;
 }
-.navbar .navbar-search .navbar-search-input:focus::placeholder {
+.navbar-search .navbar-search-input:focus::placeholder {
   color: transparent;
 }
-.navbar .navbar-search .navbar-search-input-cross {
+.navbar-search .navbar-search-input-cross {
   filter: invert(27%) sepia(12%) saturate(1478%) hue-rotate(145deg) brightness(91%) contrast(90%);
   width: 32px;
   height: 32px;
@@ -93,14 +85,14 @@
   transition: 0.1s ease-in-out;
   display: inline;
 }
-.navbar .navbar-search .navbar-search-input-cross:hover {
+.navbar-search .navbar-search-input-cross:hover {
   filter: invert(20%) sepia(68%) saturate(2771%) hue-rotate(344deg) brightness(104%) contrast(96%);
   cursor: pointer;
 }
-.navbar .navbar-search .navbar-search-input-cross:active {
+.navbar-search .navbar-search-input-cross:active {
   transform: scale(0.9);
 }
-.navbar .navbar-search .navbar-search-results {
+.navbar-search .navbar-search-results {
   position: absolute;
   top: 90%;
   width: 404px;
@@ -113,17 +105,17 @@
   overflow-y: hidden;
   z-index: 99;
 }
-.navbar .navbar-search .navbar-search-results .nav-search-flex {
+.navbar-search .navbar-search-results .nav-search-flex {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
 }
-.navbar .navbar-search .navbar-search-results hr {
+.navbar-search .navbar-search-results hr {
   width: 80%;
   height: 0.5px;
 }
-.navbar .navbar-search .navbar-search-results .navbar-search-results-link {
+.navbar-search .navbar-search-results .navbar-search-results-link {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -134,15 +126,15 @@
   border-radius: 25px;
   color: white;
 }
-.navbar .navbar-search .navbar-search-results .navbar-search-results-link img {
+.navbar-search .navbar-search-results .navbar-search-results-link img {
   width: 60px;
   height: 60px;
 }
-.navbar .navbar-search .navbar-search-results .navbar-search-results-link:hover {
+.navbar-search .navbar-search-results .navbar-search-results-link:hover {
   background-color: grey;
   cursor: pointer;
 }
-.navbar .navbar-search .navbar-search-results .navbar-search-results-oneLink {
+.navbar-search .navbar-search-results .navbar-search-results-oneLink {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -152,20 +144,21 @@
   border-radius: 25px;
   color: white;
 }
-.navbar .navbar-search .navbar-search-results .navbar-search-results-oneLink img {
+.navbar-search .navbar-search-results .navbar-search-results-oneLink img {
   width: 60px;
   height: 60px;
   margin-right: 5px;
 }
-.navbar .navbar-search .navbar-search-results .navbar-search-results-oneLink b {
+.navbar-search .navbar-search-results .navbar-search-results-oneLink b {
   font-size: 2em;
 }
-.navbar .navbar-search .navbar-search-results .navbar-search-results-oneLink:hover {
+.navbar-search .navbar-search-results .navbar-search-results-oneLink:hover {
   height: 120%;
   background-color: grey;
   cursor: pointer;
 }
-.navbar .navbar-menu {
+
+.navbar-menu {
   position: relative;
   left: -5%;
   top: 10%;
@@ -173,29 +166,39 @@
   filter: invert(100%) sepia(0%) saturate(7484%) hue-rotate(225deg) brightness(104%) contrast(107%);
   transition: 0.1s ease-in-out;
 }
-.navbar .navbar-menu .navbar-menu-notification {
+.navbar-menu .navbar-menu-notification {
   transition: 0.1s ease-in-out;
   padding-right: 10px;
 }
-.navbar .navbar-menu .navbar-menu-notification:hover {
+.navbar-menu .navbar-menu-notification:hover {
   cursor: pointer;
   transform: rotate(20deg);
   filter: invert(61%) sepia(67%) saturate(435%) hue-rotate(100deg) brightness(92%) contrast(87%);
 }
-.navbar .navbar-menu .navbar-menu-notification:active {
+.navbar-menu .navbar-menu-notification:active {
   transform: scale(0.9);
 }
-.navbar .navbar-menu .navbar-menu-settings {
+.navbar-menu .navbar-menu-settings {
   padding-right: 10px;
   transition: 0.1s ease-in-out;
 }
-.navbar .navbar-menu .navbar-menu-settings:hover {
+.navbar-menu .navbar-menu-settings:hover {
   cursor: pointer;
   transform: rotate(20deg);
   filter: invert(61%) sepia(67%) saturate(435%) hue-rotate(100deg) brightness(92%) contrast(87%);
 }
-.navbar .navbar-menu .navbar-menu-settings:active {
+.navbar-menu .navbar-menu-settings:active {
   transform: scale(0.9);
+}
+
+.navbar {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  width: 100vw;
+  height: 100px;
+  background-color: black;
+  color: white;
 }
 
 .side {
@@ -287,27 +290,6 @@
   font-family: "Roboto";
 }
 
-.rounded-connection-triangle {
-  width: 40px;
-  height: 40px;
-  background-color: black;
-  border: 1px solid black;
-  position: absolute;
-  left: 350px;
-  bottom: calc(100vh - 140px);
-  clip-path: polygon(0 0, 0 50%, 50% 0);
-}
-
-.rounded-connection-circle {
-  width: 40px;
-  height: 40px;
-  background-color: white;
-  position: absolute;
-  left: 350px;
-  bottom: calc(100vh - 140px);
-  clip-path: circle(50% at 50% 50%);
-}
-
 .main {
   position: absolute;
   left: 350px;
@@ -330,35 +312,6 @@
   background-color: #33c481;
 }
 
-.loading {
-  background-color: black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.marketLegend {
-  box-sizing: border-box;
-  width: 100%;
-  height: 30px;
-  background-color: gold;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.marketLegend div {
-  width: 15%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
-}
-.marketLegend .index {
-  width: 1%;
-  margin-left: 10px;
-}
-
 .marketFile {
   box-sizing: border-box;
   width: 100%;
@@ -370,8 +323,7 @@
   background-color: black;
 }
 .marketFile:hover {
-  background-color: #33c481;
-  background-color: white;
+  background-color: gold;
   color: black;
 }
 .marketFile div {
@@ -389,7 +341,7 @@
 }
 .marketFile .name {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   gap: 15px;
   overflow: hidden;
@@ -419,11 +371,200 @@
   height: 90px;
 }
 
-.news {
+.marketLegend {
+  box-sizing: border-box;
+  width: 100%;
+  height: 30px;
+  background-color: gold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.marketLegend div {
+  width: 15%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+.marketLegend .index {
+  width: 1%;
+  margin-left: 10px;
+}
+
+.trending {
+  display: flex;
+  flex-wrap: wrap;
+}
+.trending .trendingFile {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  box-sizing: border-box;
+  width: 25%;
+  height: 90px;
+  border: 1px solid white;
+}
+.trending .trendingFile:hover {
+  background-color: gold;
+  border: 1px solid white;
+  cursor: pointer;
+}
+.trending .trendingFile .name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-weight: bold;
+  color: black;
+  font-size: 0.9em;
+}
+.trending .trendingFile .cryptoImage {
+  width: 60px;
+  height: 60px;
+}
+.trending .trendingFile .trendTrending {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.trending .trendingFile .trendTrending img {
+  width: 36px;
+  height: 36px;
+}
+.trending .trendingFile .trendTrending .trendUp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.trending .trendingFile .trendTrending .trendDown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.trending .trendingFile .chart {
+  width: 150px;
+  height: 90px;
+}
+.trending .gold {
+  background-color: gold;
+}
+.trending .green {
+  background-color: #33c481;
+}
+.trending .red {
+  background-color: #c43833;
+}
+
+.crypto {
+  background-color: #ffffff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='430' height='358.3' viewBox='0 0 1080 900'%3E%3Cg fill-opacity='0.08'%3E%3Cpolygon fill='%23444' points='90 150 0 300 180 300'/%3E%3Cpolygon points='90 150 180 0 0 0'/%3E%3Cpolygon fill='%23AAA' points='270 150 360 0 180 0'/%3E%3Cpolygon fill='%23DDD' points='450 150 360 300 540 300'/%3E%3Cpolygon fill='%23999' points='450 150 540 0 360 0'/%3E%3Cpolygon points='630 150 540 300 720 300'/%3E%3Cpolygon fill='%23DDD' points='630 150 720 0 540 0'/%3E%3Cpolygon fill='%23444' points='810 150 720 300 900 300'/%3E%3Cpolygon fill='%23FFF' points='810 150 900 0 720 0'/%3E%3Cpolygon fill='%23DDD' points='990 150 900 300 1080 300'/%3E%3Cpolygon fill='%23444' points='990 150 1080 0 900 0'/%3E%3Cpolygon fill='%23DDD' points='90 450 0 600 180 600'/%3E%3Cpolygon points='90 450 180 300 0 300'/%3E%3Cpolygon fill='%23666' points='270 450 180 600 360 600'/%3E%3Cpolygon fill='%23AAA' points='270 450 360 300 180 300'/%3E%3Cpolygon fill='%23DDD' points='450 450 360 600 540 600'/%3E%3Cpolygon fill='%23999' points='450 450 540 300 360 300'/%3E%3Cpolygon fill='%23999' points='630 450 540 600 720 600'/%3E%3Cpolygon fill='%23FFF' points='630 450 720 300 540 300'/%3E%3Cpolygon points='810 450 720 600 900 600'/%3E%3Cpolygon fill='%23DDD' points='810 450 900 300 720 300'/%3E%3Cpolygon fill='%23AAA' points='990 450 900 600 1080 600'/%3E%3Cpolygon fill='%23444' points='990 450 1080 300 900 300'/%3E%3Cpolygon fill='%23222' points='90 750 0 900 180 900'/%3E%3Cpolygon points='270 750 180 900 360 900'/%3E%3Cpolygon fill='%23DDD' points='270 750 360 600 180 600'/%3E%3Cpolygon points='450 750 540 600 360 600'/%3E%3Cpolygon points='630 750 540 900 720 900'/%3E%3Cpolygon fill='%23444' points='630 750 720 600 540 600'/%3E%3Cpolygon fill='%23AAA' points='810 750 720 900 900 900'/%3E%3Cpolygon fill='%23666' points='810 750 900 600 720 600'/%3E%3Cpolygon fill='%23999' points='990 750 900 900 1080 900'/%3E%3Cpolygon fill='%23999' points='180 0 90 150 270 150'/%3E%3Cpolygon fill='%23444' points='360 0 270 150 450 150'/%3E%3Cpolygon fill='%23FFF' points='540 0 450 150 630 150'/%3E%3Cpolygon points='900 0 810 150 990 150'/%3E%3Cpolygon fill='%23222' points='0 300 -90 450 90 450'/%3E%3Cpolygon fill='%23FFF' points='0 300 90 150 -90 150'/%3E%3Cpolygon fill='%23FFF' points='180 300 90 450 270 450'/%3E%3Cpolygon fill='%23666' points='180 300 270 150 90 150'/%3E%3Cpolygon fill='%23222' points='360 300 270 450 450 450'/%3E%3Cpolygon fill='%23FFF' points='360 300 450 150 270 150'/%3E%3Cpolygon fill='%23444' points='540 300 450 450 630 450'/%3E%3Cpolygon fill='%23222' points='540 300 630 150 450 150'/%3E%3Cpolygon fill='%23AAA' points='720 300 630 450 810 450'/%3E%3Cpolygon fill='%23666' points='720 300 810 150 630 150'/%3E%3Cpolygon fill='%23FFF' points='900 300 810 450 990 450'/%3E%3Cpolygon fill='%23999' points='900 300 990 150 810 150'/%3E%3Cpolygon points='0 600 -90 750 90 750'/%3E%3Cpolygon fill='%23666' points='0 600 90 450 -90 450'/%3E%3Cpolygon fill='%23AAA' points='180 600 90 750 270 750'/%3E%3Cpolygon fill='%23444' points='180 600 270 450 90 450'/%3E%3Cpolygon fill='%23444' points='360 600 270 750 450 750'/%3E%3Cpolygon fill='%23999' points='360 600 450 450 270 450'/%3E%3Cpolygon fill='%23666' points='540 600 630 450 450 450'/%3E%3Cpolygon fill='%23222' points='720 600 630 750 810 750'/%3E%3Cpolygon fill='%23FFF' points='900 600 810 750 990 750'/%3E%3Cpolygon fill='%23222' points='900 600 990 450 810 450'/%3E%3Cpolygon fill='%23DDD' points='0 900 90 750 -90 750'/%3E%3Cpolygon fill='%23444' points='180 900 270 750 90 750'/%3E%3Cpolygon fill='%23FFF' points='360 900 450 750 270 750'/%3E%3Cpolygon fill='%23AAA' points='540 900 630 750 450 750'/%3E%3Cpolygon fill='%23FFF' points='720 900 810 750 630 750'/%3E%3Cpolygon fill='%23222' points='900 900 990 750 810 750'/%3E%3Cpolygon fill='%23222' points='1080 300 990 450 1170 450'/%3E%3Cpolygon fill='%23FFF' points='1080 300 1170 150 990 150'/%3E%3Cpolygon points='1080 600 990 750 1170 750'/%3E%3Cpolygon fill='%23666' points='1080 600 1170 450 990 450'/%3E%3Cpolygon fill='%23DDD' points='1080 900 1170 750 990 750'/%3E%3C/g%3E%3C/svg%3E");
+  color: white;
+}
+.crypto .crypto-name {
+  position: absolute;
+  left: 10%;
+  top: 5%;
+  width: 740px;
+  padding: 0 20px 0 20px;
+  height: 150px;
+  background-color: black;
+  border-radius: 25px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+.crypto .crypto-name:hover {
+  border: 5px solid #33c481;
+}
+.crypto .crypto-name img {
+  width: 70px;
+  height: 70px;
+}
+.crypto .crypto-name .crypto-name-name {
+  font-size: 2.5em;
+}
+.crypto .crypto-data {
+  position: absolute;
+  width: 450px;
+  height: 700px;
+  background-color: black;
+  border-radius: 25px;
+  left: 60%;
+  top: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: baseline;
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+  font-family: "Roboto";
+  box-sizing: border-box;
+  border: 5px solid black;
+}
+.crypto .crypto-data:hover {
+  border: 5px solid #33c481;
+}
+.crypto .crypto-data .data-file {
+  width: 100%;
+  height: 40px;
+  background-color: black;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.1s ease-in-out;
+  font-size: 1em;
+}
+.crypto .crypto-data .data-file span {
+  margin-left: 10px;
+  margin-right: 10px;
+  text-transform: capitalize;
+}
+.crypto .crypto-data .data-file:hover {
+  background-color: #33c481;
+  color: black;
+  transform: scale(1.1);
+}
+.crypto .crypto-charts {
+  position: absolute;
+  width: 740px;
+  height: 500px;
+  left: 10%;
+  top: 28%;
+  border-radius: 25px;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+.crypto .crypto-charts:hover {
+  border: 5px solid #33c481;
+}
+.crypto .crypto-charts .chart-top {
+  height: 50%;
+  width: 100%;
+  border-radius: 25px 25px 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.crypto .crypto-charts .chart-bottom {
+  height: 50%;
+  width: 100%;
+  border-radius: 0 0 25px 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .article {
@@ -445,7 +586,7 @@
   position: relative;
   width: 100%;
   height: 50%;
-  background-color: #0F0F0F;
+  background-color: #0f0f0f;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='563' height='469.2' viewBox='0 0 1080 900'%3E%3Cg fill-opacity='0.15'%3E%3Cpolygon fill='%23444' points='90 150 0 300 180 300'/%3E%3Cpolygon points='90 150 180 0 0 0'/%3E%3Cpolygon fill='%23AAA' points='270 150 360 0 180 0'/%3E%3Cpolygon fill='%23DDD' points='450 150 360 300 540 300'/%3E%3Cpolygon fill='%23999' points='450 150 540 0 360 0'/%3E%3Cpolygon points='630 150 540 300 720 300'/%3E%3Cpolygon fill='%23DDD' points='630 150 720 0 540 0'/%3E%3Cpolygon fill='%23444' points='810 150 720 300 900 300'/%3E%3Cpolygon fill='%23FFF' points='810 150 900 0 720 0'/%3E%3Cpolygon fill='%23DDD' points='990 150 900 300 1080 300'/%3E%3Cpolygon fill='%23444' points='990 150 1080 0 900 0'/%3E%3Cpolygon fill='%23DDD' points='90 450 0 600 180 600'/%3E%3Cpolygon points='90 450 180 300 0 300'/%3E%3Cpolygon fill='%23666' points='270 450 180 600 360 600'/%3E%3Cpolygon fill='%23AAA' points='270 450 360 300 180 300'/%3E%3Cpolygon fill='%23DDD' points='450 450 360 600 540 600'/%3E%3Cpolygon fill='%23999' points='450 450 540 300 360 300'/%3E%3Cpolygon fill='%23999' points='630 450 540 600 720 600'/%3E%3Cpolygon fill='%23FFF' points='630 450 720 300 540 300'/%3E%3Cpolygon points='810 450 720 600 900 600'/%3E%3Cpolygon fill='%23DDD' points='810 450 900 300 720 300'/%3E%3Cpolygon fill='%23AAA' points='990 450 900 600 1080 600'/%3E%3Cpolygon fill='%23444' points='990 450 1080 300 900 300'/%3E%3Cpolygon fill='%23222' points='90 750 0 900 180 900'/%3E%3Cpolygon points='270 750 180 900 360 900'/%3E%3Cpolygon fill='%23DDD' points='270 750 360 600 180 600'/%3E%3Cpolygon points='450 750 540 600 360 600'/%3E%3Cpolygon points='630 750 540 900 720 900'/%3E%3Cpolygon fill='%23444' points='630 750 720 600 540 600'/%3E%3Cpolygon fill='%23AAA' points='810 750 720 900 900 900'/%3E%3Cpolygon fill='%23666' points='810 750 900 600 720 600'/%3E%3Cpolygon fill='%23999' points='990 750 900 900 1080 900'/%3E%3Cpolygon fill='%23999' points='180 0 90 150 270 150'/%3E%3Cpolygon fill='%23444' points='360 0 270 150 450 150'/%3E%3Cpolygon fill='%23FFF' points='540 0 450 150 630 150'/%3E%3Cpolygon points='900 0 810 150 990 150'/%3E%3Cpolygon fill='%23222' points='0 300 -90 450 90 450'/%3E%3Cpolygon fill='%23FFF' points='0 300 90 150 -90 150'/%3E%3Cpolygon fill='%23FFF' points='180 300 90 450 270 450'/%3E%3Cpolygon fill='%23666' points='180 300 270 150 90 150'/%3E%3Cpolygon fill='%23222' points='360 300 270 450 450 450'/%3E%3Cpolygon fill='%23FFF' points='360 300 450 150 270 150'/%3E%3Cpolygon fill='%23444' points='540 300 450 450 630 450'/%3E%3Cpolygon fill='%23222' points='540 300 630 150 450 150'/%3E%3Cpolygon fill='%23AAA' points='720 300 630 450 810 450'/%3E%3Cpolygon fill='%23666' points='720 300 810 150 630 150'/%3E%3Cpolygon fill='%23FFF' points='900 300 810 450 990 450'/%3E%3Cpolygon fill='%23999' points='900 300 990 150 810 150'/%3E%3Cpolygon points='0 600 -90 750 90 750'/%3E%3Cpolygon fill='%23666' points='0 600 90 450 -90 450'/%3E%3Cpolygon fill='%23AAA' points='180 600 90 750 270 750'/%3E%3Cpolygon fill='%23444' points='180 600 270 450 90 450'/%3E%3Cpolygon fill='%23444' points='360 600 270 750 450 750'/%3E%3Cpolygon fill='%23999' points='360 600 450 450 270 450'/%3E%3Cpolygon fill='%23666' points='540 600 630 450 450 450'/%3E%3Cpolygon fill='%23222' points='720 600 630 750 810 750'/%3E%3Cpolygon fill='%23FFF' points='900 600 810 750 990 750'/%3E%3Cpolygon fill='%23222' points='900 600 990 450 810 450'/%3E%3Cpolygon fill='%23DDD' points='0 900 90 750 -90 750'/%3E%3Cpolygon fill='%23444' points='180 900 270 750 90 750'/%3E%3Cpolygon fill='%23FFF' points='360 900 450 750 270 750'/%3E%3Cpolygon fill='%23AAA' points='540 900 630 750 450 750'/%3E%3Cpolygon fill='%23FFF' points='720 900 810 750 630 750'/%3E%3Cpolygon fill='%23222' points='900 900 990 750 810 750'/%3E%3Cpolygon fill='%23222' points='1080 300 990 450 1170 450'/%3E%3Cpolygon fill='%23FFF' points='1080 300 1170 150 990 150'/%3E%3Cpolygon points='1080 600 990 750 1170 750'/%3E%3Cpolygon fill='%23666' points='1080 600 1170 450 990 450'/%3E%3Cpolygon fill='%23DDD' points='1080 900 1170 750 990 750'/%3E%3C/g%3E%3C/svg%3E");
 }
 .article .article-content {
@@ -506,7 +647,7 @@
 }
 
 .fullArticle {
-  background-color: #0F0F0F;
+  background-color: #0f0f0f;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='563' height='469.2' viewBox='0 0 1080 900'%3E%3Cg fill-opacity='0.15'%3E%3Cpolygon fill='%23444' points='90 150 0 300 180 300'/%3E%3Cpolygon points='90 150 180 0 0 0'/%3E%3Cpolygon fill='%23AAA' points='270 150 360 0 180 0'/%3E%3Cpolygon fill='%23DDD' points='450 150 360 300 540 300'/%3E%3Cpolygon fill='%23999' points='450 150 540 0 360 0'/%3E%3Cpolygon points='630 150 540 300 720 300'/%3E%3Cpolygon fill='%23DDD' points='630 150 720 0 540 0'/%3E%3Cpolygon fill='%23444' points='810 150 720 300 900 300'/%3E%3Cpolygon fill='%23FFF' points='810 150 900 0 720 0'/%3E%3Cpolygon fill='%23DDD' points='990 150 900 300 1080 300'/%3E%3Cpolygon fill='%23444' points='990 150 1080 0 900 0'/%3E%3Cpolygon fill='%23DDD' points='90 450 0 600 180 600'/%3E%3Cpolygon points='90 450 180 300 0 300'/%3E%3Cpolygon fill='%23666' points='270 450 180 600 360 600'/%3E%3Cpolygon fill='%23AAA' points='270 450 360 300 180 300'/%3E%3Cpolygon fill='%23DDD' points='450 450 360 600 540 600'/%3E%3Cpolygon fill='%23999' points='450 450 540 300 360 300'/%3E%3Cpolygon fill='%23999' points='630 450 540 600 720 600'/%3E%3Cpolygon fill='%23FFF' points='630 450 720 300 540 300'/%3E%3Cpolygon points='810 450 720 600 900 600'/%3E%3Cpolygon fill='%23DDD' points='810 450 900 300 720 300'/%3E%3Cpolygon fill='%23AAA' points='990 450 900 600 1080 600'/%3E%3Cpolygon fill='%23444' points='990 450 1080 300 900 300'/%3E%3Cpolygon fill='%23222' points='90 750 0 900 180 900'/%3E%3Cpolygon points='270 750 180 900 360 900'/%3E%3Cpolygon fill='%23DDD' points='270 750 360 600 180 600'/%3E%3Cpolygon points='450 750 540 600 360 600'/%3E%3Cpolygon points='630 750 540 900 720 900'/%3E%3Cpolygon fill='%23444' points='630 750 720 600 540 600'/%3E%3Cpolygon fill='%23AAA' points='810 750 720 900 900 900'/%3E%3Cpolygon fill='%23666' points='810 750 900 600 720 600'/%3E%3Cpolygon fill='%23999' points='990 750 900 900 1080 900'/%3E%3Cpolygon fill='%23999' points='180 0 90 150 270 150'/%3E%3Cpolygon fill='%23444' points='360 0 270 150 450 150'/%3E%3Cpolygon fill='%23FFF' points='540 0 450 150 630 150'/%3E%3Cpolygon points='900 0 810 150 990 150'/%3E%3Cpolygon fill='%23222' points='0 300 -90 450 90 450'/%3E%3Cpolygon fill='%23FFF' points='0 300 90 150 -90 150'/%3E%3Cpolygon fill='%23FFF' points='180 300 90 450 270 450'/%3E%3Cpolygon fill='%23666' points='180 300 270 150 90 150'/%3E%3Cpolygon fill='%23222' points='360 300 270 450 450 450'/%3E%3Cpolygon fill='%23FFF' points='360 300 450 150 270 150'/%3E%3Cpolygon fill='%23444' points='540 300 450 450 630 450'/%3E%3Cpolygon fill='%23222' points='540 300 630 150 450 150'/%3E%3Cpolygon fill='%23AAA' points='720 300 630 450 810 450'/%3E%3Cpolygon fill='%23666' points='720 300 810 150 630 150'/%3E%3Cpolygon fill='%23FFF' points='900 300 810 450 990 450'/%3E%3Cpolygon fill='%23999' points='900 300 990 150 810 150'/%3E%3Cpolygon points='0 600 -90 750 90 750'/%3E%3Cpolygon fill='%23666' points='0 600 90 450 -90 450'/%3E%3Cpolygon fill='%23AAA' points='180 600 90 750 270 750'/%3E%3Cpolygon fill='%23444' points='180 600 270 450 90 450'/%3E%3Cpolygon fill='%23444' points='360 600 270 750 450 750'/%3E%3Cpolygon fill='%23999' points='360 600 450 450 270 450'/%3E%3Cpolygon fill='%23666' points='540 600 630 450 450 450'/%3E%3Cpolygon fill='%23222' points='720 600 630 750 810 750'/%3E%3Cpolygon fill='%23FFF' points='900 600 810 750 990 750'/%3E%3Cpolygon fill='%23222' points='900 600 990 450 810 450'/%3E%3Cpolygon fill='%23DDD' points='0 900 90 750 -90 750'/%3E%3Cpolygon fill='%23444' points='180 900 270 750 90 750'/%3E%3Cpolygon fill='%23FFF' points='360 900 450 750 270 750'/%3E%3Cpolygon fill='%23AAA' points='540 900 630 750 450 750'/%3E%3Cpolygon fill='%23FFF' points='720 900 810 750 630 750'/%3E%3Cpolygon fill='%23222' points='900 900 990 750 810 750'/%3E%3Cpolygon fill='%23222' points='1080 300 990 450 1170 450'/%3E%3Cpolygon fill='%23FFF' points='1080 300 1170 150 990 150'/%3E%3Cpolygon points='1080 600 990 750 1170 750'/%3E%3Cpolygon fill='%23666' points='1080 600 1170 450 990 450'/%3E%3Cpolygon fill='%23DDD' points='1080 900 1170 750 990 750'/%3E%3C/g%3E%3C/svg%3E");
   display: flex;
   justify-content: center;
@@ -567,176 +708,11 @@
   font-size: 0.7em;
 }
 
-.crypto {
-  color: white;
-  background-color: #070906;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='467' height='389.2' viewBox='0 0 1080 900'%3E%3Cg fill-opacity='0.11'%3E%3Cpolygon fill='%23444' points='90 150 0 300 180 300'/%3E%3Cpolygon points='90 150 180 0 0 0'/%3E%3Cpolygon fill='%23AAA' points='270 150 360 0 180 0'/%3E%3Cpolygon fill='%23DDD' points='450 150 360 300 540 300'/%3E%3Cpolygon fill='%23999' points='450 150 540 0 360 0'/%3E%3Cpolygon points='630 150 540 300 720 300'/%3E%3Cpolygon fill='%23DDD' points='630 150 720 0 540 0'/%3E%3Cpolygon fill='%23444' points='810 150 720 300 900 300'/%3E%3Cpolygon fill='%23FFF' points='810 150 900 0 720 0'/%3E%3Cpolygon fill='%23DDD' points='990 150 900 300 1080 300'/%3E%3Cpolygon fill='%23444' points='990 150 1080 0 900 0'/%3E%3Cpolygon fill='%23DDD' points='90 450 0 600 180 600'/%3E%3Cpolygon points='90 450 180 300 0 300'/%3E%3Cpolygon fill='%23666' points='270 450 180 600 360 600'/%3E%3Cpolygon fill='%23AAA' points='270 450 360 300 180 300'/%3E%3Cpolygon fill='%23DDD' points='450 450 360 600 540 600'/%3E%3Cpolygon fill='%23999' points='450 450 540 300 360 300'/%3E%3Cpolygon fill='%23999' points='630 450 540 600 720 600'/%3E%3Cpolygon fill='%23FFF' points='630 450 720 300 540 300'/%3E%3Cpolygon points='810 450 720 600 900 600'/%3E%3Cpolygon fill='%23DDD' points='810 450 900 300 720 300'/%3E%3Cpolygon fill='%23AAA' points='990 450 900 600 1080 600'/%3E%3Cpolygon fill='%23444' points='990 450 1080 300 900 300'/%3E%3Cpolygon fill='%23222' points='90 750 0 900 180 900'/%3E%3Cpolygon points='270 750 180 900 360 900'/%3E%3Cpolygon fill='%23DDD' points='270 750 360 600 180 600'/%3E%3Cpolygon points='450 750 540 600 360 600'/%3E%3Cpolygon points='630 750 540 900 720 900'/%3E%3Cpolygon fill='%23444' points='630 750 720 600 540 600'/%3E%3Cpolygon fill='%23AAA' points='810 750 720 900 900 900'/%3E%3Cpolygon fill='%23666' points='810 750 900 600 720 600'/%3E%3Cpolygon fill='%23999' points='990 750 900 900 1080 900'/%3E%3Cpolygon fill='%23999' points='180 0 90 150 270 150'/%3E%3Cpolygon fill='%23444' points='360 0 270 150 450 150'/%3E%3Cpolygon fill='%23FFF' points='540 0 450 150 630 150'/%3E%3Cpolygon points='900 0 810 150 990 150'/%3E%3Cpolygon fill='%23222' points='0 300 -90 450 90 450'/%3E%3Cpolygon fill='%23FFF' points='0 300 90 150 -90 150'/%3E%3Cpolygon fill='%23FFF' points='180 300 90 450 270 450'/%3E%3Cpolygon fill='%23666' points='180 300 270 150 90 150'/%3E%3Cpolygon fill='%23222' points='360 300 270 450 450 450'/%3E%3Cpolygon fill='%23FFF' points='360 300 450 150 270 150'/%3E%3Cpolygon fill='%23444' points='540 300 450 450 630 450'/%3E%3Cpolygon fill='%23222' points='540 300 630 150 450 150'/%3E%3Cpolygon fill='%23AAA' points='720 300 630 450 810 450'/%3E%3Cpolygon fill='%23666' points='720 300 810 150 630 150'/%3E%3Cpolygon fill='%23FFF' points='900 300 810 450 990 450'/%3E%3Cpolygon fill='%23999' points='900 300 990 150 810 150'/%3E%3Cpolygon points='0 600 -90 750 90 750'/%3E%3Cpolygon fill='%23666' points='0 600 90 450 -90 450'/%3E%3Cpolygon fill='%23AAA' points='180 600 90 750 270 750'/%3E%3Cpolygon fill='%23444' points='180 600 270 450 90 450'/%3E%3Cpolygon fill='%23444' points='360 600 270 750 450 750'/%3E%3Cpolygon fill='%23999' points='360 600 450 450 270 450'/%3E%3Cpolygon fill='%23666' points='540 600 630 450 450 450'/%3E%3Cpolygon fill='%23222' points='720 600 630 750 810 750'/%3E%3Cpolygon fill='%23FFF' points='900 600 810 750 990 750'/%3E%3Cpolygon fill='%23222' points='900 600 990 450 810 450'/%3E%3Cpolygon fill='%23DDD' points='0 900 90 750 -90 750'/%3E%3Cpolygon fill='%23444' points='180 900 270 750 90 750'/%3E%3Cpolygon fill='%23FFF' points='360 900 450 750 270 750'/%3E%3Cpolygon fill='%23AAA' points='540 900 630 750 450 750'/%3E%3Cpolygon fill='%23FFF' points='720 900 810 750 630 750'/%3E%3Cpolygon fill='%23222' points='900 900 990 750 810 750'/%3E%3Cpolygon fill='%23222' points='1080 300 990 450 1170 450'/%3E%3Cpolygon fill='%23FFF' points='1080 300 1170 150 990 150'/%3E%3Cpolygon points='1080 600 990 750 1170 750'/%3E%3Cpolygon fill='%23666' points='1080 600 1170 450 990 450'/%3E%3Cpolygon fill='%23DDD' points='1080 900 1170 750 990 750'/%3E%3C/g%3E%3C/svg%3E");
-}
-.crypto .crypto-name {
-  position: absolute;
-  left: 10%;
-  top: 5%;
-  width: 700px;
-  padding: 0 20px 0 20px;
-  height: 150px;
-  background-color: black;
-  border-radius: 25px;
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  justify-content: center;
-  border: 5px solid white;
-}
-.crypto .crypto-name:hover {
-  border: 5px solid #33c481;
-}
-.crypto .crypto-name img {
-  width: 90px;
-  height: 90px;
-}
-.crypto .crypto-name .crypto-name-name {
-  font-size: 4em;
-}
-.crypto .crypto-data {
-  position: absolute;
-  width: 450px;
-  height: 700px;
-  background-color: black;
-  border-radius: 25px;
-  left: 60%;
-  top: 5%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: baseline;
-  margin: 0;
-  padding: 0;
-  font-size: 1em;
-  font-family: "Roboto";
-  transition: 0.1s ease-in-out;
-  border: 5px solid white;
-}
-.crypto .crypto-data:hover {
-  border: 5px solid #33c481;
-}
-.crypto .crypto-data .data-file {
-  width: 100%;
-  height: 40px;
-  background-color: black;
+.news {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  transition: 0.1s ease-in-out;
-  font-size: 1em;
-}
-.crypto .crypto-data .data-file span {
-  margin-left: 10px;
-  margin-right: 10px;
-  text-transform: capitalize;
-}
-.crypto .crypto-data .data-file:hover {
-  background-color: #33c481;
-  color: black;
-  transform: scale(1.1);
-}
-.crypto .crypto-charts {
-  position: absolute;
-  width: 740px;
-  height: 500px;
-  left: 10%;
-  top: 28%;
-  border-radius: 25px;
-  background-color: black;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: 5px solid white;
-}
-.crypto .crypto-charts:hover {
-  border: 5px solid #33c481;
-}
-.crypto .crypto-charts .chart-top {
-  height: 50%;
-  width: 100%;
-  border-radius: 25px 25px 0 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.crypto .crypto-charts .chart-bottom {
-  height: 50%;
-  width: 100%;
-  border-radius: 0 0 25px 25px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.trending {
-  display: flex;
   flex-wrap: wrap;
-}
-.trending .gold {
-  background-color: gold;
-}
-.trending .green {
-  background-color: #33c481;
-}
-.trending .red {
-  background-color: #c43833;
-}
-.trending .trendingFile {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  box-sizing: border-box;
-  width: 25%;
-  height: 90px;
-  border: 1px solid white;
-}
-.trending .trendingFile:hover {
-  background-color: white;
-  cursor: pointer;
-}
-.trending .trendingFile .name {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  font-weight: bold;
-  color: black;
-}
-.trending .trendingFile .cryptoImage {
-  width: 60px;
-  height: 60px;
-}
-.trending .trendingFile .trendTrending {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-.trending .trendingFile .trendTrending img {
-  width: 36px;
-  height: 36px;
-}
-.trending .trendingFile .trendTrending .trendUp {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-.trending .trendingFile .trendTrending .trendDown {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-.trending .trendingFile .chart {
-  width: 150px;
-  height: 90px;
+  justify-content: space-evenly;
 }
 
 body {
