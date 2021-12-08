@@ -19,7 +19,6 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using NLog;
-using LoggerService;
 using Persistence;
 
 namespace API
@@ -30,21 +29,20 @@ namespace API
 
         public Startup(IConfiguration config)
         {
-            LogManager.LoadConfiguration(String.Concat(Directory.GetCurrentDirectory(), "/nlog.config"));
             _config = config;
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.ConfigureLoggerService();
+           
             services.AddControllers();
             services.AddApplicationServices(_config);
 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerManager logger, IHostApplicationLifetime appLifetime)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -53,7 +51,6 @@ namespace API
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
             }
 
-            app.ConfigureExceptionHandler(logger);
 
             app.UseHttpsRedirection();
 
@@ -66,13 +63,8 @@ namespace API
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
 
 
-
-            appLifetime.ApplicationStarted.Register(OnStarted);
+            
         }
-        private void OnStarted()
-        {
-            //  Persistence.DataSendToDb.DowloadAssetData();
-            //   Persistence.DataSendToDb.DowloadIcon();
-        }
+        
     }
 }
