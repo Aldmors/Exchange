@@ -6,8 +6,13 @@ services:
       - "8000:80"
     depends_on:
       - db
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Production"
   db:
     image: postgres
     environment:
       POSTGRES_USER: "postgres"
       POSTGRES_PASSWORD: "zaq1@WSX"
+      
+  cache:
+    image: redis

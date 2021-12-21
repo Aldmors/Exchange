@@ -69,10 +69,7 @@ namespace API
 
             
         }
-        public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
-        {
-        }
-        
+
     }
     
 }
