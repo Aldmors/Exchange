@@ -20,6 +20,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using NLog;
 using Persistence;
+using System.Data.Entity;
 
 namespace API
 {
@@ -35,10 +36,13 @@ namespace API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-           
             services.AddControllers();
             services.AddApplicationServices(_config);
 
+            services.AddDbContext<DataContext>(opt =>
+            {
+                opt.UseNpgsql(_config.GetConnectionString("DefaultConnection"));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -65,6 +69,10 @@ namespace API
 
             
         }
+        public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+        {
+        }
         
     }
+    
 }
