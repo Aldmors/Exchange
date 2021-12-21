@@ -40,6 +40,11 @@ namespace API
             services.ConfigureLoggerService();
             services.AddControllers();
             services.AddApplicationServices(_config);
+            
+            services.AddDbContext<DataContext>(opt =>
+            {
+                opt.UseSqlite(_config.GetConnectionString("DefaultConnection"));
+            });
 
         }
 
