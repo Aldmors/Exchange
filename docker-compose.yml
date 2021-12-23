@@ -1,13 +1,25 @@
 ﻿version: "3.9"
+
 services:
-  web:
+  backend:
     build: .
     ports:
-      - "8000:80"
+      - "5001"
     depends_on:
       - db
+      - cache
     environment:
       ASPNETCORE_ENVIRONMENT: "Production"
+      
+  frontend:
+      build: ./client-app
+      ports:
+        - "80:80"
+      depends_on:
+        - backend
+        - cache
+      environment:
+        NODE_OPTIONS: "--openssl-legacy-provider"
   db:
     image: postgres
     environment:
